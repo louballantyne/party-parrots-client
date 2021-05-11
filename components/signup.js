@@ -12,6 +12,10 @@ const SignUp = () => {
       keyboardType = "default"
       onChangeText = {onChangeText}
       />
+      <Button
+      title = "Sign Up"
+      onPress = {() => console.log('Sign Up Button Pressed')}
+      />
     </View>
   );
 };
