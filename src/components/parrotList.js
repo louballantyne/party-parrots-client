@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
+import { View, FlatList } from 'react-native';
 import Parrot from './parrot';
+import styles from '../../styles';
 
 const ParrotList = () => {
 	const [parrots, setParrots] = useState([]);
@@ -19,9 +20,11 @@ const ParrotList = () => {
 
 	return (
 		<View>
-			{parrots.map((parrot) => (
-				<Parrot key={parrot._id} name={parrot.name} />
-			))}
+			<FlatList
+				data={parrots}
+				renderItem={({ item }) => <Parrot key={item._id} name={item.name} />}
+				keyExtractor={(item) => item._id}
+			/>
 		</View>
 	);
 };

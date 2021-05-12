@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, Button, View } from 'react-native';
+import { TextInput, Button, View } from 'react-native';
+import styles from '../../styles';
 
 const SignUp = ({ navigation }) => {
 	const [firstName, setFirstName] = useState();
@@ -34,9 +35,9 @@ const SignUp = ({ navigation }) => {
 	};
 
 	return (
-		<View style={styles.form}>
+		<View style={styles.inputForm}>
 			<TextInput
-				style={styles.input}
+				style={styles.inputField}
 				placeholder="First Name"
 				keyboardType="default"
 				value={firstName}
@@ -44,7 +45,7 @@ const SignUp = ({ navigation }) => {
 				autoCapitalize="none"
 			/>
 			<TextInput
-				style={styles.input}
+				style={styles.inputField}
 				placeholder="Last Name"
 				keyboardType="default"
 				value={lastName}
@@ -52,7 +53,7 @@ const SignUp = ({ navigation }) => {
 				autoCapitalize="none"
 			/>
 			<TextInput
-				style={styles.input}
+				style={styles.inputField}
 				placeholder="Username"
 				keyboardType="default"
 				value={username}
@@ -60,7 +61,7 @@ const SignUp = ({ navigation }) => {
 				autoCapitalize="none"
 			/>
 			<TextInput
-				style={styles.input}
+				style={styles.inputField}
 				placeholder="Email"
 				keyboardType="default"
 				value={email}
@@ -68,7 +69,7 @@ const SignUp = ({ navigation }) => {
 				autoCapitalize="none"
 			/>
 			<TextInput
-				style={styles.input}
+				style={styles.inputField}
 				placeholder="Password"
 				keyboardType="default"
 				value={password}
@@ -80,17 +81,5 @@ const SignUp = ({ navigation }) => {
 		</View>
 	);
 };
-
-const styles = StyleSheet.create({
-	form: {
-		margin: 20,
-		backgroundColor: 'pink',
-	},
-	input: {
-		height: 40,
-		margin: 12,
-		borderWidth: 1,
-	},
-});
 
 export { SignUp };
