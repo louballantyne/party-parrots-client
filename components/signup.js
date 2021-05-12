@@ -1,12 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, TextInput, Button, SafeAreaView, View } from 'react-native';
 
 const SignUp = () => {
-	const [firstName, setFirstName] = React.useState();
-	const [lastName, setLastName] = React.useState();
-	const [username, setUsername] = React.useState();
-	const [email, setEmail] = React.useState();
-	const [password, setPassword] = React.useState();
+	const [firstName, setFirstName] = useState();
+	const [lastName, setLastName] = useState();
+	const [username, setUsername] = useState();
+	const [email, setEmail] = useState();
+	const [password, setPassword] = useState();
+
+	const onSignUpButtonClicked = () => {
+		console.log('input fields: ', firstName, lastName, username, email, password);
+		fetch(`http://localhost:3000/api/users`, {
+			method: 'POST',
+			mode: 'cors',
+			credentials: 'include',
+			headers: {
+				'content-type': 'application/json',
+			},
+			referrerPolicy: 'no-referrer',
+			body: JSON.stringify({
+				forename: firstName,
+				lastname: lastName,
+				username: username,
+				email: email,
+				password: password,
+				type: 'admin',
+			}),
+		})
+			.then((response) => response.json())
+			.then((data) => console.log(data))
+			.catch((error) => console.log('error: ', error));
+	};
 
 	return (
 		<View style={styles.form}>
@@ -16,6 +40,7 @@ const SignUp = () => {
 				keyboardType="default"
 				value={firstName}
 				onChangeText={setFirstName}
+				autoCapitalize="none"
 			/>
 			<TextInput
 				style={styles.input}
@@ -23,6 +48,7 @@ const SignUp = () => {
 				keyboardType="default"
 				value={lastName}
 				onChangeText={setLastName}
+				autoCapitalize="none"
 			/>
 			<TextInput
 				style={styles.input}
@@ -30,6 +56,7 @@ const SignUp = () => {
 				keyboardType="default"
 				value={username}
 				onChangeText={setUsername}
+				autoCapitalize="none"
 			/>
 			<TextInput
 				style={styles.input}
@@ -37,6 +64,7 @@ const SignUp = () => {
 				keyboardType="default"
 				value={email}
 				onChangeText={setEmail}
+				autoCapitalize="none"
 			/>
 			<TextInput
 				style={styles.input}
@@ -47,7 +75,7 @@ const SignUp = () => {
 				autoCapitalize="none"
 				secureTextEntry={true}
 			/>
-			<Button title="Sign Up" onPress={() => console.log('Sign Up Button Pressed')} />
+			<Button title="Sign Up" onPress={() => onSignUpButtonClicked()} />
 		</View>
 	);
 };
