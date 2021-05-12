@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, Button, View } from 'react-native';
 
-const SignUp = ( { navigation }) => {
-
+const SignUp = ({ navigation }) => {
 	const [firstName, setFirstName] = useState();
 	const [lastName, setLastName] = useState();
 	const [username, setUsername] = useState();
 	const [email, setEmail] = useState();
 	const [password, setPassword] = useState();
 
-	const onSignUpButtonClicked = () => {
+	const onSignUpButtonClicked = async () => {
 		console.log('input fields: ', firstName, lastName, username, email, password);
-		fetch(`http://localhost:3000/api/users`, {
+		await fetch(`http://localhost:3000/api/users`, {
 			method: 'POST',
 			mode: 'cors',
 			credentials: 'include',
@@ -31,7 +30,7 @@ const SignUp = ( { navigation }) => {
 			.then((response) => response.json())
 			.then((data) => console.log(data))
 			.catch((error) => console.log('error: ', error));
-			navigation.navigate('Parrot List')
+		navigation.navigate('Parrot List');
 	};
 
 	return (
