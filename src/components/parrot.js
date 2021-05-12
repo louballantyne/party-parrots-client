@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Image, Text } from 'react-native';
 import styles from '../../styles';
 
-const Parrot = ({ id, name }) => {
+const Parrot = ({ id, name, imgUrl }) => {
 	return (
-		<View>
+		<View style={styles.itemContainer}>
+			<Image style={styles.itemImage} source={{ uri: imgUrl }}></Image>
 			<Text>{name}</Text>
 		</View>
 	);

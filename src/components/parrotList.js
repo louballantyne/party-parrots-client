@@ -6,9 +6,9 @@ import styles from '../../styles';
 const ParrotList = () => {
 	const [parrots, setParrots] = useState([]);
 
-	useEffect(() => {
+	useEffect(async () => {
 		console.log('fetch data in use effect');
-		const res = fetch(`http://localhost:3000/api/parrots`, {
+		const res = await fetch(`http://localhost:3000/api/parrots`, {
 			method: 'GET',
 		})
 			.then((response) => response.json())
@@ -22,7 +22,13 @@ const ParrotList = () => {
 		<View>
 			<FlatList
 				data={parrots}
-				renderItem={({ item }) => <Parrot key={item._id} name={item.name} />}
+				renderItem={({ item }) => (
+					<Parrot
+						key={item._id}
+						name={item.name}
+						imgUrl={item.imageUrl ? item.imageUrl : 'https://picsum.photos/200'}
+					/>
+				)}
 				keyExtractor={(item) => item._id}
 			/>
 		</View>
