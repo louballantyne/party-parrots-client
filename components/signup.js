@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, Button, SafeAreaView, View } from 'react-native';
+import { StyleSheet, TextInput, Button, View } from 'react-native';
 
-const SignUp = () => {
+const SignUp = ( { navigation }) => {
+
 	const [firstName, setFirstName] = useState();
 	const [lastName, setLastName] = useState();
 	const [username, setUsername] = useState();
@@ -30,6 +31,7 @@ const SignUp = () => {
 			.then((response) => response.json())
 			.then((data) => console.log(data))
 			.catch((error) => console.log('error: ', error));
+			navigation.navigate('Parrot List')
 	};
 
 	return (
@@ -92,4 +94,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default SignUp;
+export { SignUp };
