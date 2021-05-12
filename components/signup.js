@@ -12,12 +12,12 @@ const SignUp = ({ navigation }) => {
 		console.log('input fields: ', firstName, lastName, username, email, password);
 		await fetch(`http://localhost:3000/api/users`, {
 			method: 'POST',
-			mode: 'cors',
-			credentials: 'include',
+			// mode: 'cors',
+			// credentials: 'include',
 			headers: {
 				'content-type': 'application/json',
 			},
-			referrerPolicy: 'no-referrer',
+			// referrerPolicy: 'no-referrer',
 			body: JSON.stringify({
 				forename: firstName,
 				lastname: lastName,

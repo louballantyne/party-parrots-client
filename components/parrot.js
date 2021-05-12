@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { View, Text } from 'react-native';
 
 const Parrot = ({ id, name }) => {
 	return (
@@ -8,4 +9,4 @@ const Parrot = ({ id, name }) => {
 	);
 };
 
-module.exports = Parrot;
+export default Parrot;
