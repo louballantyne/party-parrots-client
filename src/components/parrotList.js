@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { View, FlatList } from 'react-native';
-import Parrot from './parrot';
+import Parrot from './parrotItem';
 import styles from '../../styles';
 
-const ParrotList = () => {
+const ParrotList = ({ navigation }) => {
 	const [parrots, setParrots] = useState([]);
 
 	useEffect(async () => {
@@ -26,6 +26,7 @@ const ParrotList = () => {
 						key={item._id}
 						name={item.name}
 						imgUrl={item.imageUrl ? item.imageUrl : 'https://picsum.photos/200'}
+						navigation={navigation}
 					/>
 				)}
 				keyExtractor={(item) => item._id}
