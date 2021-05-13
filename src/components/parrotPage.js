@@ -1,37 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
 import styles from '../../styles';
+import { ApplyParrot } from './applyParrot';
 
-const ParrotPage = ({ navigation, id }) => {
+const ParrotPage = ({ route, navigation }) => {
 	const [parrot, setParrot] = useState([]);
+	const [message, setMessage] = useState([]);
+	const { id } = route.params;
 
-	useEffect(async () => {
-		console.log('fetch data in use effect');
-		const res = await fetch(`http://localhost:3000/api/parrots/${id}`, {
-			method: 'GET',
-		})
-			.then((response) => response.json())
-			.then((data) => {
-				setParrot(data);
-			});
+	useEffect(() => {
+		// async function fetchParrot() {
+		const fetchParrot = async () => {
+			console.log('fetch data in use effect, parrot id: ', id);
+			const res = await fetch(`http://localhost:3000/api/parrots/${id}`, {
+				method: 'GET',
+			})
+				.then((response) => response.json())
+				.then((data) => {
+					setParrot(data);
+				});
+		};
+		fetchParrot();
 	}, []);
-
-	const onApplyButtonClicked = async () => {
-		console.log('input fields: ', message);
-		await fetch(`http://localhost:3000/api/parrots/${id}/applications`, {
-			method: 'POST',
-			headers: {
-				'content-type': 'application/json',
-			},
-			body: JSON.stringify({
-				userId: userId,
-				message: message,
-			}),
-		})
-			.then((response) => response.json())
-			.then((data) => console.log(data))
-			.catch((error) => console.log('error: ', error));
-	};
 
 	return (
 		<View>
@@ -43,17 +33,7 @@ const ParrotPage = ({ navigation, id }) => {
 			<Text>{parrot.gender}</Text>
 			<Text>{parrot.bio}</Text>
 			<Text>{parrot.specialNeeds}</Text>
-			<View style={styles.inputForm}>
-				<TextInput
-					style={styles.inputField}
-					placeholder="Message"
-					keyboardType="default"
-					value={message}
-					onChangeText={setMessage}
-					autoCapitalize="none"
-				/>
-				<Button title="Apply" onPress={() => onApplyButtonClicked()} />
-			</View>
+			<ApplyParrot id={id} />
 		</View>
 	);
 };

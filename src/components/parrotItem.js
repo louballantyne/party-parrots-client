@@ -4,7 +4,7 @@ import styles from '../../styles';
 
 const Parrot = ({ id, name, imgUrl, navigation }) => {
 	const onViewClicked = () => {
-		navigation.navigate('Parrot Page');
+		navigation.navigate('Parrot Page', { id: id });
 	};
 
 	return (
