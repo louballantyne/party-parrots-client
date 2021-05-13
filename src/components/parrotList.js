@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, FlatList } from 'react-native';
 import Parrot from './parrotItem';
+import { View, FlatList, Button } from 'react-native';
+import Parrot from './parrot';
 import styles from '../../styles';
 
 const ParrotList = ({ navigation }) => {
@@ -22,6 +24,7 @@ const ParrotList = ({ navigation }) => {
 
 	return (
 		<View>
+			<Button title="Add Parrot" onPress={() => navigation.navigate('Add Parrot')}/>
 			<FlatList
 				data={parrots}
 				renderItem={({ item }) => (
