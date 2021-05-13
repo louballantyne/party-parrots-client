@@ -15,12 +15,9 @@ const SignIn = (props) => {
   const onSignInButtonClicked = () => {
     fetch('http://localhost:3000/api/sessions', {
       method: 'POST',
-      //mode: 'cors',
-      //credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
-      //referrerPolicy: 'no-referrer',
       body: JSON.stringify( {"username": userName, "password": passWord} )
       })
     .then((response) => response.json())
