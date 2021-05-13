@@ -13,7 +13,6 @@ const ParrotList = () => {
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				// console.log('inside response: ', data);
 				setParrots(data);
 			});
 	}, []);
