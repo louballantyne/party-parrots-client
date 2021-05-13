@@ -5,6 +5,9 @@ import styles from '../../styles';
 
 const ParrotList = ({ navigation }) => {
 	const [parrots, setParrots] = useState([]);
+	// hard coded user type and id here
+	const userType = 'admin';
+	const userId = '609ba87d9c781b1a3b09eb2f';
 
 	useEffect(() => {
 		const fetchParrots = async () => {
@@ -25,15 +28,17 @@ const ParrotList = ({ navigation }) => {
 			<Button title="Add Parrot" onPress={() => navigation.navigate('Add Parrot')} />
 			<FlatList
 				data={parrots}
-				renderItem={({ item }) => (
-					<Parrot
-						key={item._id}
-						id={item._id}
-						name={item.name}
-						imgUrl={item.imageUrl ? item.imageUrl : 'https://picsum.photos/200'}
-						navigation={navigation}
-					/>
-				)}
+				renderItem={({ item }) =>
+					(userType !== 'admin' || userId === item.user) && (
+						<Parrot
+							key={item._id}
+							id={item._id}
+							name={item.name}
+							imgUrl={item.imageUrl ? item.imageUrl : 'https://picsum.photos/200'}
+							navigation={navigation}
+						/>
+					)
+				}
 				keyExtractor={(item) => item._id}
 			/>
 		</View>
