@@ -19,6 +19,14 @@ const styles = StyleSheet.create({
 		height: 100,
 		margin: 5,
 	},
+	dropDown: {
+		width: 100,
+		height:100,
+		margin: 5,
+		flex: 1,
+    paddingTop: 40,
+    alignItems: "center",
+	},
 });
 
 export default styles;
