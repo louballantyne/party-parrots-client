@@ -25,12 +25,16 @@ const SignIn = (props) => {
       })
     .then((response) => response.json())
     .then((data) => {
-      if (data.username === userName) {
+       console.log(data.loggedIn)
+      if (data.loggedIn) {
+        console.log(data)
         props.navigation.navigate('Parrot List');
-      } 
+        // a log in session function called here?
+      } else if (data.status === 401) {
+        alert(data.message)
+      }
     })
     .catch((error) => console.error(error));
-
   };
 
   const keyPressed = (event) => {
@@ -64,12 +68,11 @@ const SignIn = (props) => {
       <Button style={styles.button}
         onPress={() => navigation.navigate('Sign Up')}
         title="Create an account!"        
-        />
+      />
       </View>
     </View>  
   );
 };
-
 
 
 export { SignIn }
