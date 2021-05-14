@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import styles from '../../styles';
 import { ApplyParrot } from './applyParrot';
+import { ParrotApplication } from './parrotApplication';
 
 const ParrotPage = ({ route, navigation }) => {
 	const [parrot, setParrot] = useState([]);
-	const [message, setMessage] = useState([]);
+	const [applications, setApplications] = useState([]);
 	const { id } = route.params;
 
 	useEffect(() => {
@@ -17,7 +18,8 @@ const ParrotPage = ({ route, navigation }) => {
 			})
 				.then((response) => response.json())
 				.then((data) => {
-					setParrot(data);
+					setParrot(data.parrot);
+					setApplications(data.applications);
 				});
 		};
 		fetchParrot();
@@ -34,6 +36,20 @@ const ParrotPage = ({ route, navigation }) => {
 			<Text>{parrot.bio}</Text>
 			<Text>{parrot.specialNeeds}</Text>
 			<ApplyParrot id={id} />
+			{applications.map((application) => (
+				<View>
+					<Text>{application._id}</Text>
+					<Text>{application.user}</Text>
+					<Text>{application.message}</Text>
+				</View>
+			))}
+			<FlatList
+				data={applications}
+				renderItem={({ item }) => (
+					<ParrotApplication key={item._id} applicant={item.user} message={item.message} />
+				)}
+				keyExtractor={(item) => item._id}
+			/>
 		</View>
 	);
 };
