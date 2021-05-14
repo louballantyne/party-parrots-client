@@ -8,6 +8,9 @@ const ParrotPage = ({ route, navigation }) => {
 	const [parrot, setParrot] = useState([]);
 	const [applications, setApplications] = useState([]);
 	const { id } = route.params;
+	// hard coded user type and id here
+	const userType = 'admin';
+	const userId = '609ceae22bab994fbc6fc6bd';
 
 	useEffect(() => {
 		// async function fetchParrot() {
@@ -25,6 +28,17 @@ const ParrotPage = ({ route, navigation }) => {
 		fetchParrot();
 	}, []);
 
+	const userInApplicants = () => {
+		let userInApplicants;
+		userInApplicants = false;
+		applications.forEach((application) => {
+			if (application.user === userId) {
+				userInApplicants = true;
+			}
+		});
+		return userInApplicants;
+	};
+
 	return (
 		<View>
 			<Text>{parrot.name}</Text>
@@ -35,14 +49,17 @@ const ParrotPage = ({ route, navigation }) => {
 			<Text>{parrot.gender}</Text>
 			<Text>{parrot.bio}</Text>
 			<Text>{parrot.specialNeeds}</Text>
-			<ApplyParrot id={id} />
-			<FlatList
-				data={applications}
-				renderItem={({ item }) => (
-					<ParrotApplication key={item._id} applicant={item.user} message={item.message} />
-				)}
-				keyExtractor={(item) => item._id}
-			/>
+			{userInApplicants() === false && <ApplyParrot id={id} />}
+			{userInApplicants() === true && <Text>Applied already</Text>}
+			{userType === 'admin' && (
+				<FlatList
+					data={applications}
+					renderItem={({ item }) => (
+						<ParrotApplication key={item._id} applicant={item.user} message={item.message} />
+					)}
+					keyExtractor={(item) => item._id}
+				/>
+			)}
 		</View>
 	);
 };
