@@ -36,13 +36,6 @@ const ParrotPage = ({ route, navigation }) => {
 			<Text>{parrot.bio}</Text>
 			<Text>{parrot.specialNeeds}</Text>
 			<ApplyParrot id={id} />
-			{applications.map((application) => (
-				<View>
-					<Text>{application._id}</Text>
-					<Text>{application.user}</Text>
-					<Text>{application.message}</Text>
-				</View>
-			))}
 			<FlatList
 				data={applications}
 				renderItem={({ item }) => (

@@ -1,14 +1,14 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, Alert } from 'react-native';
 import styles from '../../styles';
 
 const ParrotApplication = ({ applicant, message }) => {
 	const onApproveButtonClicked = () => {
-		console.log('approved');
+		Alert.alert('approved');
 	};
 
 	return (
-		<View style={styles.itemContainer}>
+		<View>
 			<Text>{applicant}</Text>
 			<Text>{message}</Text>
 			<Button title="Approve" onPress={() => onApproveButtonClicked()} />
@@ -16,4 +16,4 @@ const ParrotApplication = ({ applicant, message }) => {
 	);
 };
 
-export default ParrotApplication;
+export { ParrotApplication };
