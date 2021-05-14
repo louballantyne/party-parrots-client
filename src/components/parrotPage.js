@@ -49,7 +49,7 @@ const ParrotPage = ({ route, navigation }) => {
 			<Text>{parrot.gender}</Text>
 			<Text>{parrot.bio}</Text>
 			<Text>{parrot.specialNeeds}</Text>
-			{userInApplicants() === false && <ApplyParrot id={id} />}
+			{userType !== 'admin' && userInApplicants() === false && <ApplyParrot id={id} />}
 			{userInApplicants() === true && <Text>Applied already</Text>}
 			{userType === 'admin' && (
 				<FlatList
