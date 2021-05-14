@@ -50,7 +50,7 @@ const ParrotPage = ({ route, navigation }) => {
 			<Text>{parrot.bio}</Text>
 			<Text>{parrot.specialNeeds}</Text>
 			{userType !== 'admin' && userInApplicants() === false && <ApplyParrot id={id} />}
-			{userInApplicants() === true && <Text>Applied already</Text>}
+			{userType !== 'admin' && userInApplicants() === true && <Text>Applied already</Text>}
 			{userType === 'admin' && (
 				<FlatList
 					data={applications}
