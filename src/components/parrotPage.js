@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import styles from '../../styles';
 import { ApplyParrot } from './applyParrot';
+import { ParrotApplication } from './parrotApplication';
 
 const ParrotPage = ({ route, navigation }) => {
 	const [parrot, setParrot] = useState([]);
-	const [message, setMessage] = useState([]);
+	const [applications, setApplications] = useState([]);
 	const { id } = route.params;
+	// hard coded user type and id here
+	const userType = 'admin';
+	const userId = '609ceae22bab994fbc6fc6bd';
 
 	useEffect(() => {
 		// async function fetchParrot() {
@@ -17,11 +21,23 @@ const ParrotPage = ({ route, navigation }) => {
 			})
 				.then((response) => response.json())
 				.then((data) => {
-					setParrot(data);
+					setParrot(data.parrot);
+					setApplications(data.applications);
 				});
 		};
 		fetchParrot();
 	}, []);
+
+	const userInApplicants = () => {
+		let userInApplicants;
+		userInApplicants = false;
+		applications.forEach((application) => {
+			if (application.user === userId) {
+				userInApplicants = true;
+			}
+		});
+		return userInApplicants;
+	};
 
 	return (
 		<View>
@@ -33,7 +49,17 @@ const ParrotPage = ({ route, navigation }) => {
 			<Text>{parrot.gender}</Text>
 			<Text>{parrot.bio}</Text>
 			<Text>{parrot.specialNeeds}</Text>
-			<ApplyParrot id={id} />
+			{userType !== 'admin' && userInApplicants() === false && <ApplyParrot id={id} />}
+			{userType !== 'admin' && userInApplicants() === true && <Text>Applied already</Text>}
+			{userType === 'admin' && (
+				<FlatList
+					data={applications}
+					renderItem={({ item }) => (
+						<ParrotApplication key={item._id} applicant={item.user} message={item.message} />
+					)}
+					keyExtractor={(item) => item._id}
+				/>
+			)}
 		</View>
 	);
 };
