@@ -9,16 +9,14 @@ const SignUp = ({ navigation }) => {
 	const [email, setEmail] = useState();
 	const [password, setPassword] = useState();
 
+
 	const onSignUpButtonClicked = async () => {
 		console.log('input fields: ', firstName, lastName, username, email, password);
 		await fetch(`http://localhost:3000/api/users`, {
 			method: 'POST',
-			// mode: 'cors',
-			// credentials: 'include',
 			headers: {
 				'content-type': 'application/json',
 			},
-			// referrerPolicy: 'no-referrer',
 			body: JSON.stringify({
 				forename: firstName,
 				lastname: lastName,
@@ -28,10 +26,17 @@ const SignUp = ({ navigation }) => {
 				type: 'admin',
 			}),
 		})
-			.then((response) => response.json())
-			.then((data) => console.log(data))
-			.catch((error) => console.log('error: ', error));
-		navigation.navigate('Parrot List');
+		.then((response) => response.json())
+		.then(data => {
+			console.log(data) 
+			if (data.username === username) {
+				navigation.navigate('Parrot List');
+			}
+		})
+		.catch(error => {
+			alert('That username already exists, please choose another');
+			console.log('error: ', error);
+		});
 	};
 
 	return (

@@ -27,6 +27,16 @@ const styles = StyleSheet.create({
     paddingTop: 40,
     alignItems: "center",
 	},
+	header: {
+    alignSelf: 'stretch',
+    height: 52,
+    flexDirection: 'row', // row
+    backgroundColor: '#179aff',
+    alignItems: 'flex-end',
+    justifyContent: 'space-between', // center, space-around
+    paddingLeft: 10,
+    paddingRight: 10
+  },
 });
 
 export default styles;
