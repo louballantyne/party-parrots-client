@@ -3,19 +3,22 @@ import { View, Text, FlatList } from 'react-native';
 import styles from '../../styles';
 import { ApplyParrot } from './applyParrot';
 import { ParrotApplication } from './parrotApplication';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const ParrotPage = ({ route, navigation }) => {
 	const [parrot, setParrot] = useState([]);
 	const [applications, setApplications] = useState([]);
 	const { id } = route.params;
-	// hard coded user type and id here
-	const userType = 'admin';
-	const userId = '609ceae22bab994fbc6fc6bd';
 
 	useEffect(() => {
 		// async function fetchParrot() {
 		const fetchParrot = async () => {
 			console.log('fetch data in use effect, parrot id: ', id);
+			let username = await AsyncStorage.getItem("username");
+			let userId = await AsyncStorage.getItem("userId");
+			let sessionId =await AsyncStorage.getItem("sessionId");
+			let userType = await AsyncStorage.getItem("userId");
+
 			const res = await fetch(`http://localhost:3000/api/parrots/${id}`, {
 				method: 'GET',
 			})
