@@ -18,6 +18,11 @@ const ParrotList = ({ navigation }) => {
 
 	useEffect(() => {
 		const fetchParrots = async () => {
+			let username = await AsyncStorage.getItem("username");
+			let userId = await AsyncStorage.getItem("userId");
+			let sessionId =await AsyncStorage.getItem("sessionId");
+			let userType = await AsyncStorage.getItem("userId");
+
 			console.log('fetch data in use effect');
 			const res = await fetch(`http://localhost:3000/api/parrots`, {
 				method: 'GET',

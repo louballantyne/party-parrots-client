@@ -6,9 +6,15 @@ import { ParrotApplication } from './parrotApplication';
 import AsyncStorage from '@react-native-community/async-storage';
 
 const ParrotPage = ({ route, navigation }) => {
+	// const _getType = async () => {
+	// 	let userType = await AsyncStorage.getItem("userType");
+	// }
+
 	const [parrot, setParrot] = useState([]);
 	const [applications, setApplications] = useState([]);
 	const { id } = route.params;
+	let userType
+
 
 	useEffect(() => {
 		// async function fetchParrot() {
@@ -17,7 +23,8 @@ const ParrotPage = ({ route, navigation }) => {
 			let username = await AsyncStorage.getItem("username");
 			let userId = await AsyncStorage.getItem("userId");
 			let sessionId =await AsyncStorage.getItem("sessionId");
-			let userType = await AsyncStorage.getItem("userId");
+			let userType = await AsyncStorage.getItem("userType");
+			console.log("type", userType);
 
 			const res = await fetch(`http://localhost:3000/api/parrots/${id}`, {
 				method: 'GET',
