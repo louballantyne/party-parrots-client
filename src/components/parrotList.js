@@ -3,12 +3,18 @@ import { View, FlatList, Button, SafeAreaView } from 'react-native';
 import Parrot from './parrotItem';
 import styles from '../../styles';
 import { Headbar } from './headbar';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const ParrotList = ({ navigation }) => {
 	const [parrots, setParrots] = useState([]);
 	// hard coded user type and id here
-	const userType = 'admin';
-	const userId = '609ba87d9c781b1a3b09eb2f';
+
+	// It doesn't know what these are if I put them in a function and then call it.
+	let username = AsyncStorage.getItem("username");
+	let userId = AsyncStorage.getItem("userId");
+	let sessionId =AsyncStorage.getItem("sessionId");
+	let userType = AsyncStorage.getItem("userId");
+
 
 	useEffect(() => {
 		const fetchParrots = async () => {
