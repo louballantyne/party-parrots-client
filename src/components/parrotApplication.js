@@ -19,10 +19,12 @@ const ParrotApplication = ({
 			method: 'PATCH',
 		});
 
-		if (response.status == 200) {
+		if (response.status === 200) {
 			Alert.alert('Application approved successfully');
 			setNewApproved(true);
 			// navigation.navigate('Parrot Page');
+		} else if (response.status === 400) {
+			Alert.alert('Parrot application already approved');
 		} else {
 			Alert.alert('Unsuccessful approval');
 		}
