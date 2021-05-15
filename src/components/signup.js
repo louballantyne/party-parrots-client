@@ -25,7 +25,7 @@ const SignUp = ({ navigation }) => {
 				username: username,
 				email: email,
 				password: password,
-				type: 'admin',
+				type: userType,
 			}),
 		})
 		.then((response) => response.json())
