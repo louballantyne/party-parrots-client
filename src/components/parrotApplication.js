@@ -1,17 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Button, Alert } from 'react-native';
 import styles from '../../styles';
 
-const ParrotApplication = ({ applicant, message }) => {
-	const onApproveButtonClicked = () => {
-		Alert.alert('approved');
+const ParrotApplication = ({
+	parrotId,
+	applicationId,
+	applicant,
+	message,
+	approved,
+	showApprove,
+	onApproveSubmitted,
+	navigation,
+}) => {
+	const [newApproved, setNewApproved] = useState(approved);
+	console.log('values passed in: ', message, approved, showApprove, onApproveSubmitted);
+	const onApproveButtonClicked = async () => {
+		const response = await fetch(`http://localhost:3000/api/parrots/${parrotId}/applications/${applicationId}`, {
+			method: 'PATCH',
+		});
+
+		if (response.status == 200) {
+			Alert.alert('Application approved successfully');
+			setNewApproved(true);
+			// navigation.navigate('Parrot Page');
+		} else {
+			Alert.alert('Unsuccessful approval');
+		}
+		onApproveSubmitted();
 	};
 
 	return (
 		<View>
 			<Text>{applicant}</Text>
 			<Text>{message}</Text>
-			<Button title="Approve" onPress={() => onApproveButtonClicked()} />
+			<Text>{newApproved ? 'Approved' : showApprove ? '' : 'Declined'}</Text>
+			{showApprove && <Button title="Approve" onPress={() => onApproveButtonClicked()} />}
 		</View>
 	);
 };
