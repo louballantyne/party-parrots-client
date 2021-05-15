@@ -7,14 +7,12 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 const ParrotList = ({ navigation }) => {
 	const [parrots, setParrots] = useState([]);
-	// hard coded user type and id here
 
 	// It doesn't know what these are if I put them in a function and then call it.
 	let username = AsyncStorage.getItem("username");
 	let userId = AsyncStorage.getItem("userId");
 	let sessionId =AsyncStorage.getItem("sessionId");
 	let userType = AsyncStorage.getItem("userId");
-
 
 	useEffect(() => {
 		const fetchParrots = async () => {
@@ -42,6 +40,8 @@ const ParrotList = ({ navigation }) => {
 			<FlatList
 				data={parrots}
 				renderItem={({ item }) =>
+				
+// it does not know what userType is here
 					(userType !== 'admin' || userId === item.user) && (
 						<Parrot
 							key={item._id}
