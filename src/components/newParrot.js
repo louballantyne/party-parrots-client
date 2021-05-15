@@ -1,6 +1,7 @@
 import React, {useState } from 'react';
 import { TextInput, Button, View, Picker } from 'react-native';
 import styles from '../../styles';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const NewParrot = ({ navigation }) => {
   const [name, setName] = useState();
@@ -14,7 +15,27 @@ const NewParrot = ({ navigation }) => {
   //const [imageUrl, setImageUrl] = useState();
   //const [user, setUser] = useState();
 
+  // these variables aren't accessible outside the function
+  const _getData =  async () => {
+		try {
+			let username = await AsyncStorage.getItem("username");
+			var userId = await AsyncStorage.getItem("userId");
+			let sessionId = await AsyncStorage.getItem("sessionId");
+			let userType = await AsyncStorage.getItem("userId");
+			console.log(userId)
+
+		} catch (error) {
+			console.log("Something went wrong", error);
+		}
+	}
+
+  _getData();
+
   const onAddButtonClicked = async () => {
+
+    // For some reason I'm having to declare the userId here or it doesn't know what it is!!!
+    let userId = await AsyncStorage.getItem("userId");
+
     await fetch(`http://localhost:3000/api/parrots`, {
       method: 'POST',
       headers: {
@@ -30,7 +51,7 @@ const NewParrot = ({ navigation }) => {
         bio: bio,
         specialNeeds: specialNeeds,
         imageUrl: "https://t4.ftcdn.net/jpg/00/66/61/51/240_F_66615178_v1EWRCzXzCDQINyCexTFDzRmY0bRKpY5.jpg",
-        user: "609ba87d9c781b1a3b09eb2f",
+        user: userId,
       }),
     })
       .then((response) => response.json())
