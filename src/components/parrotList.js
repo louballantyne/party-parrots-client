@@ -38,6 +38,9 @@ const ParrotList = ({ navigation }) => {
 							key={item._id}
 							id={item._id}
 							name={item.name}
+							location={item.location}
+							age={item.age}
+							gender={item.gender}
 							imgUrl={
 								item.imageUrl
 									? item.imageUrl

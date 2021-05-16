@@ -16,6 +16,10 @@ const styles = StyleSheet.create({
 		flex: 1,
 		flexDirection: 'row',
 	},
+	itemInfoContainer: {
+		flexDirection: 'column',
+		marginTop: 10,
+	},
 	dropDown: {
 		width: 100,
 		height: 100,
