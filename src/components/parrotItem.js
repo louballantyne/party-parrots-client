@@ -9,7 +9,9 @@ const Parrot = ({ id, name, imgUrl, navigation }) => {
 
 	return (
 		<View style={styles.itemContainer} onStartShouldSetResponder={() => onViewClicked()}>
-			<Image style={styles.itemImage} source={{ uri: imgUrl }}></Image>
+			<View style={styles.iconImageContainer}>
+				<Image style={styles.iconImage} source={{ uri: imgUrl }}></Image>
+			</View>
 			<Text>{name}</Text>
 		</View>
 	);

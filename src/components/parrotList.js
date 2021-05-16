@@ -36,7 +36,11 @@ const ParrotList = ({ navigation }) => {
 							key={item._id}
 							id={item._id}
 							name={item.name}
-							imgUrl={item.imageUrl ? item.imageUrl : 'https://picsum.photos/200'}
+							imgUrl={
+								item.imageUrl
+									? item.imageUrl
+									: 'https://party-parrots-s3-bucket.s3.amazonaws.com/parrot.jpeg'
+							}
 							navigation={navigation}
 						/>
 					)
