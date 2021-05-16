@@ -15,9 +15,9 @@ const Parrot = ({ id, name, location, age, gender, imgUrl, navigation }) => {
 			</View>
 			<View style={styles.itemInfoContainer}>
 				<ParrotInfoItem label="Name: " info={name} />
-				<ParrotInfoItem label="Location: " info={location} />
 				<ParrotInfoItem label="Age: " info={age} />
 				<ParrotInfoItem label="Gender: " info={gender} />
+				<ParrotInfoItem label="Location: " info={location} />
 			</View>
 		</View>
 	);
