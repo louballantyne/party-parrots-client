@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { TextInput, Button, View, Image, Alert, Platform } from 'react-native';
 import styles from '../../styles';
 import * as ImagePicker from 'expo-image-picker';
+import { set } from 'react-native-reanimated';
 
 const NewParrot = ({ navigation }) => {
 	const [image, setImage] = useState(null);
@@ -76,6 +77,7 @@ const NewParrot = ({ navigation }) => {
 				.then((data) => {
 					if (data.status) {
 						console.log('download url: ', data.downloadUrl);
+						setImageUrl(data.downloadUrl);
 					} else {
 						Alert.alert('Error', data);
 					}
