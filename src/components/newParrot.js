@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { TextInput, Button, View, Image, Alert, Platform } from 'react-native';
+import { TextInput, Button, View, Image, Alert, Platform, Text } from 'react-native';
 import styles from '../../styles';
 import * as ImagePicker from 'expo-image-picker';
-import { set } from 'react-native-reanimated';
+import { ParrotLocationMap } from './parrotLocationMap';
 
 const NewParrot = ({ navigation }) => {
 	const [image, setImage] = useState(null);
@@ -89,6 +89,9 @@ const NewParrot = ({ navigation }) => {
 	};
 
 	const onAddButtonClicked = async () => {
+		// update Geocode
+		// await getLocationGeocode(location);
+		console.log('geocode: ', geocode);
 		await fetch(`http://localhost:3000/api/parrots`, {
 			method: 'POST',
 			headers: {
@@ -100,6 +103,8 @@ const NewParrot = ({ navigation }) => {
 				species: species,
 				age: age,
 				location: location,
+				latitude: geocode.latitude,
+				longitude: geocode.longitude,
 				gender: gender,
 				bio: bio,
 				specialNeeds: specialNeeds,
@@ -112,6 +117,28 @@ const NewParrot = ({ navigation }) => {
 			.catch((error) => console.log('error: ', error));
 		navigation.navigate('Parrot List');
 	};
+
+	// const getLocationGeocode = (location) => {
+	// 	const key = 'HUciaAuNhN0cGxvKRp5puDxzvYAHrkR5';
+	// 	const geoCoderUrlPrefix = `http://open.mapquestapi.com/geocoding/v1/address?key=${key}&location=`;
+	// 	location = location.replace(/\s/g, '') + ',GB';
+	// 	const url = geoCoderUrlPrefix + location;
+	// 	fetchGeocode(url);
+	// };
+
+	// const fetchGeocode = async (url) => {
+	// 	console.log('url: ', url);
+	// 	const res = await fetch(url, {
+	// 		method: 'GET',
+	// 	})
+	// 		.then((response) => response.json())
+	// 		.then((data) => {
+	// 			setGeocode({
+	// 				latitude: data.results[0].locations[0].latLng.lat,
+	// 				longitude: data.results[0].locations[0].latLng.lng,
+	// 			});
+	// 		});
+	// };
 
 	return (
 		<View style={styles.inputForm}>
@@ -173,6 +200,7 @@ const NewParrot = ({ navigation }) => {
 				autoCapitalize="sentences"
 			/>
 			<Button title="Add parrot" onPress={() => onAddButtonClicked()} />
+			<ParrotLocationMap location={location} />
 		</View>
 	);
 };

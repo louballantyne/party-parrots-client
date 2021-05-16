@@ -19,6 +19,7 @@ const ParrotList = ({ navigation }) => {
 				.then((response) => response.json())
 				.then((data) => {
 					setParrots(data);
+					// console.log(data);
 				});
 		};
 		fetchParrots();
@@ -28,6 +29,7 @@ const ParrotList = ({ navigation }) => {
 		<View>
 			<Headbar />
 			<Button title="Add Parrot" onPress={() => navigation.navigate('Add Parrot')} />
+			<Button title="Map View" onPress={() => navigation.navigate('Map View')} />
 			<FlatList
 				data={parrots}
 				renderItem={({ item }) =>

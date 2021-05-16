@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
 	inputForm: {
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
 	profileImageContainer: {
 		width: 200,
 		height: 200,
-		marginTop: 20,
+		marginTop: 10,
 		marginBottom: 10,
 		alignSelf: 'center',
 	},
@@ -83,6 +83,28 @@ const styles = StyleSheet.create({
 	redBoldFont: {
 		color: 'red',
 		fontWeight: 'bold',
+	},
+	mapViewContainer: {
+		flex: 1,
+		backgroundColor: '#fff',
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	mapView: {
+		width: Dimensions.get('window').width,
+		height: Dimensions.get('window').height,
+	},
+	locationMapContainer: {
+		width: Dimensions.get('window').width,
+		height: 100,
+		backgroundColor: '#fff',
+		alignSelf: 'center',
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	locationMap: {
+		width: Dimensions.get('window').width,
+		height: 100,
 	},
 });
 

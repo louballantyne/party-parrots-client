@@ -10,6 +10,7 @@ import { SignUp } from './src/components/signup';
 import { ParrotPage } from './src/components/parrotPage';
 import { SignIn } from './src/components/signIn';
 import { NewParrot } from './src/components/newParrot';
+import { ParrotsMapView } from './src/components/parrotsMapView';
 
 const Stack = createStackNavigator();
 
@@ -24,7 +25,7 @@ export default function App() {
 				<Stack.Screen name="Parrot List" component={ParrotList} />
 				<Stack.Screen name="Parrot Page" component={ParrotPage} />
 				<Stack.Screen name="Add Parrot" component={NewParrot} />
-
+				<Stack.Screen name="Map View" component={ParrotsMapView} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
