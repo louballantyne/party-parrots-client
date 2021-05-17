@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TextInput, Button, View, Image, Alert, Platform, Text } from 'react-native';
+import RNPickerSelect from 'react-native-picker-select';
 import styles from '../../styles';
 import * as ImagePicker from 'expo-image-picker';
 import { ParrotLocationMap } from './parrotLocationMap';
@@ -115,8 +116,8 @@ const NewParrot = ({ navigation }) => {
 				imageUrl: imageUrl ? imageUrl : 'https://party-parrots-s3-bucket.s3.amazonaws.com/parrot.jpeg',
 				user: '60a03b7bffa3c22511552b93',
 			}),
-		})
-			.then((response) => response.json())
+		}).then((response) => console.log(response))
+      //response.json())
 			.then((data) => console.log(data))
 			.catch((error) => console.log('error: ', error));
 		navigation.navigate('Parrot List');
@@ -189,6 +190,18 @@ const NewParrot = ({ navigation }) => {
 				onChangeText={setLocation}
 				autoCapitalize="words"
 			/>
+      <Text>Gender</Text>
+      <RNPickerSelect
+          style={styles.dropDown}
+          selectedValue={gender}
+          onValueChange={(value) => setGender(value)}
+          items={[
+              { label: '' },
+              { label: 'Female', value: 'Female' },
+              { label: 'Male', value: 'Male' },
+              { label: 'Unknown', value: 'Unknown' },
+          ]}
+      />
 			<TextInput
 				style={styles.inputField}
 				placeholder="All about me..."

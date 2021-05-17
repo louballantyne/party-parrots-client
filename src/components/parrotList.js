@@ -41,11 +41,11 @@ const ParrotList = ({ navigation }) => {
 							location={item.location}
 							age={item.age}
 							gender={item.gender}
-							imgUrl={
-								item.imageUrl
-									? item.imageUrl
-									: 'https://party-parrots-s3-bucket.s3.amazonaws.com/parrot.jpeg'
-							}
+							//imgUrl={
+								//item.imageUrl
+									//? item.imageUrl
+									//: 'https://party-parrots-s3-bucket.s3.amazonaws.com/parrot.jpeg'
+							//}
 							navigation={navigation}
 						/>
 					)
