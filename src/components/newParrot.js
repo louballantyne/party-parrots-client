@@ -4,9 +4,11 @@ import RNPickerSelect from 'react-native-picker-select';
 import styles from '../../styles';
 import * as ImagePicker from 'expo-image-picker';
 import { ParrotLocationMap } from './parrotLocationMap';
+import { GEO_API_KEY } from '@env'
 
 const NewParrot = ({ navigation }) => {
-	const [image, setImage] = useState(null);
+
+ 	const [image, setImage] = useState(null);
 	const [name, setName] = useState();
 	const [charity, setCharity] = useState();
 	const [species, setSpecies] = useState();
@@ -125,8 +127,7 @@ const NewParrot = ({ navigation }) => {
 
 	const getLocationGeocode = (location) => {
 		if (location !== undefined) {
-			const key = 'HUciaAuNhN0cGxvKRp5puDxzvYAHrkR5';
-			const geoCoderUrlPrefix = `http://open.mapquestapi.com/geocoding/v1/address?key=${key}&location=`;
+			const geoCoderUrlPrefix = `http://open.mapquestapi.com/geocoding/v1/address?key=${GEO_API_KEY}&location=`;
 			location = location.replace(/\s/g, '') + ',GB';
 			const url = geoCoderUrlPrefix + location;
 			fetchGeocode(url);
