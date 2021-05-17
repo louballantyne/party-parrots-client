@@ -17,6 +17,10 @@ const NewParrot = ({ navigation }) => {
 	const [imageUrl, setImageUrl] = useState(null);
 	//const [imageUrl, setImageUrl] = useState();
 	//const [user, setUser] = useState();
+	const [geocode, setGeocode] = useState({
+		latitude: 51.507322,
+		longitude: -0.127647,
+	});
 
 	const checkMediaPermission = async () => {
 		if (Platform.OS !== 'web') {
@@ -90,7 +94,7 @@ const NewParrot = ({ navigation }) => {
 
 	const onAddButtonClicked = async () => {
 		// update Geocode
-		// await getLocationGeocode(location);
+		await getLocationGeocode(location);
 		console.log('geocode: ', geocode);
 		await fetch(`http://localhost:3000/api/parrots`, {
 			method: 'POST',
@@ -108,8 +112,8 @@ const NewParrot = ({ navigation }) => {
 				gender: gender,
 				bio: bio,
 				specialNeeds: specialNeeds,
-				imageUrl: imageUrl,
-				user: '609ba87d9c781b1a3b09eb2f',
+				imageUrl: imageUrl ? imageUrl : 'https://party-parrots-s3-bucket.s3.amazonaws.com/parrot.jpeg',
+				user: '60a03b7bffa3c22511552b93',
 			}),
 		})
 			.then((response) => response.json())
@@ -118,27 +122,29 @@ const NewParrot = ({ navigation }) => {
 		navigation.navigate('Parrot List');
 	};
 
-	// const getLocationGeocode = (location) => {
-	// 	const key = 'HUciaAuNhN0cGxvKRp5puDxzvYAHrkR5';
-	// 	const geoCoderUrlPrefix = `http://open.mapquestapi.com/geocoding/v1/address?key=${key}&location=`;
-	// 	location = location.replace(/\s/g, '') + ',GB';
-	// 	const url = geoCoderUrlPrefix + location;
-	// 	fetchGeocode(url);
-	// };
+	const getLocationGeocode = (location) => {
+		if (location !== undefined) {
+			const key = 'HUciaAuNhN0cGxvKRp5puDxzvYAHrkR5';
+			const geoCoderUrlPrefix = `http://open.mapquestapi.com/geocoding/v1/address?key=${key}&location=`;
+			location = location.replace(/\s/g, '') + ',GB';
+			const url = geoCoderUrlPrefix + location;
+			fetchGeocode(url);
+		}
+	};
 
-	// const fetchGeocode = async (url) => {
-	// 	console.log('url: ', url);
-	// 	const res = await fetch(url, {
-	// 		method: 'GET',
-	// 	})
-	// 		.then((response) => response.json())
-	// 		.then((data) => {
-	// 			setGeocode({
-	// 				latitude: data.results[0].locations[0].latLng.lat,
-	// 				longitude: data.results[0].locations[0].latLng.lng,
-	// 			});
-	// 		});
-	// };
+	const fetchGeocode = async (url) => {
+		console.log('url: ', url);
+		const res = await fetch(url, {
+			method: 'GET',
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				setGeocode({
+					latitude: data.results[0].locations[0].latLng.lat,
+					longitude: data.results[0].locations[0].latLng.lng,
+				});
+			});
+	};
 
 	return (
 		<View style={styles.inputForm}>
@@ -200,7 +206,9 @@ const NewParrot = ({ navigation }) => {
 				autoCapitalize="sentences"
 			/>
 			<Button title="Add parrot" onPress={() => onAddButtonClicked()} />
-			<ParrotLocationMap location={location} />
+			<Button title="Refresh Map" onPress={() => getLocationGeocode(location)} />
+			<Text>{'Latitude: ' + geocode.latitude + ' Longitude: ' + geocode.longitude}</Text>
+			<ParrotLocationMap geocode={geocode} />
 		</View>
 	);
 };
