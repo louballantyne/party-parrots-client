@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList, Image } from 'react-native';
 import styles from '../../styles';
 import { ApplyParrot } from './applyParrot';
+import { ParrotInfoItem } from './parrotInfoItem';
 import { ParrotApplication } from './parrotApplication';
 
 const ParrotPage = ({ route, navigation }) => {
@@ -10,7 +11,7 @@ const ParrotPage = ({ route, navigation }) => {
 	const [showApprove, setShowApprove] = useState(true);
 	const { id } = route.params;
 	// hard coded user type and id here
-	const userType = 'admin';
+	const userType = 'user';
 	const userId = '609ceae22bab994fbc6fc6bd';
 
 	useEffect(() => {
@@ -43,37 +44,53 @@ const ParrotPage = ({ route, navigation }) => {
 	// showApprove use showApprove && !isParrotApproved() for issues when navigate from parrot list
 	return (
 		<View>
-			<Text>{parrot.name}</Text>
-			<Text>{parrot.charity}</Text>
-			<Text>{parrot.species}</Text>
-			<Text>{parrot.age}</Text>
-			<Text>{parrot.location}</Text>
-			<Text>{parrot.gender}</Text>
-			<Text>{parrot.bio}</Text>
-			<Text>{parrot.specialNeeds}</Text>
-			{userType !== 'admin' && isUserInApplicants() === false && <ApplyParrot id={id} />}
-			{userType !== 'admin' && isUserInApplicants() === true && <Text>Applied already</Text>}
-			{userType === 'admin' && (
-				<FlatList
-					data={applications}
-					renderItem={({ item }) => (
-						<ParrotApplication
-							key={item._id}
-							parrotId={id}
-							applicationId={item._id}
-							applicant={item.user}
-							message={item.message}
-							approved={item.approved}
-							showApprove={showApprove && !isParrotApproved()}
-							onApproveSubmitted={() => {
-								setShowApprove(false);
-							}}
-							navigation={navigation}
-						/>
-					)}
-					keyExtractor={(item) => item._id}
+			<View style={styles.profileImageContainer}>
+				<Image
+					source={{
+						uri: parrot.imageUrl
+							? parrot.imageUrl
+							: 'https://party-parrots-s3-bucket.s3.amazonaws.com/parrot.jpeg',
+					}}
+					style={styles.profileImage}
 				/>
-			)}
+			</View>
+			<View style={styles.parrotInfo}>
+				<ParrotInfoItem label="Name: " info={parrot.name} />
+				<ParrotInfoItem label="Charity: " info={parrot.charity} />
+				<ParrotInfoItem label="Species: " info={parrot.species} />
+				<ParrotInfoItem label="Age: " info={parrot.age} />
+				<ParrotInfoItem label="Location: " info={parrot.location} />
+				<ParrotInfoItem label="Gender: " info={parrot.gender} />
+				<ParrotInfoItem label="Bio: " info={parrot.bio} />
+				<ParrotInfoItem label="Special Needs: " info={parrot.specialNeeds} />
+			</View>
+			<View style={styles.applicationsContainer}>
+				{userType !== 'admin' && isUserInApplicants() === false && <ApplyParrot id={id} />}
+				{userType !== 'admin' && isUserInApplicants() === true && (
+					<Text style={styles.redBoldFont}>Applied already</Text>
+				)}
+				{userType === 'admin' && (
+					<FlatList
+						data={applications}
+						renderItem={({ item }) => (
+							<ParrotApplication
+								key={item._id}
+								parrotId={id}
+								applicationId={item._id}
+								applicant={item.user}
+								message={item.message}
+								approved={item.approved}
+								showApprove={showApprove && !isParrotApproved()}
+								onApproveSubmitted={() => {
+									setShowApprove(false);
+								}}
+								navigation={navigation}
+							/>
+						)}
+						keyExtractor={(item) => item._id}
+					/>
+				)}
+			</View>
 		</View>
 	);
 };

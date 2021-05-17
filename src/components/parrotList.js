@@ -8,7 +8,7 @@ const ParrotList = ({ navigation }) => {
 	const [parrots, setParrots] = useState([]);
 	// hard coded user type and id here
 	const userType = 'admin';
-	const userId = '609ba87d9c781b1a3b09eb2f';
+	const userId = '60a03b7bffa3c22511552b93';
 
 	useEffect(() => {
 		const fetchParrots = async () => {
@@ -19,6 +19,7 @@ const ParrotList = ({ navigation }) => {
 				.then((response) => response.json())
 				.then((data) => {
 					setParrots(data);
+					// console.log(data);
 				});
 		};
 		fetchParrots();
@@ -28,6 +29,7 @@ const ParrotList = ({ navigation }) => {
 		<View>
 			<Headbar />
 			<Button title="Add Parrot" onPress={() => navigation.navigate('Add Parrot')} />
+			<Button title="Map View" onPress={() => navigation.navigate('Map View')} />
 			<FlatList
 				data={parrots}
 				renderItem={({ item }) =>
@@ -36,7 +38,14 @@ const ParrotList = ({ navigation }) => {
 							key={item._id}
 							id={item._id}
 							name={item.name}
-							imgUrl={item.imageUrl ? item.imageUrl : 'https://picsum.photos/200'}
+							location={item.location}
+							age={item.age}
+							gender={item.gender}
+							imgUrl={
+								item.imageUrl
+									? item.imageUrl
+									: 'https://party-parrots-s3-bucket.s3.amazonaws.com/parrot.jpeg'
+							}
 							navigation={navigation}
 						/>
 					)
