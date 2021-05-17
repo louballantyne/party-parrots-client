@@ -42,10 +42,10 @@ const NewParrot = ({ navigation }) => {
 			quality: 1,
 		});
 
-		console.log('picked image: ', result);
+		//console.log('picked image: ', result);
 
 		if (!result.cancelled) {
-			console.log('image uri: ', result.uri);
+			//console.log('image uri: ', result.uri);
 			setImage(result.uri);
 			uploadImage(result.uri);
 			// uploadToServer(result.uri);
@@ -63,12 +63,12 @@ const NewParrot = ({ navigation }) => {
 			type: `image/${fileType}`,
 		});
 
-		console.log('form data: ', formData);
+		//console.log('form data: ', formData);
 		uploadToServer(formData);
 	};
 
 	const uploadToServer = async (formData) => {
-		console.log('uploading to server...');
+		//console.log('uploading to server...');
 		try {
 			await fetch(`http://localhost:3000/api/uploads`, {
 				method: 'POST',
@@ -82,7 +82,7 @@ const NewParrot = ({ navigation }) => {
 				.then((response) => response.json())
 				.then((data) => {
 					if (data.status) {
-						console.log('download url: ', data.downloadUrl);
+						//console.log('download url: ', data.downloadUrl);
 						setImageUrl(data.downloadUrl);
 					} else {
 						Alert.alert('Error', data);
@@ -90,14 +90,14 @@ const NewParrot = ({ navigation }) => {
 				})
 				.catch((error) => console.log('error: ', error));
 		} catch (error) {
-			console.log('upload error', error);
+			//console.log('upload error', error);
 		}
 	};
 
 	const onAddButtonClicked = async () => {
 		// update Geocode
 		await getLocationGeocode(location);
-		console.log('geocode: ', geocode);
+		//console.log('geocode: ', geocode);
 		await fetch(`http://localhost:3000/api/parrots`, {
 			method: 'POST',
 			headers: {
@@ -135,7 +135,7 @@ const NewParrot = ({ navigation }) => {
 	};
 
 	const fetchGeocode = async (url) => {
-		console.log('url: ', url);
+		//console.log('url: ', url);
 		const res = await fetch(url, {
 			method: 'GET',
 		})

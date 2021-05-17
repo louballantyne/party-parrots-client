@@ -39,6 +39,7 @@ const ParrotsMapView = ({ navigation }) => {
 			>
 				{parrots.map((parrot) => (
 					<Marker
+						key={parrot._id}
 						coordinate={{
 							latitude: parseFloat(parrot.geocode.latitude),
 							longitude: parseFloat(parrot.geocode.longitude),
