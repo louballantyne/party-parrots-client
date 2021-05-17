@@ -3,7 +3,7 @@ import { View, Text, TextInput, Button } from 'react-native';
 import styles from '../../styles';
 
 const ApplyParrot = ({ id }) => {
-	const [message, setMessage] = useState([]);
+	const [message, setMessage] = useState();
 
 	// hardcode userId at the moment
 	const onApplyButtonClicked = async () => {
