@@ -8,9 +8,12 @@ const SignUp = ({ navigation }) => {
 	const [username, setUsername] = useState();
 	const [email, setEmail] = useState();
 	const [password, setPassword] = useState();
-
+	const [password2, setPassword2] = useState();
 
 	const onSignUpButtonClicked = async () => {
+		if (password !== password2){
+			return alert('Passwords do not match');
+		}
 		console.log('input fields: ', firstName, lastName, username, email, password);
 		await fetch(`http://localhost:3000/api/users`, {
 			method: 'POST',
@@ -28,7 +31,7 @@ const SignUp = ({ navigation }) => {
 		})
 		.then((response) => response.json())
 		.then(data => {
-			console.log(data) 
+			console.log(data)
 			if (data.username === username) {
 				navigation.navigate('Parrot List');
 			}
@@ -79,6 +82,15 @@ const SignUp = ({ navigation }) => {
 				keyboardType="default"
 				value={password}
 				onChangeText={setPassword}
+				autoCapitalize="none"
+				secureTextEntry={true}
+			/>
+			<TextInput
+				style={styles.inputField}
+				placeholder="Password"
+				keyboardType="default"
+				value={password2}
+				onChangeText={setPassword2}
 				autoCapitalize="none"
 				secureTextEntry={true}
 			/>
