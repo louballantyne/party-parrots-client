@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextInput, Button, View, TouchableOpacity, Text } from 'react-native';
+import { TextInput, Button, View, TouchableOpacity, Text, Alert } from 'react-native';
 import styles from '../../styles';
 // import { Headbar } from '../../components/headbar/headbar'
 import { useNavigation } from '@react-navigation/core';
@@ -21,13 +21,11 @@ const SignIn = (props) => {
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data.loggedIn);
-				if (data.loggedIn) {
-					console.log(data);
+				if (data.sessionId) {
 					props.navigation.navigate('Parrot List');
 					// a log in session function called here?
-				} else if (data.status === 401) {
-					alert(data.message);
+				} else {
+					Alert.alert(data.message);
 				}
 			})
 			.catch((error) => console.error(error));
