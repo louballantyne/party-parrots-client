@@ -7,6 +7,7 @@ import { ParrotApplication } from './parrotApplication';
 const ParrotPage = ({ route, navigation }) => {
 	const [parrot, setParrot] = useState([]);
 	const [applications, setApplications] = useState([]);
+	const [showApprove, setShowApprove] = useState(true);
 	const { id } = route.params;
 	// hard coded user type and id here
 	const userType = 'admin';
@@ -15,7 +16,6 @@ const ParrotPage = ({ route, navigation }) => {
 	useEffect(() => {
 		// async function fetchParrot() {
 		const fetchParrot = async () => {
-			console.log('fetch data in use effect, parrot id: ', id);
 			const res = await fetch(`http://localhost:3000/api/parrots/${id}`, {
 				method: 'GET',
 			})
@@ -26,19 +26,21 @@ const ParrotPage = ({ route, navigation }) => {
 				});
 		};
 		fetchParrot();
+		if (isParrotApproved()) setShowApprove(false);
 	}, []);
 
-	const userInApplicants = () => {
-		let userInApplicants;
-		userInApplicants = false;
-		applications.forEach((application) => {
-			if (application.user === userId) {
-				userInApplicants = true;
-			}
-		});
-		return userInApplicants;
+	const isUserInApplicants = () => {
+		const userApplication = applications.filter((application) => application.user === userId);
+		return userApplication.length > 0;
 	};
 
+	const isParrotApproved = () => {
+		const approvedApplication = applications.filter((application) => application.approved === true);
+		console.log('parrot approved application: ', approvedApplication);
+		return approvedApplication.length > 0;
+	};
+
+	// showApprove use showApprove && !isParrotApproved() for issues when navigate from parrot list
 	return (
 		<View>
 			<Text>{parrot.name}</Text>
@@ -49,13 +51,25 @@ const ParrotPage = ({ route, navigation }) => {
 			<Text>{parrot.gender}</Text>
 			<Text>{parrot.bio}</Text>
 			<Text>{parrot.specialNeeds}</Text>
-			{userType !== 'admin' && userInApplicants() === false && <ApplyParrot id={id} />}
-			{userType !== 'admin' && userInApplicants() === true && <Text>Applied already</Text>}
+			{userType !== 'admin' && isUserInApplicants() === false && <ApplyParrot id={id} />}
+			{userType !== 'admin' && isUserInApplicants() === true && <Text>Applied already</Text>}
 			{userType === 'admin' && (
 				<FlatList
 					data={applications}
 					renderItem={({ item }) => (
-						<ParrotApplication key={item._id} applicant={item.user} message={item.message} />
+						<ParrotApplication
+							key={item._id}
+							parrotId={id}
+							applicationId={item._id}
+							applicant={item.user}
+							message={item.message}
+							approved={item.approved}
+							showApprove={showApprove && !isParrotApproved()}
+							onApproveSubmitted={() => {
+								setShowApprove(false);
+							}}
+							navigation={navigation}
+						/>
 					)}
 					keyExtractor={(item) => item._id}
 				/>
