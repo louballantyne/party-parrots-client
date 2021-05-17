@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { TextInput, Button, View } from 'react-native';
+import { TextInput, Button, View, Text } from 'react-native';
 import styles from '../../styles';
+import { RadioButton } from 'react-native-paper';
 
 const SignUp = ({ navigation }) => {
 	const [firstName, setFirstName] = useState();
 	const [lastName, setLastName] = useState();
 	const [username, setUsername] = useState();
 	const [email, setEmail] = useState();
+	const [userType, setUserType] = useState();
 	const [password, setPassword] = useState();
 	const [password2, setPassword2] = useState();
 
@@ -26,7 +28,7 @@ const SignUp = ({ navigation }) => {
 				username: username,
 				email: email,
 				password: password,
-				type: 'admin',
+				type: userType,
 			}),
 		})
 		.then((response) => response.json())
@@ -85,6 +87,18 @@ const SignUp = ({ navigation }) => {
 				autoCapitalize="none"
 				secureTextEntry={true}
 			/>
+			<Text>Administrator</Text>
+			<RadioButton
+					value = "Administrator"
+					status = { userType === 'admin' ? 'checked' : 'unchecked' }
+					onPress={() => setUserType('admin')}
+					/>
+				<Text>Standard User</Text>
+				<RadioButton
+					value = "Standard"
+					status = { userType === 'standard' ? 'checked' : 'unchecked' }
+					onPress={() => setUserType('standard')}
+					/>
 			<TextInput
 				style={styles.inputField}
 				placeholder="Password"
