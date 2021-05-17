@@ -2,7 +2,8 @@ import React from 'react';
 import { View, Text, Button, Alert } from 'react-native';
 import styles from '../../styles';
 
-const ParrotApplication = ({ applicant, message }) => {
+const ParrotApplication = ({ applicant, message, route }) => {
+	const { userName, userType, userId } = route.params;
 	const onApproveButtonClicked = () => {
 		Alert.alert('approved');
 	};

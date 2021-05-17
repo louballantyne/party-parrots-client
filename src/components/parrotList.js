@@ -3,24 +3,13 @@ import { View, FlatList, Button, SafeAreaView } from 'react-native';
 import Parrot from './parrotItem';
 import styles from '../../styles';
 import { Headbar } from './headbar';
-import AsyncStorage from '@react-native-community/async-storage';
 
-const ParrotList = ({ navigation }) => {
+const ParrotList = ({ navigation, route }) => {
+	const { userName, userType, userId } = route.params;
 	const [parrots, setParrots] = useState([]);
-
-	// It doesn't know what these are if I put them in a function and then call it.
-	let username = AsyncStorage.getItem("username");
-	let userId = AsyncStorage.getItem("userId");
-	let sessionId =AsyncStorage.getItem("sessionId");
-	let userType = AsyncStorage.getItem("userId");
 
 	useEffect(() => {
 		const fetchParrots = async () => {
-			let username = await AsyncStorage.getItem("username");
-			let userId = await AsyncStorage.getItem("userId");
-			let sessionId =await AsyncStorage.getItem("sessionId");
-			let userType = await AsyncStorage.getItem("userId");
-
 			console.log('fetch data in use effect');
 			const res = await fetch(`http://localhost:3000/api/parrots`, {
 				method: 'GET',
@@ -36,12 +25,13 @@ const ParrotList = ({ navigation }) => {
 	return (
 		<View>
 			<Headbar />
-			<Button title="Add Parrot" onPress={() => navigation.navigate('Add Parrot')} />
+			<Button title="Add Parrot" onPress={() => navigation.navigate('Add Parrot',
+				{userName: userName,
+				userType: userType,
+				userId: userId})} />
 			<FlatList
 				data={parrots}
 				renderItem={({ item }) =>
-				
-// it does not know what userType is here
 					(userType !== 'admin' || userId === item.user) && (
 						<Parrot
 							key={item._id}
@@ -49,6 +39,9 @@ const ParrotList = ({ navigation }) => {
 							name={item.name}
 							imgUrl={item.imageUrl ? item.imageUrl : 'https://picsum.photos/200'}
 							navigation={navigation}
+							userName ={userName}
+							userType={userType}
+							userId={userId}
 						/>
 					)
 				}

@@ -8,7 +8,7 @@ const SignUp = ({ navigation }) => {
 	const [username, setUsername] = useState();
 	const [email, setEmail] = useState();
 	const [password, setPassword] = useState();
-
+	let type = "admin"
 
 	const onSignUpButtonClicked = async () => {
 		console.log('input fields: ', firstName, lastName, username, email, password);
@@ -28,9 +28,13 @@ const SignUp = ({ navigation }) => {
 		})
 		.then((response) => response.json())
 		.then(data => {
-			console.log(data) 
+			console.log(data)
 			if (data.username === username) {
-				navigation.navigate('Parrot List');
+				navigation.navigate('Sign In',
+					{userName: username,
+					userType: type,
+					// is this what the parameter is called when it is returned?
+					userId: data.userId});
 			}
 		})
 		.catch(error => {
