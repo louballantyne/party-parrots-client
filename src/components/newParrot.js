@@ -13,7 +13,7 @@ const NewParrot = ({ navigation }) => {
 	const [species, setSpecies] = useState();
 	const [age, setAge] = useState();
 	const [location, setLocation] = useState();
-	const [gender, setGender] = useState('Female');
+	const [gender, setGender] = useState('Unknown');
 	const [bio, setBio] = useState();
 	const [specialNeeds, setSpecialNeeds] = useState();
 	const [imageUrl, setImageUrl] = useState(null);
@@ -197,9 +197,9 @@ const NewParrot = ({ navigation }) => {
 				selectedValue={gender}
 				onValueChange={(value) => setGender(value)}
 				items={[
+					{ label: 'Unknown', value: 'Unknown' },
 					{ label: 'Female', value: 'Female' },
 					{ label: 'Male', value: 'Male' },
-					{ label: 'Unknown', value: 'Unknown' },
 				]}
 			/>
 			<TextInput
