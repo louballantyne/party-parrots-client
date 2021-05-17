@@ -3,9 +3,9 @@ import { View, Image, Text } from 'react-native';
 import styles from '../../styles';
 import { ParrotInfoItem } from './parrotInfoItem';
 
-const Parrot = ({ id, name, location, age, gender, imgUrl, navigation }) => {
+const Parrot = ({ parrotId, name, location, age, gender, imgUrl, navigation, userType, userId }) => {
 	const onViewClicked = () => {
-		navigation.navigate('Parrot Page', { id: id });
+		navigation.navigate('Parrot Page', { parrotId: parrotId, userType: userType, userId: userId });
 	};
 
 	return (

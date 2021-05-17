@@ -4,8 +4,9 @@ import MapView, { Marker, Callout } from 'react-native-maps';
 import styles from '../../styles';
 import Parrot from './parrotItem';
 
-const ParrotsMapView = ({ navigation }) => {
+const ParrotsMapView = ({ navigation, route }) => {
 	const [parrots, setParrots] = useState([]);
+	const { userType, userId } = route.params;
 	// const [pin, setPin] = useState({
 	// 	latitude: 51.507322,
 	// 	longitude: -0.127647,
@@ -49,7 +50,7 @@ const ParrotsMapView = ({ navigation }) => {
 							{/* <Text>{parrot.name + ': ' + parrot.location}</Text> */}
 							<Parrot
 								key={parrot._id}
-								id={parrot._id}
+								parrotId={parrot._id}
 								name={parrot.name}
 								location={parrot.location}
 								age={parrot.age}
@@ -60,6 +61,8 @@ const ParrotsMapView = ({ navigation }) => {
 										: 'https://party-parrots-s3-bucket.s3.amazonaws.com/parrot.jpeg'
 								}
 								navigation={navigation}
+								userType={userType}
+								userId={userId}
 							/>
 						</Callout>
 					</Marker>

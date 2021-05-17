@@ -35,7 +35,7 @@ const SignUp = ({ navigation }) => {
 			.then((data) => {
 				console.log(data);
 				if (data.username === username) {
-					navigation.navigate('Parrot List');
+					navigation.navigate('Parrot List', { userType: data.userType, userId: data.userId });
 				}
 			})
 			.catch((error) => {

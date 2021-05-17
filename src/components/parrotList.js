@@ -4,11 +4,12 @@ import Parrot from './parrotItem';
 import styles from '../../styles';
 import { Headbar } from './headbar';
 
-const ParrotList = ({ navigation }) => {
+const ParrotList = ({ navigation, route }) => {
 	const [parrots, setParrots] = useState([]);
 	// hard coded user type and id here
-	const userType = 'admin';
-	const userId = '60a03b7bffa3c22511552b93';
+	// const userType = 'admin';
+	// const userId = '60a03b7bffa3c22511552b93';
+	const { userType, userId } = route.params;
 
 	useEffect(() => {
 		const fetchParrots = async () => {
@@ -28,15 +29,18 @@ const ParrotList = ({ navigation }) => {
 	return (
 		<View>
 			<Headbar />
-			<Button title="Add Parrot" onPress={() => navigation.navigate('Add Parrot')} />
-			<Button title="Map View" onPress={() => navigation.navigate('Map View')} />
+			<Button title="Add Parrot" onPress={() => navigation.navigate('Add Parrot', { userId, userId })} />
+			<Button
+				title="Map View"
+				onPress={() => navigation.navigate('Map View', { userType: userType, userId, userId })}
+			/>
 			<FlatList
 				data={parrots}
 				renderItem={({ item }) =>
 					(userType !== 'admin' || userId === item.user) && (
 						<Parrot
 							key={item._id}
-							id={item._id}
+							parrotId={item._id}
 							name={item.name}
 							location={item.location}
 							age={item.age}
@@ -47,6 +51,8 @@ const ParrotList = ({ navigation }) => {
 									: 'https://party-parrots-s3-bucket.s3.amazonaws.com/parrot.jpeg'
 							}
 							navigation={navigation}
+							userType={userType}
+							userId={userId}
 						/>
 					)
 				}

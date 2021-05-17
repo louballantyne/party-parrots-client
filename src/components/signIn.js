@@ -22,7 +22,7 @@ const SignIn = (props) => {
 			.then((response) => response.json())
 			.then((data) => {
 				if (data.sessionId) {
-					props.navigation.navigate('Parrot List');
+					props.navigation.navigate('Parrot List', { userType: data.userType, userId: data.userId });
 					// a log in session function called here?
 				} else {
 					Alert.alert(data.message);

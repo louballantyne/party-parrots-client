@@ -9,21 +9,20 @@ const ParrotPage = ({ route, navigation }) => {
 	const [parrot, setParrot] = useState([]);
 	const [applications, setApplications] = useState([]);
 	const [showApprove, setShowApprove] = useState(true);
-	const { id } = route.params;
-	// hard coded user type and id here
-	const userType = 'user';
-	const userId = '609ceae22bab994fbc6fc6bd';
+	const { parrotId, userType, userId } = route.params;
 
 	useEffect(() => {
 		// async function fetchParrot() {
 		const fetchParrot = async () => {
-			const res = await fetch(`http://localhost:3000/api/parrots/${id}`, {
+			const res = await fetch(`http://localhost:3000/api/parrots/${parrotId}`, {
 				method: 'GET',
 			})
 				.then((response) => response.json())
 				.then((data) => {
 					setParrot(data.parrot);
 					setApplications(data.applications);
+					console.log('parrot: ', parrot);
+					console.log('applications: ', applications);
 				});
 		};
 		fetchParrot();
@@ -65,9 +64,11 @@ const ParrotPage = ({ route, navigation }) => {
 				<ParrotInfoItem label="Special Needs: " info={parrot.specialNeeds} />
 			</View>
 			<View style={styles.applicationsContainer}>
-				{userType !== 'admin' && isUserInApplicants() === false && <ApplyParrot id={id} />}
+				{userType !== 'admin' && isUserInApplicants() === false && (
+					<ApplyParrot parrotId={parrotId} userId={userId} />
+				)}
 				{userType !== 'admin' && isUserInApplicants() === true && (
-					<Text style={styles.redBoldFont}>Applied already</Text>
+					<Text style={styles.redBoldFont}>Applied!</Text>
 				)}
 				{userType === 'admin' && (
 					<FlatList
@@ -75,7 +76,7 @@ const ParrotPage = ({ route, navigation }) => {
 						renderItem={({ item }) => (
 							<ParrotApplication
 								key={item._id}
-								parrotId={id}
+								parrotId={parrotId}
 								applicationId={item._id}
 								applicant={item.user}
 								message={item.message}

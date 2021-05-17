@@ -6,7 +6,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { ParrotLocationMap } from './parrotLocationMap';
 import { GEO_API_KEY } from '@env';
 
-const NewParrot = ({ navigation }) => {
+const NewParrot = ({ navigation, route }) => {
 	const [image, setImage] = useState(null);
 	const [name, setName] = useState();
 	const [charity, setCharity] = useState();
@@ -18,7 +18,7 @@ const NewParrot = ({ navigation }) => {
 	const [specialNeeds, setSpecialNeeds] = useState();
 	const [imageUrl, setImageUrl] = useState(null);
 	//const [imageUrl, setImageUrl] = useState();
-	//const [user, setUser] = useState();
+	const { userId } = route.params;
 	const [geocode, setGeocode] = useState({
 		latitude: 51.507322,
 		longitude: -0.127647,
@@ -115,7 +115,7 @@ const NewParrot = ({ navigation }) => {
 				bio: bio,
 				specialNeeds: specialNeeds,
 				imageUrl: imageUrl ? imageUrl : 'https://party-parrots-s3-bucket.s3.amazonaws.com/parrot.jpeg',
-				user: '60a03b7bffa3c22511552b93',
+				user: userId,
 			}),
 		})
 			.then((response) => console.log(response))
