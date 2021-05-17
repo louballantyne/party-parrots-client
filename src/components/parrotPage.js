@@ -8,14 +8,13 @@ const ParrotPage = ({ route, navigation }) => {
 	const { userName, userType, userId, id } = route.params;
 	const [parrot, setParrot] = useState([]);
 	const [applications, setApplications] = useState([]);
-
 	useEffect(() => {
 		// async function fetchParrot() {
 		const fetchParrot = async () => {
 			console.log('fetch data in use effect, parrot id: ', id);
 			console.log("type", userType);
 
-			const res = await fetch(`http://localhost:3000/api/parrots/${id}`, {
+			await fetch(`http://localhost:3000/api/parrots/${id}`, {
 				method: 'GET',
 			})
 				.then((response) => response.json())
