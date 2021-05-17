@@ -8,7 +8,7 @@ const ParrotList = ({ navigation }) => {
 	const [parrots, setParrots] = useState([]);
 	// hard coded user type and id here
 	const userType = 'admin';
-	const userId = '609ba87d9c781b1a3b09eb2f';
+	const userId = '60a03b7bffa3c22511552b93';
 
 	useEffect(() => {
 		const fetchParrots = async () => {
@@ -41,11 +41,11 @@ const ParrotList = ({ navigation }) => {
 							location={item.location}
 							age={item.age}
 							gender={item.gender}
-							//imgUrl={
-							//item.imageUrl
-							//? item.imageUrl
-							//: 'https://party-parrots-s3-bucket.s3.amazonaws.com/parrot.jpeg'
-							//}
+							imgUrl={
+								item.imageUrl
+									? item.imageUrl
+									: 'https://party-parrots-s3-bucket.s3.amazonaws.com/parrot.jpeg'
+							}
 							navigation={navigation}
 						/>
 					)
