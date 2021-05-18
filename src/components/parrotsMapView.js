@@ -6,6 +6,7 @@ import Parrot from './parrotItem';
 
 const ParrotsMapView = ({ navigation, route }) => {
 	const [parrots, setParrots] = useState([]);
+	const [approvedApplications, setApprovedApplications] = useState([]);
 	const { userType, userId } = route.params;
 	// const [pin, setPin] = useState({
 	// 	latitude: 51.507322,
@@ -20,12 +21,17 @@ const ParrotsMapView = ({ navigation, route }) => {
 			})
 				.then((response) => response.json())
 				.then((data) => {
-					setParrots(data);
-					// console.log(data);
+					setParrots(data.parrots);
+					setApprovedApplications(data.approvedApplications);
 				});
 		};
 		fetchParrots();
 	}, []);
+
+	const isParrotApproved = (parrotId) => {
+		const parrotApproved = approvedApplications.filter((application) => application.parrot === parrotId);
+		return parrotApproved.length > 0;
+	};
 
 	return (
 		<View style={styles.mapViewContainer}>
@@ -60,6 +66,7 @@ const ParrotsMapView = ({ navigation, route }) => {
 										? parrot.imageUrl
 										: 'https://party-parrots-s3-bucket.s3.amazonaws.com/parrot.jpeg'
 								}
+								approved={isParrotApproved(parrot._id)}
 								navigation={navigation}
 								userType={userType}
 								userId={userId}

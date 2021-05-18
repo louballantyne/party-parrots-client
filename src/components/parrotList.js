@@ -5,9 +5,7 @@ import styles from '../../styles';
 
 const ParrotList = ({ navigation, route }) => {
 	const [parrots, setParrots] = useState([]);
-	// hard coded user type and id here
-	// const userType = 'admin';
-	// const userId = '60a03b7bffa3c22511552b93';
+	const [approvedApplications, setApprovedApplications] = useState([]);
 	const { userType, userId, sessionId } = route.params;
 
 	useEffect(() => {
@@ -18,12 +16,21 @@ const ParrotList = ({ navigation, route }) => {
 			})
 				.then((response) => response.json())
 				.then((data) => {
-					setParrots(data);
-					// console.log(data);
+					setParrots(data.parrots);
+					setApprovedApplications(data.approvedApplications);
 				});
 		};
 		fetchParrots();
 	}, []);
+
+	// const getParrotsApprovedStatus = () => {
+	// 	parrots.forEach((parrot) => (parrot.approved = isParrotApproved(parrot._id)));
+	// };
+
+	const isParrotApproved = (parrotId) => {
+		const parrotApproved = approvedApplications.filter((application) => application.parrot === parrotId);
+		return parrotApproved.length > 0;
+	};
 
 	const onSignOutButtonClicked = async () => {
 		console.log('sign out: ', `http://localhost:3000/api/sessions/${sessionId}`);
@@ -42,7 +49,16 @@ const ParrotList = ({ navigation, route }) => {
 		<View style={styles.pageBody}>
 			<View>
 				{userType === 'admin' && (
-					<Button title="Add Parrot" onPress={() => navigation.navigate('Add Parrot', { userId, userId })} />
+					<Button
+						title="Add Parrot"
+						onPress={() =>
+							navigation.navigate('Add Parrot', {
+								userId: userId,
+								userType: userType,
+								sessionId: sessionId,
+							})
+						}
+					/>
 				)}
 				{userType !== 'admin' && (
 					<Button
@@ -50,8 +66,7 @@ const ParrotList = ({ navigation, route }) => {
 						onPress={() =>
 							navigation.navigate('Map View', {
 								userType: userType,
-								userId,
-								userId,
+								userId: userId,
 							})
 						}
 					/>
@@ -74,6 +89,7 @@ const ParrotList = ({ navigation, route }) => {
 									? item.imageUrl
 									: 'https://party-parrots-s3-bucket.s3.amazonaws.com/parrot.jpeg'
 							}
+							approved={isParrotApproved(item._id)}
 							navigation={navigation}
 							userType={userType}
 							userId={userId}

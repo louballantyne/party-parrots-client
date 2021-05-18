@@ -31,6 +31,13 @@ const styles = StyleSheet.create({
 		margin: 10,
 		borderRadius: 10,
 	},
+	approvedItemContainer: {
+		flex: 1,
+		flexDirection: 'row',
+		backgroundColor: 'white',
+		margin: 10,
+		borderRadius: 10,
+	},
 	itemInfoContainer: {
 		flexDirection: 'column',
 		marginTop: 10,
