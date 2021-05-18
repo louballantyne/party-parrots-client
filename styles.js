@@ -51,14 +51,9 @@ const styles = StyleSheet.create({
 		flexWrap: "wrap",
 		marginRight: 40
 	},
-  dropDown: {
-    width: 100,
-    height: 100,
-    margin: 5,
-    flex: 1,
-    paddingTop: 40,
-    alignItems: "center",
-  },
+	list: {
+		backgroundColor: "#c5e3c7",
+	},
   header: {
     alignSelf: "stretch",
     height: 52,

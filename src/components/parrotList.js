@@ -41,7 +41,7 @@ const ParrotList = ({ navigation, route }) => {
 
   return (
     <View>
-      <View>
+      <View style={styles.list}>
         {userType === "admin" && (
           <Button
             title="Add Parrot"
@@ -65,6 +65,7 @@ const ParrotList = ({ navigation, route }) => {
         <Button title="Sign Out" onPress={() => onSignOutButtonClicked()} />
       </View>
       <FlatList
+        style = {styles.list}
         data={parrots}
         renderItem={({ item }) =>
           (userType !== "admin" || userId === item.user) && (
