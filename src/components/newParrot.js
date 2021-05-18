@@ -196,9 +196,10 @@ const NewParrot = ({ navigation, route }) => {
 				style={styles.inputField}
 				placeholder="Location"
 				value={location}
-				onChangeText={setLocation}
+				onChangeText={(value) =>setLocation, }
 				autoCapitalize="words"
 			/>
+			<Button title="Refresh Map" onPress={() => getLocationGeocode(location)} />
 			<Text>Gender</Text>
 			<RadioForm radio_props={radio_list} initial={'Unknown'} onPress={(value) => setGender(value)} />
 			<TextInput
@@ -218,7 +219,6 @@ const NewParrot = ({ navigation, route }) => {
 				autoCapitalize="sentences"
 			/>
 			<Button title="Add parrot" onPress={() => onAddButtonClicked()} />
-			<Button title="Refresh Map" onPress={() => getLocationGeocode(location)} />
 			<Text>{'Latitude: ' + geocode.latitude + ' Longitude: ' + geocode.longitude}</Text>
 			<ParrotLocationMap geocode={geocode} />
 		</View>
