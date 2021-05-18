@@ -19,11 +19,15 @@ export default function App() {
   // useEffect() to get the log in status
 
   return (
-    <NavigationContainer style={styles.body}>
+    <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Sign In" component={SignIn} />
         <Stack.Screen name="Sign Up" component={SignUp} />
-        <Stack.Screen name="Parrot List" component={ParrotList} />
+        <Stack.Screen
+          name="Parrot List"
+          component={ParrotList}
+          options={{ title: "" }} // no title for Parrot list page
+        />
         <Stack.Screen name="Parrot Page" component={ParrotPage} />
         <Stack.Screen name="Add Parrot" component={NewParrot} />
         <Stack.Screen name="Map View" component={ParrotsMapView} />
