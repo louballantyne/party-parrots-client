@@ -27,9 +27,9 @@ const ParrotList = ({ navigation, route }) => {
 	}, []);
 
 	const onSignOutButtonClicked = async () => {
-		console.log('sign out: ', `http://localhost:3000/api/sessions/${sessionId}/signout`);
-		await fetch(`http://localhost:3000/api/sessions/${sessionId}/signout`, {
-			method: 'GET',
+		console.log('sign out: ', `http://localhost:3000/api/sessions/${sessionId}`);
+		await fetch(`http://localhost:3000/api/sessions/${sessionId}`, {
+			method: 'DELETE',
 		})
 			.then((response) => response.json())
 			.then((data) => {
