@@ -127,14 +127,14 @@ const styles = StyleSheet.create({
 	},
 	circleImageContainer: {
 		marginTop: 20,
-		width: Dimensions.get('window').width * 0.7,
-		height: Dimensions.get('window').width * 0.7,
+		width: Dimensions.get('window').width * 0.6,
+		height: Dimensions.get('window').width * 0.6,
 		alignSelf: 'center',
 	},
 	circleImage: {
-		width: Dimensions.get('window').width * 0.7,
-		height: Dimensions.get('window').width * 0.7,
-		borderRadius: Dimensions.get('window').width * 0.7,
+		width: Dimensions.get('window').width * 0.6,
+		height: Dimensions.get('window').width * 0.6,
+		borderRadius: Dimensions.get('window').width * 0.6,
 	},
 	buttonContainer: {
 		margin: 20,
