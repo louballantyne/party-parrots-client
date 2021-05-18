@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  StyleSheet,
   TextInput,
   Button,
   View,
@@ -50,16 +51,48 @@ const SignIn = (props) => {
   };
 
   return (
-    <View style={styles.body}>
-      <View style={styles.circleImageContainer}>
+    <View
+      style={[
+        styles.body,
+        {
+          flexDirection: "column",
+        },
+      ]}
+    >
+      <View
+        style={{
+          flex: 3,
+          backgroundColor: "#c5e3c7",
+          justifyContent: "center",
+          width: "100%",
+        }}
+      >
         <Image
           source={require("../images/gify-parrot.gif")}
           style={styles.circleImage}
         />
       </View>
 
-      {/* <Headbar {...props}/> */}
-      <View style={styles.inputForm}>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#c5e3c7",
+          justifyContent: "center",
+          width: "100%",
+        }}
+      >
+        <Text style={styles.title}>Welcome to Parrot Party!</Text>
+      </View>
+      <View
+        style={[
+          styles.inputForm,
+          {
+            flex: 1.2,
+            backgroundColor: "#c5e3c7",
+            width: "100%",
+          },
+        ]}
+      >
         <TextInput
           style={styles.inputField}
           autoCapitalize="none"
@@ -77,12 +110,21 @@ const SignIn = (props) => {
           onKeyPress={(key) => keyPressed(key)}
           value={passWord}
         />
-        <Button onPress={() => onSignInButtonClicked()} title="Sign In" />
-        <Button
+      </View>
+      <View style={{ flex: 1.5, backgroundColor: "#c5e3c7", width: 500 }}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => onSignInButtonClicked()}
+        >
+          <Text style={styles.text}> Sign In</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate("Sign Up")}
-          title="Create an account!"
-        />
+        >
+          <Text style={styles.text}> Create an Account</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

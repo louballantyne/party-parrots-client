@@ -21,7 +21,21 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Sign In" component={SignIn} />
+        <Stack.Screen
+          name="Sign In"
+          component={SignIn}
+          options={{
+            title: "",
+            headerStyle: {
+              backgroundColor: "#c5e3c7",
+            },
+            headerTintColor: "#bf04a3",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 30,
+            },
+          }}
+        />
         <Stack.Screen name="Sign Up" component={SignUp} />
         <Stack.Screen
           name="Parrot List"

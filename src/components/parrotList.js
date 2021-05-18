@@ -42,6 +42,14 @@ const ParrotList = ({ navigation, route }) => {
       .catch((error) => console.error(error));
   };
 
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <Button onPress={() => onSignOutButtonClicked()} title="Sign Out" />
+      ),
+    });
+  }, [navigation, onSignOutButtonClicked]);
+
   return (
     <View>
       <View>

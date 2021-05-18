@@ -3,20 +3,23 @@ import { Dimensions, StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   body: {
     // navbar #80b383
-    backgroundColor: "#c5e3c7",
+    //backgroundColor: "#c5e3c7",
     justifyContent: "center",
+    flex: 1,
     alignItems: "center",
   },
   inputForm: {
-    margin: 20,
+    //margin: 20,
     // backgroundColor: 'pink',
+    alignItems: "center",
   },
   inputField: {
     height: 40,
     margin: 12,
     paddingLeft: 5,
     borderWidth: 0,
-    backgroundColor: "#c5e3c7",
+    backgroundColor: "white",
+    width: "50%",
   },
   itemContainer: {
     flex: 1,
@@ -116,16 +119,45 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width,
     height: 100,
   },
-  circleImageContainer: {
-    marginTop: 20,
-    width: 300,
-    height: 300,
-    alignSelf: "center",
-  },
+  // not using this atm
+  // circleImageContainer: {
+  //   marginTop: 20,
+  //   width: 300,
+  //   height: 300,
+  //   alignSelf: "center",
+  // },
+
   circleImage: {
     width: 300,
     height: 300,
     borderRadius: 300,
+    alignSelf: "center",
+    justifyContent: "center",
+  },
+
+  text: {
+    color: "white",
+    fontSize: 15,
+    fontWeight: "bold",
+    alignSelf: "center",
+    justifyContent: "center",
+  },
+
+  title: {
+    color: "#bf04a3",
+    fontSize: 30,
+    fontWeight: "bold",
+    alignSelf: "center",
+    justifyContent: "center",
+  },
+
+  button: {
+    padding: 10,
+    borderRadius: 50,
+    alignSelf: "center",
+    backgroundColor: "#83ba85",
+    margin: 4,
+    width: "45%",
   },
 });
 
