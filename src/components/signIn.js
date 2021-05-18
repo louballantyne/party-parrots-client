@@ -87,7 +87,7 @@ const SignIn = (props) => {
         style={[
           styles.inputForm,
           {
-            flex: 1.2,
+            flex: 1.5,
             backgroundColor: "#c5e3c7",
             width: "100%",
           },
@@ -110,14 +110,14 @@ const SignIn = (props) => {
           onKeyPress={(key) => keyPressed(key)}
           value={passWord}
         />
-      </View>
-      <View style={{ flex: 1.5, backgroundColor: "#c5e3c7", width: 500 }}>
         <TouchableOpacity
-          style={styles.button}
+          style={styles.signInButton}
           onPress={() => onSignInButtonClicked()}
         >
           <Text style={styles.text}> Sign In</Text>
         </TouchableOpacity>
+      </View>
+      <View style={{ flex: 1.5, backgroundColor: "#c5e3c7", width: 500 }}>
         <Text
           style={{
             color: "#bf04a3",

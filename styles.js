@@ -156,7 +156,16 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     backgroundColor: "#83ba85",
     margin: 4,
-    width: "45%",
+    width: "43%",
+  },
+
+  signInButton: {
+    padding: 10,
+    borderRadius: 50,
+    alignSelf: "center",
+    backgroundColor: "#83ba85",
+    margin: 4,
+    width: "50%",
   },
 });
 
