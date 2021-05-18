@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { View, FlatList, Button, SafeAreaView } from 'react-native';
+import { View, FlatList, Button, SafeAreaView, Alert } from 'react-native';
 import Parrot from './parrotItem';
 import styles from '../../styles';
 import { Headbar } from './headbar';
+import { SignOut } from './signOut';
 
 const ParrotList = ({ navigation, route }) => {
 	const [parrots, setParrots] = useState([]);
 	// hard coded user type and id here
 	// const userType = 'admin';
 	// const userId = '60a03b7bffa3c22511552b93';
-	const { userType, userId } = route.params;
+	const { userType, userId, sessionId } = route.params;
 
 	useEffect(() => {
 		const fetchParrots = async () => {
@@ -26,14 +27,35 @@ const ParrotList = ({ navigation, route }) => {
 		fetchParrots();
 	}, []);
 
+	const onSignOutButtonClicked = async () => {
+		console.log('sign out: ', `http://localhost:3000/api/sessions/${sessionId}/signout`);
+		await fetch(`http://localhost:3000/api/sessions/${sessionId}/signout`, {
+			method: 'GET',
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				Alert.alert(data.message);
+				if (data.message === 'Successfully Logged Out') navigation.navigate('Sign In');
+			})
+			.catch((error) => console.error(error));
+	};
+
 	return (
 		<View>
 			<Headbar />
-			<Button title="Add Parrot" onPress={() => navigation.navigate('Add Parrot', { userId, userId })} />
-			<Button
-				title="Map View"
-				onPress={() => navigation.navigate('Map View', { userType: userType, userId, userId })}
-			/>
+			<View>
+				{userType === 'admin' && (
+					<Button title="Add Parrot" onPress={() => navigation.navigate('Add Parrot', { userId, userId })} />
+				)}
+				{userType !== 'admin' && (
+					<Button
+						title="Map View"
+						onPress={() => navigation.navigate('Map View', { userType: userType, userId, userId })}
+					/>
+				)}
+				{/* <SignOut sessionId={sessionId} navigation={navigation} /> */}
+				<Button title="Sign Out" onPress={() => onSignOutButtonClicked()} />
+			</View>
 			<FlatList
 				data={parrots}
 				renderItem={({ item }) =>
