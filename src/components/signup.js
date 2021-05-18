@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { TextInput, Button, View, Text } from 'react-native';
 import styles from '../../styles';
-import { RadioButton } from 'react-native-paper';
+//import { RadioButton } from 'react-native-paper';
+import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button'
 
 const SignUp = ({ navigation }) => {
 	const [firstName, setFirstName] = useState();
@@ -11,6 +12,10 @@ const SignUp = ({ navigation }) => {
 	const [userType, setUserType] = useState();
 	const [password, setPassword] = useState();
 	const [password2, setPassword2] = useState();
+	const radio_list = [
+		{label: 'Administrator', value: 'admin'},
+		{label: 'Standard', value: 'standard'}
+	];
 
 	const onSignUpButtonClicked = async () => {
 		if (password !== password2) {
@@ -87,18 +92,6 @@ const SignUp = ({ navigation }) => {
 				autoCapitalize="none"
 				secureTextEntry={true}
 			/>
-			<Text>Administrator</Text>
-			<RadioButton
-				value="Administrator"
-				status={userType === 'admin' ? 'checked' : 'unchecked'}
-				onPress={() => setUserType('admin')}
-			/>
-			<Text>Standard User</Text>
-			<RadioButton
-				value="Standard"
-				status={userType === 'standard' ? 'checked' : 'unchecked'}
-				onPress={() => setUserType('standard')}
-			/>
 			<TextInput
 				style={styles.inputField}
 				placeholder="Password"
@@ -107,6 +100,11 @@ const SignUp = ({ navigation }) => {
 				onChangeText={setPassword2}
 				autoCapitalize="none"
 				secureTextEntry={true}
+			/>
+			<RadioForm
+				radio_props = {radio_list}
+				initial={'admin'}
+				onPress={(value) => setUserType(value)}
 			/>
 			<Button title="Sign Up" onPress={() => onSignUpButtonClicked()} />
 		</View>
