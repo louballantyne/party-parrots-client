@@ -3,7 +3,6 @@ import { View, FlatList, Button, SafeAreaView, Alert } from 'react-native';
 import Parrot from './parrotItem';
 import styles from '../../styles';
 import { Headbar } from './headbar';
-import { SignOut } from './signOut';
 
 const ParrotList = ({ navigation, route }) => {
 	const [parrots, setParrots] = useState([]);
@@ -53,7 +52,6 @@ const ParrotList = ({ navigation, route }) => {
 						onPress={() => navigation.navigate('Map View', { userType: userType, userId, userId })}
 					/>
 				)}
-				{/* <SignOut sessionId={sessionId} navigation={navigation} /> */}
 				<Button title="Sign Out" onPress={() => onSignOutButtonClicked()} />
 			</View>
 			<FlatList
