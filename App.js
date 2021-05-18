@@ -36,15 +36,81 @@ export default function App() {
             },
           }}
         />
-        <Stack.Screen name="Sign Up" component={SignUp} />
+        <Stack.Screen
+          name="Sign Up"
+          component={SignUp}
+          options={{
+            title: "",
+            headerStyle: {
+              backgroundColor: "#c5e3c7",
+            },
+            headerTintColor: "#bf04a3",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 30,
+            },
+          }}
+        />
         <Stack.Screen
           name="Parrot List"
           component={ParrotList}
-          options={{ title: "" }} // no title for Parrot list page
+          options={{
+            title: "",
+            headerStyle: {
+              backgroundColor: "#c5e3c7",
+            },
+            headerTintColor: "#bf04a3",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 30,
+            },
+          }} // no title for Parrot list page
         />
-        <Stack.Screen name="Parrot Page" component={ParrotPage} />
-        <Stack.Screen name="Add Parrot" component={NewParrot} />
-        <Stack.Screen name="Map View" component={ParrotsMapView} />
+        <Stack.Screen
+          name="Parrot Page"
+          component={ParrotPage}
+          options={{
+            title: "",
+            headerStyle: {
+              backgroundColor: "#c5e3c7",
+            },
+            headerTintColor: "#bf04a3",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 30,
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Add Parrot"
+          component={NewParrot}
+          options={{
+            title: "",
+            headerStyle: {
+              backgroundColor: "#c5e3c7",
+            },
+            headerTintColor: "#bf04a3",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 30,
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Map View"
+          component={ParrotsMapView}
+          options={{
+            title: "",
+            headerStyle: {
+              backgroundColor: "#c5e3c7",
+            },
+            headerTintColor: "#bf04a3",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 30,
+            },
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

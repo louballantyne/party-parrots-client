@@ -73,7 +73,6 @@ const ParrotList = ({ navigation, route }) => {
             }
           />
         )}
-        <Button title="Sign Out" onPress={() => onSignOutButtonClicked()} />
       </View>
       <FlatList
         data={parrots}
