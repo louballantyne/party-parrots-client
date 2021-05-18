@@ -5,7 +5,7 @@ import styles from '../../styles';
 import * as ImagePicker from 'expo-image-picker';
 import { ParrotLocationMap } from './parrotLocationMap';
 import { GEO_API_KEY } from '@env';
-import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
+import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
 
 const NewParrot = ({ navigation, route }) => {
 	const [image, setImage] = useState(null);
@@ -25,9 +25,9 @@ const NewParrot = ({ navigation, route }) => {
 		longitude: -0.127647,
 	});
 	const radio_list = [
-		{label: 'Unknown', value: 'Unknown'},
-		{label: 'Female', value: 'Female'},
-		{label: 'Male', value: 'Male'}
+		{ label: 'Unknown', value: 'Unknown' },
+		{ label: 'Female', value: 'Female' },
+		{ label: 'Male', value: 'Male' },
 	];
 
 	const checkMediaPermission = async () => {
@@ -87,9 +87,11 @@ const NewParrot = ({ navigation, route }) => {
 			})
 				.then((response) => response.json())
 				.then((data) => {
-					if (data.status) {
-						//console.log('download url: ', data.downloadUrl);
+					console.log('data from response: ', data);
+					if (data.downloadUrl) {
+						console.log('download url: ', data.downloadUrl);
 						setImageUrl(data.downloadUrl);
+						console.log('image url set: ', imageUrl);
 					} else {
 						Alert.alert('Error', data);
 					}
@@ -197,11 +199,7 @@ const NewParrot = ({ navigation, route }) => {
 				autoCapitalize="words"
 			/>
 			<Text>Gender</Text>
-			<RadioForm
-				radio_props={radio_list}
-				initial={'Unknown'}
-				onPress={(value) => setGender(value)}
-				/>
+			<RadioForm radio_props={radio_list} initial={'Unknown'} onPress={(value) => setGender(value)} />
 			<TextInput
 				style={styles.inputField}
 				placeholder="All about me..."

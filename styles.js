@@ -39,8 +39,8 @@ const styles = StyleSheet.create({
 		paddingRight: 10,
 	},
 	profileImageContainer: {
-		width: 200,
-		height: 200,
+		width: 100,
+		height: 100,
 		marginTop: 10,
 		marginBottom: 10,
 		alignSelf: 'center',
