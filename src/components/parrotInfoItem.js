@@ -6,7 +6,7 @@ const ParrotInfoItem = ({ label, info }) => {
 	return (
 		<View style={styles.infoItem}>
 			<Text style={styles.infoLabel}>{label}</Text>
-			<Text>{info}</Text>
+			<Text style={styles.itemText}>{info}</Text>
 		</View>
 	);
 };

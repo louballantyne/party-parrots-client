@@ -7,6 +7,25 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+	iconImageContainer: {
+    width: 100,
+    height: 100,
+    margin: 10,
+  },
+  iconImage: {
+    flex: 1,
+    width: 100,
+    height: 100,
+    // resizeMode: 'contain',
+    // borderRadius: 100,
+  },
+	infoItem: {
+		flexDirection: "row",
+		margin: 2,
+	},
+	infoLabel: {
+		fontWeight: "bold",
+	},
   inputForm: {
     margin: 20,
     // backgroundColor: 'pink',
@@ -26,6 +45,12 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     marginTop: 10,
   },
+	// This stops individual parrot text from
+	// going off the page
+	itemText: {
+		flexWrap: "wrap",
+		marginRight: 40
+	},
   dropDown: {
     width: 100,
     height: 100,
@@ -55,30 +80,11 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: "contain",
   },
-  iconImageContainer: {
-    width: 100,
-    height: 100,
-    margin: 10,
-  },
-  iconImage: {
-    flex: 1,
-    width: 100,
-    height: 100,
-    // resizeMode: 'contain',
-    // borderRadius: 100,
-  },
   parrotInfo: {
     margin: 10,
   },
   parrotApplications: {
     margin: 5,
-  },
-  infoItem: {
-    flexDirection: "row",
-    margin: 2,
-  },
-  infoLabel: {
-    fontWeight: "bold",
   },
   applicationsContainer: {
     margin: 10,
