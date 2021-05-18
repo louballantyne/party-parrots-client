@@ -196,7 +196,7 @@ const NewParrot = ({ navigation, route }) => {
 				style={styles.inputField}
 				placeholder="Location"
 				value={location}
-				onChangeText={(value) =>setLocation, }
+				onChangeText={setLocation}
 				autoCapitalize="words"
 			/>
 			<Button title="Refresh Map" onPress={() => getLocationGeocode(location)} />
