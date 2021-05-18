@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { TextInput, Button, View, Text } from 'react-native';
 import styles from '../../styles';
-//import { RadioButton } from 'react-native-paper';
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button'
 
 const SignUp = ({ navigation }) => {
