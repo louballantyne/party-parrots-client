@@ -5,6 +5,7 @@ import styles from '../../styles';
 import * as ImagePicker from 'expo-image-picker';
 import { ParrotLocationMap } from './parrotLocationMap';
 import { GEO_API_KEY } from '@env';
+import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 
 const NewParrot = ({ navigation, route }) => {
 	const [image, setImage] = useState(null);
@@ -23,6 +24,11 @@ const NewParrot = ({ navigation, route }) => {
 		latitude: 51.507322,
 		longitude: -0.127647,
 	});
+	const radio_list = [
+		{label: 'Unknown', value: 'Unknown'},
+		{label: 'Female', value: 'Female'},
+		{label: 'Male', value: 'Male'}
+	];
 
 	const checkMediaPermission = async () => {
 		if (Platform.OS !== 'web') {
@@ -191,16 +197,11 @@ const NewParrot = ({ navigation, route }) => {
 				autoCapitalize="words"
 			/>
 			<Text>Gender</Text>
-			<RNPickerSelect
-				style={styles.dropDown}
-				selectedValue={gender}
-				onValueChange={(value) => setGender(value)}
-				items={[
-					{ label: 'Unknown', value: 'Unknown' },
-					{ label: 'Female', value: 'Female' },
-					{ label: 'Male', value: 'Male' },
-				]}
-			/>
+			<RadioForm
+				radio_props={radio_list}
+				initial={'Unknown'}
+				onPress={(value) => setGender(value)}
+				/>
 			<TextInput
 				style={styles.inputField}
 				placeholder="All about me..."
