@@ -42,7 +42,7 @@ const ParrotPage = ({ route, navigation }) => {
 
 	// showApprove use showApprove && !isParrotApproved() for issues when navigate from parrot list
 	return (
-		<View>
+		<View style={styles.body}>
 			<View style={styles.profileImageContainer}>
 				<Image
 					source={{

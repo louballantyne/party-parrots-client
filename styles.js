@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
 	},
 	infoLabel: {
 		fontWeight: "bold",
+		marginLeft: 12,
 	},
 	newParrotForm: {
 		margin: 7,
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
 	// going off the page
 	itemText: {
 		flexWrap: "wrap",
-		marginRight: 40
+		marginRight: 40,
 	},
 	list: {
 		backgroundColor: "#c5e3c7",
@@ -75,6 +76,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     alignSelf: "center",
+		backgroundColor: "#c5e3c7",
   },
   profileImage: {
     flex: 1,
@@ -82,6 +84,7 @@ const styles = StyleSheet.create({
   },
   parrotInfo: {
     margin: 10,
+		backgroundColor: "#c5e3c7",
   },
   parrotApplications: {
     margin: 5,
