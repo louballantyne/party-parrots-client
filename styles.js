@@ -133,6 +133,17 @@ const styles = StyleSheet.create({
     height: 300,
     borderRadius: 300,
   },
+	smallImageContainer: {
+    marginTop: 20,
+    width: 200,
+    height: 200,
+    alignSelf: "center",
+  },
+  smallImage: {
+    width: 200,
+    height: 200,
+    borderRadius: 200,
+  },
 });
 
 export default styles;

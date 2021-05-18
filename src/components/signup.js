@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextInput, Button, View, Text } from 'react-native';
+import { TextInput, Button, View, Text, Image } from 'react-native';
 import styles from '../../styles';
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button'
 
@@ -49,7 +49,16 @@ const SignUp = ({ navigation }) => {
 	};
 
 	return (
+	<View style={styles.body}>
+		<View style={styles.smallImageContainer}>
+			<Image
+				source={require("../images/gify-parrot.gif")}
+				style={styles.smallImage}
+			/>
+		</View>
+		{}
 		<View style={styles.inputForm}>
+
 			<TextInput
 				style={styles.inputField}
 				placeholder="First Name"
@@ -105,7 +114,9 @@ const SignUp = ({ navigation }) => {
 				initial={'admin'}
 				onPress={(value) => setUserType(value)}
 			/>
-			<Button title="Sign Up" onPress={() => onSignUpButtonClicked()} />
+			<Button title="Sign Up" onPress={() => onSignUpButtonClicked()}
+			/>
+		</View>
 		</View>
 	);
 };
