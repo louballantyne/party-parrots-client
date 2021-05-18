@@ -43,6 +43,14 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     backgroundColor: "#EEF5EF",
   },
+	inputFieldApply: {
+		height: 40,
+		width: 300,
+		margin: 12,
+		paddingLeft: 0,
+		borderWidth: 0,
+		backgroundColor: "#EEF5EF",
+	},
   itemContainer: {
     flex: 1,
     flexDirection: "row",

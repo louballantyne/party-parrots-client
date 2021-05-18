@@ -31,7 +31,7 @@ const ApplyParrot = ({ parrotId, userId }) => {
 			{!applied && (
 				<View style={styles.inputForm}>
 					<TextInput
-						style={styles.inputField}
+						style={styles.inputFieldApply}
 						placeholder="Message"
 						keyboardType="default"
 						value={message}
