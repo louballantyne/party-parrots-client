@@ -118,8 +118,7 @@ const NewParrot = ({ navigation, route }) => {
 				user: userId,
 			}),
 		})
-			.then((response) => console.log(response))
-			//response.json())
+			.then((response) => response.json())
 			.then((data) => console.log(data))
 			.catch((error) => console.log('error: ', error));
 		navigation.navigate('Parrot List');
