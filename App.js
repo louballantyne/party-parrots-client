@@ -40,14 +40,13 @@ export default function App() {
           name="Sign Up"
           component={SignUp}
           options={{
-            title: "",
+            title: "Sign Up",
             headerStyle: {
               backgroundColor: "#c5e3c7",
             },
             headerTintColor: "#bf04a3",
             headerTitleStyle: {
-              fontWeight: "bold",
-              fontSize: 30,
+              fontSize: 20,
             },
           }}
         />
@@ -60,10 +59,6 @@ export default function App() {
               backgroundColor: "#c5e3c7",
             },
             headerTintColor: "#bf04a3",
-            headerTitleStyle: {
-              fontWeight: "bold",
-              fontSize: 30,
-            },
           }} // no title for Parrot list page
         />
         <Stack.Screen
@@ -75,10 +70,6 @@ export default function App() {
               backgroundColor: "#c5e3c7",
             },
             headerTintColor: "#bf04a3",
-            headerTitleStyle: {
-              fontWeight: "bold",
-              fontSize: 30,
-            },
           }}
         />
         <Stack.Screen
@@ -90,24 +81,20 @@ export default function App() {
               backgroundColor: "#c5e3c7",
             },
             headerTintColor: "#bf04a3",
-            headerTitleStyle: {
-              fontWeight: "bold",
-              fontSize: 30,
-            },
           }}
         />
         <Stack.Screen
           name="Map View"
           component={ParrotsMapView}
           options={{
-            title: "",
+            title: "Parrot Locations",
             headerStyle: {
               backgroundColor: "#c5e3c7",
             },
             headerTintColor: "#bf04a3",
             headerTitleStyle: {
               fontWeight: "bold",
-              fontSize: 30,
+              fontSize: 20,
             },
           }}
         />
