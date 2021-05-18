@@ -5,9 +5,6 @@ import styles from "../../styles";
 
 const ParrotList = ({ navigation, route }) => {
   const [parrots, setParrots] = useState([]);
-  // hard coded user type and id here
-  // const userType = 'admin';
-  // const userId = '60a03b7bffa3c22511552b93';
   const { userType, userId, sessionId } = route.params;
 
   useEffect(() => {
