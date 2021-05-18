@@ -25,9 +25,9 @@ const NewParrot = ({ navigation, route }) => {
 		longitude: -0.127647,
 	});
 	const radio_list = [
-		{ label: 'Unknown', value: 'Unknown' },
-		{ label: 'Female', value: 'Female' },
-		{ label: 'Male', value: 'Male' },
+		{ label: 'Unknown   ', value: 'Unknown' },
+		{ label: 'Female   ', value: 'Female' },
+		{ label: 'Male   ', value: 'Male' },
 	];
 
 	const checkMediaPermission = async () => {
@@ -157,71 +157,82 @@ const NewParrot = ({ navigation, route }) => {
 
 	return (
 		<ScrollView>
-		<View style={styles.inputForm}>
-			<View style={styles.profileImageContainer} onStartShouldSetResponder={() => pickImage()}>
-				<Image
-					source={{ uri: image ? image : 'https://party-parrots-s3-bucket.s3.amazonaws.com/parrot.jpeg' }}
-					style={styles.profileImage}
-				/>
+			<View style={styles.formBody}>
+				<View style={styles.inputForm}>
+					<View style={styles.profileImageContainer} onStartShouldSetResponder={() => pickImage()}>
+						<Image
+							source={{
+								uri: image ? image : 'https://party-parrots-s3-bucket.s3.amazonaws.com/parrot.jpeg',
+							}}
+							style={styles.profileImage}
+						/>
+					</View>
+					<TextInput
+						style={styles.inputField}
+						placeholder="Name"
+						value={name}
+						onChangeText={setName}
+						autoCapitalize="words"
+					/>
+					<TextInput
+						style={styles.inputField}
+						placeholder="Charity"
+						value={charity}
+						onChangeText={setCharity}
+						autoCapitalize="words"
+					/>
+					<TextInput
+						style={styles.inputField}
+						placeholder="Species (e.g. Timneh African Grey)"
+						value={species}
+						onChangeText={setSpecies}
+						autoCapitalize="words"
+					/>
+					<TextInput
+						style={styles.inputField}
+						placeholder="Age"
+						value={age}
+						onChangeText={setAge}
+						keyboardType="numeric"
+					/>
+					<TextInput
+						style={styles.inputField}
+						placeholder="Location"
+						value={location}
+						onChangeText={setLocation}
+						autoCapitalize="words"
+					/>
+					<Button title="Refresh Map" onPress={() => getLocationGeocode(location)} />
+					<Text>Gender</Text>
+					<RadioForm
+						style={styles.radioForm}
+						radio_props={radio_list}
+						initial={'Unknown'}
+						onPress={(value) => setGender(value)}
+						formHorizontal={true}
+						buttonColor={'#50C900'}
+					/>
+					<TextInput
+						style={styles.inputField}
+						placeholder="All about me..."
+						value={bio}
+						onChangeText={setBio}
+						autoCapitalize="sentences"
+						multiline
+						numberOfLines={8}
+					/>
+					<TextInput
+						style={styles.inputField}
+						placeholder="Does this bird have special needs? If so, please provide details."
+						value={specialNeeds}
+						onChangeText={setSpecialNeeds}
+						autoCapitalize="sentences"
+					/>
+					<Button title="Add parrot" onPress={() => onAddButtonClicked()} />
+					<Text>{'Latitude: ' + geocode.latitude + ' Longitude: ' + geocode.longitude}</Text>
+					<ParrotLocationMap geocode={geocode} />
+				</View>
 			</View>
-			<TextInput
-				style={styles.inputField}
-				placeholder="Name"
-				value={name}
-				onChangeText={setName}
-				autoCapitalize="words"
-			/>
-			<TextInput
-				style={styles.inputField}
-				placeholder="Charity"
-				value={charity}
-				onChangeText={setCharity}
-				autoCapitalize="words"
-			/>
-			<TextInput
-				style={styles.inputField}
-				placeholder="Species (e.g. Timneh African Grey)"
-				value={species}
-				onChangeText={setSpecies}
-				autoCapitalize="words"
-			/>
-			<TextInput
-				style={styles.inputField}
-				placeholder="Age"
-				value={age}
-				onChangeText={setAge}
-				keyboardType="numeric"
-			/>
-			<TextInput
-				style={styles.inputField}
-				placeholder="Location"
-				value={location}
-				onChangeText={setLocation}
-				autoCapitalize="words"
-			/>
-			<Button title="Refresh Map" onPress={() => getLocationGeocode(location)} />
-			<Text>Gender</Text>
-			<RadioForm radio_props={radio_list} initial={'Unknown'} onPress={(value) => setGender(value)} />
-			<TextInput
-				style={styles.inputField}
-				placeholder="All about me..."
-				value={bio}
-				onChangeText={setBio}
-				autoCapitalize="sentences"
-				multiline
-				numberOfLines={8}
-			/>
-			<TextInput
-				style={styles.inputField}
-				placeholder="Does this bird have special needs? If so, please provide details."
-				value={specialNeeds}
-				onChangeText={setSpecialNeeds}
-				autoCapitalize="sentences"
-			/>
-			<Button title="Add parrot" onPress={() => onAddButtonClicked()} />
-			<Text>{'Latitude: ' + geocode.latitude + ' Longitude: ' + geocode.longitude}</Text>
-			<ParrotLocationMap geocode={geocode} />
-		</View>
 		</ScrollView>
 	);
 };

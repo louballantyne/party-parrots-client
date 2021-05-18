@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TextInput, Button, View, Text } from 'react-native';
 import styles from '../../styles';
-import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button'
+import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
 
 const SignUp = ({ navigation }) => {
 	const [firstName, setFirstName] = useState();
@@ -12,8 +12,8 @@ const SignUp = ({ navigation }) => {
 	const [password, setPassword] = useState();
 	const [password2, setPassword2] = useState();
 	const radio_list = [
-		{label: "I work with a charity and have parrots to rehome", value: 'admin'},
-		{label: "I have a home to give to a parrot in need", value: 'standard'}
+		{ label: 'I work with a charity and have parrots to rehome', value: 'admin' },
+		{ label: 'I have a home to give to a parrot in need', value: 'standard' },
 	];
 
 	const onSignUpButtonClicked = async () => {
@@ -49,63 +49,68 @@ const SignUp = ({ navigation }) => {
 	};
 
 	return (
-		<View style={styles.inputForm}>
-			<TextInput
-				style={styles.inputField}
-				placeholder="First Name"
-				keyboardType="default"
-				value={firstName}
-				onChangeText={setFirstName}
-				autoCapitalize="none"
-			/>
-			<TextInput
-				style={styles.inputField}
-				placeholder="Last Name"
-				keyboardType="default"
-				value={lastName}
-				onChangeText={setLastName}
-				autoCapitalize="none"
-			/>
-			<TextInput
-				style={styles.inputField}
-				placeholder="Username"
-				keyboardType="default"
-				value={username}
-				onChangeText={setUsername}
-				autoCapitalize="none"
-			/>
-			<TextInput
-				style={styles.inputField}
-				placeholder="Email"
-				keyboardType="default"
-				value={email}
-				onChangeText={setEmail}
-				autoCapitalize="none"
-			/>
-			<TextInput
-				style={styles.inputField}
-				placeholder="Password"
-				keyboardType="default"
-				value={password}
-				onChangeText={setPassword}
-				autoCapitalize="none"
-				secureTextEntry={true}
-			/>
-			<TextInput
-				style={styles.inputField}
-				placeholder="Password"
-				keyboardType="default"
-				value={password2}
-				onChangeText={setPassword2}
-				autoCapitalize="none"
-				secureTextEntry={true}
-			/>
-			<RadioForm
-				radio_props = {radio_list}
-				initial={'admin'}
-				onPress={(value) => setUserType(value)}
-			/>
-			<Button title="Sign Up" onPress={() => onSignUpButtonClicked()} />
+		<View style={styles.formBody}>
+			<View style={styles.inputForm}>
+				<TextInput
+					style={styles.inputField}
+					placeholder="First Name"
+					keyboardType="default"
+					value={firstName}
+					onChangeText={setFirstName}
+					autoCapitalize="none"
+				/>
+				<TextInput
+					style={styles.inputField}
+					placeholder="Last Name"
+					keyboardType="default"
+					value={lastName}
+					onChangeText={setLastName}
+					autoCapitalize="none"
+				/>
+				<TextInput
+					style={styles.inputField}
+					placeholder="Username"
+					keyboardType="default"
+					value={username}
+					onChangeText={setUsername}
+					autoCapitalize="none"
+				/>
+				<TextInput
+					style={styles.inputField}
+					placeholder="Email"
+					keyboardType="default"
+					value={email}
+					onChangeText={setEmail}
+					autoCapitalize="none"
+				/>
+				<TextInput
+					style={styles.inputField}
+					placeholder="Password"
+					keyboardType="default"
+					value={password}
+					onChangeText={setPassword}
+					autoCapitalize="none"
+					secureTextEntry={true}
+				/>
+				<TextInput
+					style={styles.inputField}
+					placeholder="Password"
+					keyboardType="default"
+					value={password2}
+					onChangeText={setPassword2}
+					autoCapitalize="none"
+					secureTextEntry={true}
+				/>
+				<RadioForm
+					radio_props={radio_list}
+					initial={'admin'}
+					onPress={(value) => setUserType(value)}
+					buttonColor={'#50C900'}
+				/>
+				<View style={styles.buttonContainer} onStartShouldSetResponder={() => onSignUpButtonClicked()}>
+					<Text style={styles.buttonText}>SIGN UP</Text>
+				</View>
+			</View>
 		</View>
 	);
 };

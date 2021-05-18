@@ -38,7 +38,9 @@ const ApplyParrot = ({ parrotId, userId }) => {
 						onChangeText={setMessage}
 						autoCapitalize="none"
 					/>
-					<Button title="Apply" onPress={() => onApplyButtonClicked()} />
+					<View style={styles.buttonContainer} onStartShouldSetResponder={() => onApplyButtonClicked()}>
+						<Text style={styles.buttonText}>APPLY</Text>
+					</View>
 				</View>
 			)}
 			{applied && <Text style={styles.redBoldFont}>Applied!</Text>}
