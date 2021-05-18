@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { TextInput, Button, View, Image, Alert, Platform, Text, ScrollView } from 'react-native';
-import RNPickerSelect from 'react-native-picker-select';
 import styles from '../../styles';
 import * as ImagePicker from 'expo-image-picker';
 import { ParrotLocationMap } from './parrotLocationMap';
@@ -157,7 +156,7 @@ const NewParrot = ({ navigation, route }) => {
 
 	return (
 		<ScrollView>
-		<View style={styles.inputForm}>
+		<View style={styles.newParrotForm}>
 			<View style={styles.profileImageContainer} onStartShouldSetResponder={() => pickImage()}>
 				<Image
 					source={{ uri: image ? image : 'https://party-parrots-s3-bucket.s3.amazonaws.com/parrot.jpeg' }}

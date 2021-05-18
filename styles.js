@@ -26,8 +26,13 @@ const styles = StyleSheet.create({
 	infoLabel: {
 		fontWeight: "bold",
 	},
+	newParrotForm: {
+		margin: 7,
+		backgroundColor: "#c5e3c7",
+	},
   inputForm: {
     margin: 20,
+		backgroundColor: "#c5e3c7",
     // backgroundColor: 'pink',
   },
   inputField: {
