@@ -12,8 +12,8 @@ const SignUp = ({ navigation }) => {
 	const [password, setPassword] = useState();
 	const [password2, setPassword2] = useState();
 	const radio_list = [
-		{label: 'Administrator', value: 'admin'},
-		{label: 'Standard', value: 'standard'}
+		{label: "I work with a charity and have parrots to rehome", value: 'admin'},
+		{label: "I have a home to give to a parrot in need", value: 'standard'}
 	];
 
 	const onSignUpButtonClicked = async () => {
