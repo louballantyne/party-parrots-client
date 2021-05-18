@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextInput, Button, View, Image, Alert, Platform, Text } from 'react-native';
+import { TextInput, Button, View, Image, Alert, Platform, Text, ScrollView } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import styles from '../../styles';
 import * as ImagePicker from 'expo-image-picker';
@@ -156,6 +156,7 @@ const NewParrot = ({ navigation, route }) => {
 	};
 
 	return (
+		<ScrollView>
 		<View style={styles.inputForm}>
 			<View style={styles.profileImageContainer} onStartShouldSetResponder={() => pickImage()}>
 				<Image
@@ -221,6 +222,7 @@ const NewParrot = ({ navigation, route }) => {
 			<Text>{'Latitude: ' + geocode.latitude + ' Longitude: ' + geocode.longitude}</Text>
 			<ParrotLocationMap geocode={geocode} />
 		</View>
+		</ScrollView>
 	);
 };
 
