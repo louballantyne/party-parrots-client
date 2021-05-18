@@ -118,12 +118,22 @@ const SignIn = (props) => {
         >
           <Text style={styles.text}> Sign In</Text>
         </TouchableOpacity>
-
+        <Text
+          style={{
+            color: "#bf04a3",
+            alignSelf: "center",
+            fontSize: 16,
+            padding: 10,
+          }}
+        >
+          {" "}
+          Not a user yet...?{" "}
+        </Text>
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate("Sign Up")}
         >
-          <Text style={styles.text}> Create an Account</Text>
+          <Text style={styles.text}> Create an Account!</Text>
         </TouchableOpacity>
       </View>
     </View>

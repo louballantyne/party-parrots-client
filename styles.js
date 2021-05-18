@@ -138,7 +138,6 @@ const styles = StyleSheet.create({
   text: {
     color: "white",
     fontSize: 15,
-    fontWeight: "bold",
     alignSelf: "center",
     justifyContent: "center",
   },
