@@ -167,6 +167,13 @@ const styles = StyleSheet.create({
     margin: 4,
     width: "50%",
   },
+
+  signOutButton: {
+    color: "#bf04a3",
+    fontSize: 18,
+    fontWeight: "bold",
+    margin: 10,
+  },
 });
 
 export default styles;

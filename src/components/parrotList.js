@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { View, FlatList, Button, SafeAreaView, Alert } from "react-native";
+import {
+  View,
+  FlatList,
+  Button,
+  SafeAreaView,
+  Alert,
+  TouchableOpacity,
+  Text,
+} from "react-native";
 import Parrot from "./parrotItem";
 import styles from "../../styles";
 
@@ -45,7 +53,9 @@ const ParrotList = ({ navigation, route }) => {
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <Button onPress={() => onSignOutButtonClicked()} title="Sign Out" />
+        <TouchableOpacity onPress={() => onSignOutButtonClicked()}>
+          <Text style={styles.signOutButton}>Log Out{` `} </Text>
+        </TouchableOpacity>
       ),
     });
   }, [navigation, onSignOutButtonClicked]);
