@@ -33,12 +33,19 @@ const ParrotApplication = ({
 
 	return (
 		<View style={styles.applicationContainer}>
-			<View>
+			<View style={styles.applicationContent}>
 				<ParrotInfoItem label={applicant + ': '} info={message} />
 				<ParrotInfoItem label="Status: " info={newApproved ? 'Approved' : showApprove ? 'NA' : 'Declined'} />
 			</View>
 			<View style={styles.approveButton}>
-				{showApprove && <Button title="Approve" onPress={() => onApproveButtonClicked()} />}
+				{showApprove && (
+					<View
+						style={styles.smallButtonContainer}
+						onStartShouldSetResponder={() => onApproveButtonClicked()}
+					>
+						<Text style={styles.smallButtonText}>APPROVE</Text>
+					</View>
+				)}
 			</View>
 		</View>
 	);
