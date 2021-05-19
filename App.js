@@ -19,6 +19,7 @@ import {
   Nunito_600SemiBold,
 } from "@expo-google-fonts/nunito";
 import AppLoading from "expo-app-loading";
+import Confetti from "react-native-confetti";
 
 const Stack = createStackNavigator();
 
