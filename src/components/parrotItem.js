@@ -26,7 +26,7 @@ const Parrot = ({ parrotId, name, location, age, gender, imgUrl, approved, navig
 			{approved && (
 				<View style={styles.iconImageContainer}>
 					<ImageBackground style={styles.iconImage} source={{ uri: imgUrl }} blurRadius={5}>
-						<Image style={styles.iconImage} source={require('../images/rehomed.png')} blurRadius={3} />
+						<Image style={styles.iconImage} source={require('../images/rehomedPurple.png')} blurRadius={3} />
 					</ImageBackground>
 				</View>
 			)}
@@ -38,6 +38,7 @@ const Parrot = ({ parrotId, name, location, age, gender, imgUrl, approved, navig
 			</View>
 		</View>
 	);
+
 };
 
 export default Parrot;

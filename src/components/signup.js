@@ -34,14 +34,26 @@ const SignUp = ({ navigation }) => {
     if (password !== password2) {
       return alert("Passwords do not match");
     }
-    console.log(
-      "input fields: ",
-      firstName,
-      lastName,
-      username,
-      email,
-      password
-    );
+
+    if (
+      firstName == undefined ||
+      lastName == undefined ||
+      username == undefined ||
+      email == undefined ||
+      userType == undefined ||
+      password == undefined
+    ) {
+      return alert("Ooops... Looks like you've forgotten something!");
+    }
+
+    // console.log(
+    //   "input fields: ",
+    //   firstName,
+    //   lastName,
+    //   username,
+    //   email,
+    //   password
+    // );
     await fetch(`http://localhost:3000/api/users`, {
       method: "POST",
       headers: {
@@ -133,6 +145,7 @@ const SignUp = ({ navigation }) => {
           initial={"admin"}
           onPress={(value) => setUserType(value)}
           buttonColor={"#bf04a3"}
+          buttonSize={10}
         />
       </View>
       <View style={{ flex: 0.7 }}>

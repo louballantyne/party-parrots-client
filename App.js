@@ -1,3 +1,4 @@
+
 import React from 'react';
 import 'react-native-gesture-handler';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
@@ -9,6 +10,7 @@ import { SignIn } from './src/components/signIn';
 import { NewParrot } from './src/components/newParrot';
 import { ParrotsMapView } from './src/components/parrotsMapView';
 import { AmaticSC_700Bold } from '@expo-google-fonts/amatic-sc';
+
 import {
   useFonts,
   Nunito_600SemiBold_Italic,
@@ -24,9 +26,11 @@ import Confetti from "react-native-confetti";
 
 const Stack = createStackNavigator();
 
+
 export default function App() {
 	const navTheme = DefaultTheme;
 	navTheme.colors.background = '#c5e3c7';
+
 
   let [fontsLoaded] = useFonts({
     AmaticSC_700Bold,
@@ -70,7 +74,13 @@ export default function App() {
             },
             headerTintColor: "#bf04a3",
             headerTitleStyle: {
-              fontSize: 20,
+              fontFamily: "AmaticSC_700Bold",
+              fontSize: 40,
+            },
+            headerBackTitle: "Back",
+            headerBackTitleStyle: {
+              fontFamily: "AmaticSC_700Bold",
+              fontSize: 30,
             },
           }}
         />
@@ -78,7 +88,7 @@ export default function App() {
           name="Parrot List"
           component={ParrotList}
           options={{
-            title: "Parrot Party",
+            title: "The Parrots",
             headerStyle: {
               backgroundColor: "#c5e3c7",
             },
@@ -86,6 +96,11 @@ export default function App() {
             headerTitleStyle: {
               fontFamily: "AmaticSC_700Bold",
               fontSize: 40,
+            },
+            headerBackTitle: "Back",
+            headerBackTitleStyle: {
+              fontFamily: "AmaticSC_700Bold",
+              fontSize: 30,
             },
           }} // no title for Parrot list page
         />
@@ -98,6 +113,11 @@ export default function App() {
               backgroundColor: "#c5e3c7",
             },
             headerTintColor: "#bf04a3",
+            headerBackTitle: "Back",
+            headerBackTitleStyle: {
+              fontFamily: "AmaticSC_700Bold",
+              fontSize: 30,
+            },
           }}
         />
         <Stack.Screen
@@ -109,13 +129,18 @@ export default function App() {
               backgroundColor: "#c5e3c7",
             },
             headerTintColor: "#bf04a3",
+            headerBackTitle: "Back",
+            headerBackTitleStyle: {
+              fontFamily: "AmaticSC_700Bold",
+              fontSize: 30,
+            },
           }}
         />
         <Stack.Screen
           name="Map View"
           component={ParrotsMapView}
           options={{
-            title: "Find a Parrot",
+            title: "Choose a Parrot",
             headerStyle: {
               backgroundColor: "#c5e3c7",
             },
@@ -123,6 +148,11 @@ export default function App() {
             headerTitleStyle: {
               fontFamily: "AmaticSC_700Bold",
               fontSize: 40,
+            },
+            headerBackTitle: "Back",
+            headerBackTitleStyle: {
+              fontFamily: "AmaticSC_700Bold",
+              fontSize: 30,
             },
           }}
         />

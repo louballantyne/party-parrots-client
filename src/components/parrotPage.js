@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, Image, ScrollView } from 'react-native';
+import { View, Text, FlatList, Image, ScrollView,TouchableOpacity } from 'react-native';
 import styles from '../../styles';
 import { ApplyParrot } from './applyParrot';
 import { ParrotInfoItem } from './parrotInfoItem';
@@ -47,6 +47,16 @@ const ParrotPage = ({ route, navigation }) => {
 		return approvedApplication.length > 0 && approvedApplication[0].user._id === userId;
 	};
 
+
+    React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <TouchableOpacity onPress={() => navigation.navigate("Parrot List")}>
+          <Text style={styles.allParrotsButton}>All Parrots</Text>
+        </TouchableOpacity>
+      ),
+    });
+  }, [navigation, navigation.navigate]);
 	// showApprove use showApprove && !isParrotApproved() for issues when navigate from parrot list
 	return (
 		<ScrollView>
@@ -117,6 +127,7 @@ const ParrotPage = ({ route, navigation }) => {
 			</View>
 		</ScrollView>
 	);
+
 };
 
 export { ParrotPage };
