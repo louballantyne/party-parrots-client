@@ -257,7 +257,7 @@ const NewParrot = ({ navigation, route }) => {
           />
           <TextInput
             style={styles.addParrotInputField}
-            placeholder="Does this bird have special needs? If so, please provide details."
+            placeholder="Does this bird have special needs?"
             value={specialNeeds}
             onChangeText={setSpecialNeeds}
             autoCapitalize="sentences"

@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     width: "85%",
     borderRadius: 10,
+    fontFamily: "Nunito_600SemiBold",
   },
   addText: {
     fontWeight: "bold",
@@ -48,6 +49,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     color: "white",
     alignSelf: "center",
+    fontFamily: "Nunito_600SemiBold",
   },
   applicationContainer: {
     flexDirection: "row",
@@ -135,6 +137,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     color: "grey",
+    fontFamily: "Nunito_400Regular",
   },
   formBody: {
     // navbar #80b383
@@ -185,6 +188,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     width: "50%",
     borderRadius: 10,
+    fontFamily: "Nunito_600SemiBold",
   },
   itemContainer: {
     flex: 1,
@@ -284,6 +288,7 @@ const styles = StyleSheet.create({
     color: "#bf04a3",
     textAlignVertical: "center",
     fontSize: 15,
+    fontFamily: "Nunito_600SemiBold",
   },
   signInButton: {
     padding: 10,

@@ -135,7 +135,7 @@ export default function App() {
           name="Map View"
           component={ParrotsMapView}
           options={{
-            title: "Find a Parrot",
+            title: "Choose a Parrot",
             headerStyle: {
               backgroundColor: "#c5e3c7",
             },
