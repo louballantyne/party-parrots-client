@@ -72,6 +72,7 @@ const ParrotPage = ({ route, navigation }) => {
 				)}
 				{userType === 'admin' && (
 					<FlatList
+						style = {styles.applicationsContainer}
 						data={applications}
 						renderItem={({ item }) => (
 							<ParrotApplication

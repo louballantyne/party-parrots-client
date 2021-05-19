@@ -22,10 +22,12 @@ const styles = StyleSheet.create({
 	infoItem: {
 		flexDirection: "row",
 		margin: 2,
+		marginRight: 10,
 	},
 	infoLabel: {
 		fontWeight: "bold",
 		marginLeft: 12,
+		marginRight: 10,
 	},
 	newParrotForm: {
 		margin: 7,
@@ -34,6 +36,7 @@ const styles = StyleSheet.create({
   inputForm: {
     margin: 20,
 		backgroundColor: "#c5e3c7",
+		marginRight: 10,
     // backgroundColor: 'pink',
   },
   inputField: {
@@ -42,6 +45,7 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     borderWidth: 0,
     backgroundColor: "#EEF5EF",
+		marginRight: 10,
   },
 	inputFieldApply: {
 		height: 40,
@@ -50,14 +54,17 @@ const styles = StyleSheet.create({
 		paddingLeft: 0,
 		borderWidth: 0,
 		backgroundColor: "#EEF5EF",
+		marginRight: 10,
 	},
   itemContainer: {
     flex: 1,
     flexDirection: "row",
+		marginRight: 10,
   },
   itemInfoContainer: {
     flexDirection: "column",
     marginTop: 10,
+		marginRight: 10,
   },
 	// This stops individual parrot text from
 	// going off the page
@@ -67,6 +74,7 @@ const styles = StyleSheet.create({
 	},
 	list: {
 		backgroundColor: "#c5e3c7",
+		margin: 20,
 	},
   header: {
     alignSelf: "stretch",

@@ -40,7 +40,7 @@ const ParrotList = ({ navigation, route }) => {
   };
 
   return (
-    <View>
+    <View style = {styles.body}>
       <View style={styles.list}>
         {userType === "admin" && (
           <Button
@@ -52,6 +52,7 @@ const ParrotList = ({ navigation, route }) => {
         )}
         {userType !== "admin" && (
           <Button
+            style = {styles.list}
             title="Map View"
             onPress={() =>
               navigation.navigate("Map View", {
@@ -62,7 +63,10 @@ const ParrotList = ({ navigation, route }) => {
             }
           />
         )}
-        <Button title="Sign Out" onPress={() => onSignOutButtonClicked()} />
+        <Button
+          title="Sign Out"
+          style = {styles.list}
+          onPress={() => onSignOutButtonClicked()} />
       </View>
       <FlatList
         style = {styles.list}
@@ -70,6 +74,7 @@ const ParrotList = ({ navigation, route }) => {
         renderItem={({ item }) =>
           (userType !== "admin" || userId === item.user) && (
             <Parrot
+              style = {styles.list}
               key={item._id}
               parrotId={item._id}
               name={item.name}
