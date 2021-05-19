@@ -1,22 +1,26 @@
-// import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-// import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
-import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-// import { useEffect } from 'react';
-import { ParrotList } from './src/components/parrotList';
-import { SignUp } from './src/components/signup';
-import { ParrotPage } from './src/components/parrotPage';
-import { SignIn } from './src/components/signIn';
-import { NewParrot } from './src/components/newParrot';
-import { ParrotsMapView } from './src/components/parrotsMapView';
-import styles from './styles';
+import React from "react";
+import "react-native-gesture-handler";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { ParrotList } from "./src/components/parrotList";
+import { SignUp } from "./src/components/signup";
+import { ParrotPage } from "./src/components/parrotPage";
+import { SignIn } from "./src/components/signIn";
+import { NewParrot } from "./src/components/newParrot";
+import { ParrotsMapView } from "./src/components/parrotsMapView";
+import { useFonts, AmaticSC_700Bold } from "@expo-google-fonts/amatic-sc";
+import AppLoading from "expo-app-loading";
 
 const Stack = createStackNavigator();
 
 export default function App() {
-	// useEffect() to get the log in status
+  let [fontsLoaded] = useFonts({
+    AmaticSC_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
 
   return (
     <NavigationContainer>
