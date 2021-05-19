@@ -41,6 +41,8 @@ const SignIn = (props) => {
         }
       })
       .catch((error) => console.error(error));
+    setUserName("");
+    setPassWord("");
   };
 
   const keyPressed = (event) => {

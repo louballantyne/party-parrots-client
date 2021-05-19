@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
-import { TextInput, Button, View, Image, Alert, Platform, Text, ScrollView } from 'react-native';
-import RNPickerSelect from 'react-native-picker-select';
+import {
+	TextInput,
+	Button,
+	View,
+	Image,
+	Alert,
+	Platform,
+	Text,
+	ScrollView,
+	TouchableOpacity
+} from 'react-native';
 import styles from '../../styles';
 import * as ImagePicker from 'expo-image-picker';
 import { ParrotLocationMap } from './parrotLocationMap';
@@ -14,7 +23,7 @@ const NewParrot = ({ navigation, route }) => {
 	const [species, setSpecies] = useState();
 	const [age, setAge] = useState();
 	const [location, setLocation] = useState();
-	const [gender, setGender] = useState('Unknown');
+	const [gender, setGender] = useState('Female');
 	const [bio, setBio] = useState();
 	const [specialNeeds, setSpecialNeeds] = useState();
 	const [imageUrl, setImageUrl] = useState(null);
@@ -24,9 +33,9 @@ const NewParrot = ({ navigation, route }) => {
 		longitude: -0.127647,
 	});
 	const radio_list = [
-		{ label: 'Unknown   ', value: 'Unknown' },
 		{ label: 'Female   ', value: 'Female' },
 		{ label: 'Male   ', value: 'Male' },
+		{ label: 'Unknown   ', value: 'Unknown' },
 	];
 
 	const checkMediaPermission = async () => {
@@ -95,7 +104,16 @@ const NewParrot = ({ navigation, route }) => {
 
 	const onAddButtonClicked = async () => {
 		await getLocationGeocode(location);
-		await fetch(`http://localhost:3000/api/parrots`, {
+		if ( name == undefined ||
+				 charity == undefined ||
+				 species == undefined ||
+				 age == undefined ||
+				 location == undefined ||
+				 gender == undefined ||
+				 bio == undefined ||
+				 specialNeeds == undefined)
+		{ return alert("Ooops... Looks like you've forgotten something!") }
+			await fetch(`http://localhost:3000/api/parrots`, {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
@@ -151,74 +169,84 @@ const NewParrot = ({ navigation, route }) => {
 					<View style={styles.profileImageContainer} onStartShouldSetResponder={() => pickImage()}>
 						<Image
 							source={{
-								uri: image ? image : 'https://party-parrots-s3-bucket.s3.amazonaws.com/parrot.jpeg',
+								uri: image ? image : 'https://party-parrots-s3-bucket.s3.amazonaws.com/camera.png',
 							}}
 							style={styles.profileImage}
 						/>
 					</View>
 					<TextInput
-						style={styles.inputField}
+						style={styles.addParrotInputField}
 						placeholder="Name"
 						value={name}
 						onChangeText={setName}
 						autoCapitalize="words"
 					/>
 					<TextInput
-						style={styles.inputField}
+						style={styles.addParrotInputField}
 						placeholder="Charity"
 						value={charity}
 						onChangeText={setCharity}
 						autoCapitalize="words"
 					/>
 					<TextInput
-						style={styles.inputField}
+						style={styles.addParrotInputField}
 						placeholder="Species (e.g. Timneh African Grey)"
 						value={species}
 						onChangeText={setSpecies}
 						autoCapitalize="words"
 					/>
 					<TextInput
-						style={styles.inputField}
+						style={styles.addParrotInputField}
 						placeholder="Age"
 						value={age}
 						onChangeText={setAge}
 						keyboardType="numeric"
 					/>
 					<TextInput
-						style={styles.inputField}
+						style={styles.addParrotInputField}
 						placeholder="Location"
 						value={location}
 						onChangeText={setLocation}
 						autoCapitalize="words"
 					/>
-					<Button title="Refresh Map" onPress={() => getLocationGeocode(location)} />
-					<Text>Gender</Text>
+					<TouchableOpacity
+						style={styles.refresh}
+						onPress={() => getLocationGeocode(location)}>
+						<Text style={styles.refreshText}>
+						Refresh Map
+						</Text>
+					</TouchableOpacity>
 					<RadioForm
 						style={styles.radioForm}
 						radio_props={radio_list}
 						initial={'Unknown'}
 						onPress={(value) => setGender(value)}
 						formHorizontal={true}
-						buttonColor={'#50C900'}
+						buttonSize={20}
+						labelStyle={{fontSize: 18}}
+						buttonColor={'#bf04a3'}
 					/>
 					<TextInput
-						style={styles.inputField}
+						style={[styles.addParrotInputField,
+							{height: 100}]}
 						placeholder="All about me..."
 						value={bio}
 						onChangeText={setBio}
 						autoCapitalize="sentences"
-						multiline
+						multiline={true}
 						numberOfLines={8}
 					/>
 					<TextInput
-						style={styles.inputField}
+						style={styles.addParrotInputField}
 						placeholder="Does this bird have special needs? If so, please provide details."
 						value={specialNeeds}
 						onChangeText={setSpecialNeeds}
 						autoCapitalize="sentences"
 					/>
-					<Button title="Add parrot" onPress={() => onAddButtonClicked()} />
-					<Text>{'Latitude: ' + geocode.latitude + ' Longitude: ' + geocode.longitude}</Text>
+					<TouchableOpacity style = {styles.addParrotButtonContainer} onPress={() => onAddButtonClicked()}>
+						<Text style={styles.addText}>Add parrot</Text>
+					</TouchableOpacity>
+					<Text style={styles.coords}>{'Latitude: ' + geocode.latitude + ' Longitude: ' + geocode.longitude}</Text>
 					<ParrotLocationMap geocode={geocode} />
 				</View>
 			</View>

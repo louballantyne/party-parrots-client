@@ -2,7 +2,54 @@ import { Dimensions, StyleSheet } from 'react-native';
 import { withSafeAreaInsets } from 'react-native-safe-area-context';
 
 const styles = StyleSheet.create({
-	applicationContainer: {
+  addButtonText: {
+  color: "white",
+  fontSize: 60,
+  alignSelf: "center",
+  fontFamily: "Nunito_600SemiBold",
+},
+addParrotButton: {
+  borderRadius: 30,
+  alignSelf: "center",
+  textAlignVertical: "center",
+  backgroundColor: "#bf04a3",
+  margin: 5,
+  width: "20%",
+  height: "65%",
+},
+addIcon: {
+  height: 50,
+  width: 50,
+  flex: 1,
+  resizeMode: "contain",
+  paddingLeft: 15,
+  marginLeft: 10,
+},
+addParrotButtonContainer:{
+  height: 50,
+  width: "80%",
+  paddingBottom: 10,
+  backgroundColor: "#bf04a3",
+  borderRadius: 70
+},
+addParrotInputField: {
+  height: 40,
+  margin: 10,
+  paddingLeft: 5,
+  borderWidth: 0,
+  backgroundColor: "white",
+  width: "85%",
+  borderRadius: 10,
+},
+addText: {
+  fontWeight: "bold",
+  textAlignVertical: "center",
+  marginTop: 10,
+  fontSize: 22,
+  color: "white",
+  alignSelf: "center"
+},
+applicationContainer: {
 		// flexDirection: 'row',
 		margin: 5,
 		backgroundColor: '#e4efe7',
@@ -17,10 +64,6 @@ const styles = StyleSheet.create({
 		marginTop: 20,
 		marginLeft: 20,
 		marginRight: 20,
-	},
-	applicationsTitle: {},
-	applicationStatus: {
-		// flexDirection: 'row',
 	},
 	applyInputField: {
 		height: 100,
@@ -109,8 +152,12 @@ const styles = StyleSheet.create({
 		alignSelf: 'center',
 		justifyContent: 'center',
 	},
+  coords: {
+    paddingTop:10,
+    paddingBottom: 10,
+    color: "grey",
+  },
 	formBody: {
-		// navbar #80b383
 		backgroundColor: '#c5e3c7',
 		justifyContent: 'center',
 		alignItems: 'center',
@@ -121,8 +168,6 @@ const styles = StyleSheet.create({
 		flex: 1,
 		width: 100,
 		height: 100,
-		// resizeMode: 'contain',
-		// borderRadius: 100,
 	},
 	iconImageContainer: {
 		width: 100,
@@ -138,14 +183,16 @@ const styles = StyleSheet.create({
 		margin: 5,
 	},
 	infoLabel: {
-		fontWeight: 'bold',
-	},
-	infoText: {
-		width: '90%',
-	},
+    fontFamily: "Nunito_800ExtraBold",
+    fontSize: 16,
+  },
+  infoText: {
+    fontSize: 16,
+    width: "90%",
+    height: "90%",
+    fontFamily: "Nunito_600SemiBold_Italic",
+  },
 	inputForm: {
-		//margin: 20,
-		// backgroundColor: 'pink',
 		alignItems: 'center',
 		width: Dimensions.get('window').width * 0.7,
 	},
@@ -170,6 +217,7 @@ const styles = StyleSheet.create({
 	itemInfoContainer: {
 		flexDirection: 'column',
 		marginTop: 10,
+    fontFamily: "AmaticSC_700Bold",
 	},
 	locationMap: {
 		width: Dimensions.get('window').width,
@@ -193,6 +241,17 @@ const styles = StyleSheet.create({
 		width: Dimensions.get('window').width,
 		height: Dimensions.get('window').height,
 	},
+  mapViewIcon: {
+    width: 40,
+    height: 40,
+    alignSelf: "center",
+    padding: 40,
+    marginVertical: -120,
+  },
+  mapViewIconContainer: {
+    alignContent: "center",
+    marginVertical: 0,
+  },
 	mapViewPinImage: {
 		width: 50,
 		height: 55,
@@ -201,8 +260,6 @@ const styles = StyleSheet.create({
 		backgroundColor: '#c5e3c7',
 	},
 	parrotInfo: {
-		// marginTop: 10,
-		// marginBottom: 10,
 		marginLeft: 20,
 		marginRight: 20,
 		backgroundColor: '#e4efe7',
@@ -228,10 +285,23 @@ const styles = StyleSheet.create({
 		flex: 2,
 		fontFamily: 'Nunito_600SemiBold',
 	},
+  radioForm:{
+    paddingTop: 10,
+  },
 	redBoldFont: {
 		color: '#bf04a3',
 		fontWeight: 'bold',
 	},
+  refresh: {
+    height: 30,
+    width: 100,
+  },
+  refreshText: {
+    paddingTop: 5,
+    color: "#bf04a3",
+    textAlignVertical: "center",
+    fontSize: 15,
+  },
 	signInButton: {
 		padding: 10,
 		borderRadius: 50,
@@ -241,11 +311,11 @@ const styles = StyleSheet.create({
 		width: '50%',
 	},
 	logOutButton: {
-		color: '#bf04a3',
-		fontSize: 18,
-		fontWeight: 'bold',
-		margin: 10,
-	},
+    color: "#bf04a3",
+    fontSize: 20,
+    fontFamily: "AmaticSC_700Bold",
+    margin: 10,
+  },
 	signUpCircleImageContainer: {
 		marginTop: 20,
 		width: Dimensions.get('window').width * 0.4,
@@ -264,7 +334,6 @@ const styles = StyleSheet.create({
 		marginRight: 20,
 		marginTop: -20,
 		backgroundColor: '#bf04a3',
-		// width: Dimensions.get('window').width * 0.5,
 		paddingLeft: 5,
 		paddingRight: 5,
 		height: 35,
@@ -294,6 +363,9 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		fontFamily: 'AmaticSC_700Bold',
 	},
-});
+})
+
+export default styles;
+
 
 export default styles;
