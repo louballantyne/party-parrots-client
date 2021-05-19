@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     // borderRadius: 100,
   },
 	infoItem: {
+    width: "90%",
 		flexDirection: "row",
 		margin: 2,
 		marginRight: 10,
