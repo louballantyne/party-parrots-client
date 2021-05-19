@@ -105,14 +105,14 @@ export default function App() {
           name="Map View"
           component={ParrotsMapView}
           options={{
-            title: "Parrot Locations",
+            title: "Adopt a Local Parrot",
             headerStyle: {
               backgroundColor: "#c5e3c7",
             },
             headerTintColor: "#bf04a3",
             headerTitleStyle: {
-              fontWeight: "bold",
               fontSize: 20,
+              fontFamily: "Nunito_700Bold",
             },
           }}
         />
