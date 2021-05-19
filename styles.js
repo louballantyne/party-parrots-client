@@ -179,6 +179,10 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: "contain",
   },
+  radioInputForm: {
+    alignItems: "center",
+    width: Dimensions.get("window").width * 1,
+  },
   redBoldFont: {
     color: "red",
     fontWeight: "bold",
@@ -192,10 +196,23 @@ const styles = StyleSheet.create({
     width: "50%",
   },
   signOutButton: {
-    color: "#bf04a3",
+    color: "#83ba85",
     fontSize: 18,
     fontWeight: "bold",
     margin: 10,
+  },
+  signUpCircleImageContainer: {
+    marginTop: 20,
+    width: Dimensions.get("window").width * 0.4,
+    height: Dimensions.get("window").width * 0.4,
+    alignSelf: "center",
+  },
+  signUpCircleImage: {
+    width: Dimensions.get("window").width * 0.4,
+    height: Dimensions.get("window").width * 0.4,
+    borderRadius: Dimensions.get("window").width * 0.4,
+    alignSelf: "center",
+    justifyContent: "center",
   },
   smallButtonContainer: {
     margin: 20,

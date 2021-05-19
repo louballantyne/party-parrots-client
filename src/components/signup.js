@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { TextInput, Image, View, Text, ScrollView } from "react-native";
+import {
+  TextInput,
+  Image,
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import styles from "../../styles";
 import RadioForm, {
   RadioButton,
@@ -65,14 +72,14 @@ const SignUp = ({ navigation }) => {
   return (
     <ScrollView>
       <View style={styles.formBody}>
-        <View style={styles.circleImageContainer}>
+        <View style={styles.signUpCircleImageContainer}>
           <Image
             source={require("../images/gify-parrot.gif")}
-            style={styles.circleImage}
+            style={styles.signUpCircleImage}
           />
         </View>
 
-        <View style={styles.inputForm}>
+        <View style={styles.radioInputForm}>
           <TextInput
             style={styles.inputField}
             placeholder="First Name"
@@ -129,12 +136,19 @@ const SignUp = ({ navigation }) => {
             onPress={(value) => setUserType(value)}
             buttonColor={"#50C900"}
           />
-          <View
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => onSignUpButtonClicked()}
+          >
+            <Text style={styles.text}> Sign Up </Text>
+          </TouchableOpacity>
+
+          {/* <View
             style={styles.buttonContainer}
             onStartShouldSetResponder={() => onSignUpButtonClicked()}
           >
             <Text style={styles.buttonText}>SIGN UP</Text>
-          </View>
+          </View> */}
         </View>
       </View>
     </ScrollView>
