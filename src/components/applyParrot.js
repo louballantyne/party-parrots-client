@@ -27,11 +27,11 @@ const ApplyParrot = ({ parrotId, userId }) => {
 	};
 
 	return (
-		<View>
+		<View style={{alignSelf: "center"}}>
 			{!applied && (
-				<View style={styles.inputForm}>
+				<View style={styles.applyInputForm}>
 					<TextInput
-						style={styles.inputField}
+						style={styles.applyInputField}
 						placeholder="Message"
 						keyboardType="default"
 						value={message}
