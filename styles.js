@@ -2,7 +2,6 @@ import { Dimensions, StyleSheet } from "react-native";
 import { withSafeAreaInsets } from "react-native-safe-area-context";
 
 const styles = StyleSheet.create({
-
   addButtonText: {
     color: "white",
     fontSize: 60,
@@ -21,35 +20,35 @@ const styles = StyleSheet.create({
   addIcon: {
     height: 50,
     width: 50,
-		flex: 1,
-		resizeMode: "contain",
-		paddingLeft: 15,
-		marginLeft: 10,
+    flex: 1,
+    resizeMode: "contain",
+    paddingLeft: 15,
+    marginLeft: 10,
   },
-	addParrotButtonContainer:{
-		height: 50,
-		width: "80%",
-		paddingBottom: 10,
-		backgroundColor: "#bf04a3",
-		borderRadius: 70
-	},
-	addParrotInputField: {
-		height: 40,
+  addParrotButtonContainer: {
+    height: 50,
+    width: "80%",
+    paddingBottom: 10,
+    backgroundColor: "#bf04a3",
+    borderRadius: 70,
+  },
+  addParrotInputField: {
+    height: 40,
     margin: 10,
     paddingLeft: 5,
     borderWidth: 0,
     backgroundColor: "white",
     width: "85%",
     borderRadius: 10,
-	},
-	addText: {
-		fontWeight: "bold",
-		textAlignVertical: "center",
-		marginTop: 10,
-		fontSize: 22,
-		color: "white",
-		alignSelf: "center"
-	},
+  },
+  addText: {
+    fontWeight: "bold",
+    textAlignVertical: "center",
+    marginTop: 10,
+    fontSize: 22,
+    color: "white",
+    alignSelf: "center",
+  },
   applicationContainer: {
     flexDirection: "row",
     margin: 5,
@@ -132,11 +131,11 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     justifyContent: "center",
   },
-	coords: {
-		paddingTop:10,
-		paddingBottom: 10,
-		color: "grey",
-	},
+  coords: {
+    paddingTop: 10,
+    paddingBottom: 10,
+    color: "grey",
+  },
   formBody: {
     // navbar #80b383
     backgroundColor: "#c5e3c7",
@@ -264,23 +263,23 @@ const styles = StyleSheet.create({
     flex: 2,
     fontFamily: "Nunito_600SemiBold",
   },
-	radioForm:{
-		paddingTop: 10,
-	},
+  radioForm: {
+    paddingTop: 10,
+  },
   redBoldFont: {
     color: "red",
     fontWeight: "bold",
   },
-	refresh: {
-		height: 30,
-		width: 100,
-	},
-	refreshText: {
-		paddingTop: 5,
-		color: "#bf04a3",
-		textAlignVertical: "center",
-		fontSize: 15,
-	},
+  refresh: {
+    height: 30,
+    width: 100,
+  },
+  refreshText: {
+    paddingTop: 5,
+    color: "#bf04a3",
+    textAlignVertical: "center",
+    fontSize: 15,
+  },
   signInButton: {
     padding: 10,
     borderRadius: 50,
@@ -291,7 +290,7 @@ const styles = StyleSheet.create({
   },
   logOutButton: {
     color: "#bf04a3",
-    fontSize: 20,
+    fontSize: 23,
     fontFamily: "AmaticSC_700Bold",
     margin: 10,
   },

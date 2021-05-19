@@ -77,7 +77,7 @@ export default function App() {
           name="Parrot List"
           component={ParrotList}
           options={{
-            title: "Parrot Party",
+            title: "The Parrots",
             headerStyle: {
               backgroundColor: "#c5e3c7",
             },
@@ -85,6 +85,11 @@ export default function App() {
             headerTitleStyle: {
               fontFamily: "AmaticSC_700Bold",
               fontSize: 40,
+            },
+            headerBackTitle: "Back",
+            headerBackTitleStyle: {
+              fontFamily: "AmaticSC_700Bold",
+              fontSize: 30,
             },
           }} // no title for Parrot list page
         />
@@ -97,6 +102,11 @@ export default function App() {
               backgroundColor: "#c5e3c7",
             },
             headerTintColor: "#bf04a3",
+            headerBackTitle: "Back",
+            headerBackTitleStyle: {
+              fontFamily: "AmaticSC_700Bold",
+              fontSize: 30,
+            },
           }}
         />
         <Stack.Screen
@@ -108,6 +118,11 @@ export default function App() {
               backgroundColor: "#c5e3c7",
             },
             headerTintColor: "#bf04a3",
+            headerBackTitle: "Back",
+            headerBackTitleStyle: {
+              fontFamily: "AmaticSC_700Bold",
+              fontSize: 30,
+            },
           }}
         />
         <Stack.Screen
@@ -122,6 +137,11 @@ export default function App() {
             headerTitleStyle: {
               fontFamily: "AmaticSC_700Bold",
               fontSize: 40,
+            },
+            headerBackTitle: "Back",
+            headerBackTitleStyle: {
+              fontFamily: "AmaticSC_700Bold",
+              fontSize: 30,
             },
           }}
         />

@@ -43,7 +43,7 @@ const Parrot = ({
           >
             <Image
               style={styles.iconImage}
-              source={require("../images/rehomed.png")}
+              source={require("../images/rehomedPurple.png")}
               blurRadius={3}
             />
           </ImageBackground>
