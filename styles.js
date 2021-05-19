@@ -45,6 +45,8 @@ const styles = StyleSheet.create({
   },
   button: {
     padding: 10,
+    paddingLeft: 30,
+    paddingRight: 30,
     borderRadius: 50,
     alignSelf: "center",
     backgroundColor: "#83ba85",
@@ -87,6 +89,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#c5e3c7",
     justifyContent: "center",
     alignItems: "center",
+    flex: 1,
+    flexDirection: "column",
   },
   iconImage: {
     flex: 1,
@@ -159,6 +163,10 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height,
   },
+  mapViewPinImage: {
+    width: 50,
+    height: 55,
+  },
   pageBody: {
     backgroundColor: "#c5e3c7",
   },
@@ -182,6 +190,8 @@ const styles = StyleSheet.create({
   radioInputForm: {
     alignItems: "center",
     width: Dimensions.get("window").width * 1,
+    flex: 2,
+    fontFamily: "Nunito_600SemiBold",
   },
   redBoldFont: {
     color: "red",
@@ -195,8 +205,8 @@ const styles = StyleSheet.create({
     margin: 4,
     width: "50%",
   },
-  signOutButton: {
-    color: "#83ba85",
+  logOutButton: {
+    color: "#bf04a3",
     fontSize: 18,
     fontWeight: "bold",
     margin: 10,
@@ -206,6 +216,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width * 0.4,
     height: Dimensions.get("window").width * 0.4,
     alignSelf: "center",
+    flex: 1,
   },
   signUpCircleImage: {
     width: Dimensions.get("window").width * 0.4,

@@ -70,88 +70,87 @@ const SignUp = ({ navigation }) => {
   };
 
   return (
-    <ScrollView>
-      <View style={styles.formBody}>
-        <View style={styles.signUpCircleImageContainer}>
-          <Image
-            source={require("../images/gify-parrot.gif")}
-            style={styles.signUpCircleImage}
-          />
-        </View>
+    <View style={styles.formBody}>
+      <View style={styles.signUpCircleImageContainer}>
+        <Image
+          source={require("../images/gify-parrot.gif")}
+          style={styles.signUpCircleImage}
+        />
+      </View>
+      <View style={styles.radioInputForm}>
+        <TextInput
+          style={styles.inputField}
+          placeholder="First Name"
+          keyboardType="default"
+          value={firstName}
+          onChangeText={setFirstName}
+          autoCapitalize="none"
+        />
+        <TextInput
+          style={styles.inputField}
+          placeholder="Last Name"
+          keyboardType="default"
+          value={lastName}
+          onChangeText={setLastName}
+          autoCapitalize="none"
+        />
+        <TextInput
+          style={styles.inputField}
+          placeholder="Username"
+          keyboardType="default"
+          value={username}
+          onChangeText={setUsername}
+          autoCapitalize="none"
+        />
+        <TextInput
+          style={styles.inputField}
+          placeholder="Email"
+          keyboardType="default"
+          value={email}
+          onChangeText={setEmail}
+          autoCapitalize="none"
+        />
+        <TextInput
+          style={styles.inputField}
+          placeholder="Password"
+          keyboardType="default"
+          value={password}
+          onChangeText={setPassword}
+          autoCapitalize="none"
+          secureTextEntry={true}
+        />
+        <TextInput
+          style={styles.inputField}
+          placeholder="Password"
+          keyboardType="default"
+          value={password2}
+          onChangeText={setPassword2}
+          autoCapitalize="none"
+          secureTextEntry={true}
+        />
+        <RadioForm
+          radio_props={radio_list}
+          initial={"admin"}
+          onPress={(value) => setUserType(value)}
+          buttonColor={"#bf04a3"}
+        />
+      </View>
+      <View style={{ flex: 0.7 }}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => onSignUpButtonClicked()}
+        >
+          <Text style={styles.text}> Sign Up! </Text>
+        </TouchableOpacity>
+      </View>
 
-        <View style={styles.radioInputForm}>
-          <TextInput
-            style={styles.inputField}
-            placeholder="First Name"
-            keyboardType="default"
-            value={firstName}
-            onChangeText={setFirstName}
-            autoCapitalize="none"
-          />
-          <TextInput
-            style={styles.inputField}
-            placeholder="Last Name"
-            keyboardType="default"
-            value={lastName}
-            onChangeText={setLastName}
-            autoCapitalize="none"
-          />
-          <TextInput
-            style={styles.inputField}
-            placeholder="Username"
-            keyboardType="default"
-            value={username}
-            onChangeText={setUsername}
-            autoCapitalize="none"
-          />
-          <TextInput
-            style={styles.inputField}
-            placeholder="Email"
-            keyboardType="default"
-            value={email}
-            onChangeText={setEmail}
-            autoCapitalize="none"
-          />
-          <TextInput
-            style={styles.inputField}
-            placeholder="Password"
-            keyboardType="default"
-            value={password}
-            onChangeText={setPassword}
-            autoCapitalize="none"
-            secureTextEntry={true}
-          />
-          <TextInput
-            style={styles.inputField}
-            placeholder="Password"
-            keyboardType="default"
-            value={password2}
-            onChangeText={setPassword2}
-            autoCapitalize="none"
-            secureTextEntry={true}
-          />
-          <RadioForm
-            radio_props={radio_list}
-            initial={"admin"}
-            onPress={(value) => setUserType(value)}
-            buttonColor={"#50C900"}
-          />
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => onSignUpButtonClicked()}
-          >
-            <Text style={styles.text}> Sign Up </Text>
-          </TouchableOpacity>
-
-          {/* <View
+      {/* <View
             style={styles.buttonContainer}
             onStartShouldSetResponder={() => onSignUpButtonClicked()}
           >
             <Text style={styles.buttonText}>SIGN UP</Text>
           </View> */}
-        </View>
-      </View>
-    </ScrollView>
+    </View>
   );
 };
 

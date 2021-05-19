@@ -39,7 +39,7 @@ const ParrotList = ({ navigation, route }) => {
     navigation.setOptions({
       headerRight: () => (
         <TouchableOpacity onPress={() => onSignOutButtonClicked()}>
-          <Text style={styles.signOutButton}>Log Out{` `} </Text>
+          <Text style={styles.logOutButton}>Log Out{` `} </Text>
         </TouchableOpacity>
       ),
     });
