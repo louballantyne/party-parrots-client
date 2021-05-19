@@ -11,8 +11,6 @@ const styles = StyleSheet.create({
 		marginLeft: 10,
   },
 	addParrotButtonContainer:{
-		flexDirection: "row",
-		flex: 1,
 		height: 50,
 		width: "80%",
 		paddingBottom: 10,
@@ -25,19 +23,16 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     borderWidth: 0,
     backgroundColor: "white",
-    width: "80%",
+    width: "85%",
     borderRadius: 10,
 	},
 	addText: {
-		flex: 1,
 		fontWeight: "bold",
 		textAlignVertical: "center",
-		flexGrow: 1.3,
-		marginTop: 12,
-		fontSize: 20,
-		marginRight: 20,
-		paddingRight: 30,
-		color: "white"
+		marginTop: 10,
+		fontSize: 22,
+		color: "white",
+		alignSelf: "center"
 	},
   applicationContainer: {
     flexDirection: "row",
@@ -124,6 +119,7 @@ const styles = StyleSheet.create({
 	coords: {
 		paddingTop:10,
 		paddingBottom: 10,
+		color: "grey",
 	},
   formBody: {
     // navbar #80b383
@@ -241,6 +237,16 @@ const styles = StyleSheet.create({
     color: "red",
     fontWeight: "bold",
   },
+	refresh: {
+		height: 30,
+		width: 100,
+	},
+	refreshText: {
+		paddingTop: 5,
+		color: "#bf04a3",
+		textAlignVertical: "center",
+		fontSize: 15,
+	},
   signInButton: {
     padding: 10,
     borderRadius: 50,

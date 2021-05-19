@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
-import { TextInput, Button, View, Image, Alert, Platform, Text, ScrollView } from 'react-native';
-import RNPickerSelect from 'react-native-picker-select';
+import {
+	TextInput,
+	Button,
+	View,
+	Image,
+	Alert,
+	Platform,
+	Text,
+	ScrollView,
+	TouchableOpacity
+} from 'react-native';
+//import RNPickerSelect from 'react-native-picker-select';
 import styles from '../../styles';
 import * as ImagePicker from 'expo-image-picker';
 import { ParrotLocationMap } from './parrotLocationMap';
@@ -191,7 +201,13 @@ const NewParrot = ({ navigation, route }) => {
 						onChangeText={setLocation}
 						autoCapitalize="words"
 					/>
-					<Button title="Refresh Map" onPress={() => getLocationGeocode(location)} />
+					<TouchableOpacity
+						style={styles.refresh}
+						onPress={() => getLocationGeocode(location)}>
+						<Text style={styles.refreshText}>
+						Refresh Map
+						</Text>
+					</TouchableOpacity>
 					<RadioForm
 						style={styles.radioForm}
 						radio_props={radio_list}
@@ -199,6 +215,7 @@ const NewParrot = ({ navigation, route }) => {
 						onPress={(value) => setGender(value)}
 						formHorizontal={true}
 						buttonSize={20}
+						labelStyle={{fontSize: 18}}
 						buttonColor={'#bf04a3'}
 					/>
 					<TextInput
@@ -219,7 +236,6 @@ const NewParrot = ({ navigation, route }) => {
 						autoCapitalize="sentences"
 					/>
 					<View style = {styles.addParrotButtonContainer} onPress={() => onAddButtonClicked()}>
-						<Image source={require("../images/add_icon.png")} style={styles.addIcon}/>
 						<Text style={styles.addText}>Add parrot</Text>
 					</View>
 					<Text style={styles.coords}>{'Latitude: ' + geocode.latitude + ' Longitude: ' + geocode.longitude}</Text>
