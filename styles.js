@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
 		backgroundColor: 'white',
 		margin: 10,
 		borderRadius: 10,
+		width: Dimensions.get('window').width * 0.95,
 	},
 	body: {
 		// navbar #80b383
