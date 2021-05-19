@@ -2,6 +2,23 @@ import { Dimensions, StyleSheet } from "react-native";
 import { withSafeAreaInsets } from "react-native-safe-area-context";
 
 const styles = StyleSheet.create({
+  addButtonText: {
+    color: "white",
+    fontSize: 60,
+    alignSelf: "center",
+    fontFamily: "Nunito_600SemiBold",
+  },
+
+  addParrotButton: {
+    borderRadius: 30,
+    alignSelf: "center",
+    textAlignVertical: "center",
+    backgroundColor: "#bf04a3",
+    margin: 5,
+    width: "20%",
+    height: "65%",
+  },
+
   applicationContainer: {
     flexDirection: "row",
     margin: 5,
@@ -181,6 +198,7 @@ const styles = StyleSheet.create({
   },
   pageBody: {
     backgroundColor: "#c5e3c7",
+    flex: 1,
   },
   parrotInfo: {
     margin: 10,
