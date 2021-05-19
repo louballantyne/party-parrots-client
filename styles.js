@@ -93,6 +93,9 @@ const styles = StyleSheet.create({
   infoLabel: {
     fontWeight: "bold",
   },
+	infoText: {
+		width: "90%"
+	},
 	inputForm: {
 		//margin: 20,
 		// backgroundColor: 'pink',

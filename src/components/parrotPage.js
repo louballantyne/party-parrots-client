@@ -77,7 +77,7 @@ const ParrotPage = ({ route, navigation }) => {
 							(isParrotApproved()
 								? isApprovedUser()
 									? 'Success'
-									: `Apologies, ${parrot.name} has found a owner`
+									: `Apologies, ${parrot.name} has found a home`
 								: 'Waiting for response')}
 					</Text>
 				)}
