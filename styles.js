@@ -219,8 +219,8 @@ const styles = StyleSheet.create({
   },
   logOutButton: {
     color: "#bf04a3",
-    fontSize: 18,
-    fontWeight: "bold",
+    fontSize: 20,
+    fontFamily: "AmaticSC_700Bold",
     margin: 10,
   },
   signUpCircleImageContainer: {

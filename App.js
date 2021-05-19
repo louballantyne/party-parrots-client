@@ -76,11 +76,15 @@ export default function App() {
           name="Parrot List"
           component={ParrotList}
           options={{
-            title: "",
+            title: "Parrot Party",
             headerStyle: {
               backgroundColor: "#c5e3c7",
             },
             headerTintColor: "#bf04a3",
+            headerTitleStyle: {
+              fontFamily: "AmaticSC_700Bold",
+              fontSize: 40,
+            },
           }} // no title for Parrot list page
         />
         <Stack.Screen
@@ -109,14 +113,14 @@ export default function App() {
           name="Map View"
           component={ParrotsMapView}
           options={{
-            title: "Adopt a Local Parrot",
+            title: "Find a Parrot",
             headerStyle: {
               backgroundColor: "#c5e3c7",
             },
             headerTintColor: "#bf04a3",
             headerTitleStyle: {
-              fontSize: 20,
-              fontFamily: "Nunito_700Bold",
+              fontFamily: "AmaticSC_700Bold",
+              fontSize: 40,
             },
           }}
         />
