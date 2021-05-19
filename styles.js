@@ -13,9 +13,8 @@ const styles = StyleSheet.create({
 	addParrotButtonContainer:{
 		flexDirection: "row",
 		flex: 1,
-		height: 60,
-		width: "90%",
-		paddingTop: 5,
+		height: 50,
+		width: "80%",
 		paddingBottom: 10,
 		backgroundColor: "#83ba85",
 		borderRadius: 70
@@ -23,7 +22,6 @@ const styles = StyleSheet.create({
 	addParrotInputField: {
 		height: 40,
     margin: 10,
-    //marginBottom: 12,
     paddingLeft: 5,
     borderWidth: 0,
     backgroundColor: "white",
@@ -34,7 +32,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		fontWeight: "bold",
 		textAlignVertical: "center",
-		flexGrow: 1,
+		flexGrow: 1.3,
 		marginTop: 12,
 		fontSize: 20,
 		marginRight: 20,
