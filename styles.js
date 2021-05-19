@@ -2,6 +2,22 @@ import { Dimensions, StyleSheet } from "react-native";
 import { withSafeAreaInsets } from "react-native-safe-area-context";
 
 const styles = StyleSheet.create({
+
+  addButtonText: {
+    color: "white",
+    fontSize: 60,
+    alignSelf: "center",
+    fontFamily: "Nunito_600SemiBold",
+  },
+  addParrotButton: {
+    borderRadius: 30,
+    alignSelf: "center",
+    textAlignVertical: "center",
+    backgroundColor: "#bf04a3",
+    margin: 5,
+    width: "20%",
+    height: "65%",
+  },
   addIcon: {
     height: 50,
     width: 50,
@@ -146,10 +162,14 @@ const styles = StyleSheet.create({
     margin: 2,
   },
   infoLabel: {
-    fontWeight: "bold",
+    fontFamily: "Nunito_800ExtraBold",
+    fontSize: 16,
   },
   infoText: {
+    fontSize: 16,
     width: "90%",
+    height: "90%",
+    fontFamily: "Nunito_600SemiBold_Italic",
   },
   inputForm: {
     //margin: 20,
@@ -173,10 +193,12 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     margin: 10,
     borderRadius: 10,
+    width: Dimensions.get("window").width * 0.95,
   },
   itemInfoContainer: {
     flexDirection: "column",
     marginTop: 10,
+    fontFamily: "AmaticSC_700Bold",
   },
   locationMap: {
     width: Dimensions.get("window").width,
@@ -200,12 +222,24 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height,
   },
+  mapViewIcon: {
+    width: 40,
+    height: 40,
+    alignSelf: "center",
+    padding: 40,
+    marginVertical: -120,
+  },
+  mapViewIconContainer: {
+    alignContent: "center",
+    marginVertical: 0,
+  },
   mapViewPinImage: {
     width: 50,
     height: 55,
   },
   pageBody: {
     backgroundColor: "#c5e3c7",
+    flex: 1,
   },
   parrotInfo: {
     margin: 10,
@@ -257,8 +291,8 @@ const styles = StyleSheet.create({
   },
   logOutButton: {
     color: "#bf04a3",
-    fontSize: 18,
-    fontWeight: "bold",
+    fontSize: 20,
+    fontFamily: "AmaticSC_700Bold",
     margin: 10,
   },
   signUpCircleImageContainer: {

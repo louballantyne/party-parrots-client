@@ -11,12 +11,15 @@ import { ParrotsMapView } from "./src/components/parrotsMapView";
 import { AmaticSC_700Bold } from "@expo-google-fonts/amatic-sc";
 import {
   useFonts,
+  Nunito_600SemiBold_Italic,
+  Nunito_800ExtraBold,
   Nunito_300Light,
   Nunito_400Regular,
   Nunito_700Bold,
   Nunito_600SemiBold,
 } from "@expo-google-fonts/nunito";
 import AppLoading from "expo-app-loading";
+import Confetti from "react-native-confetti";
 
 const Stack = createStackNavigator();
 
@@ -26,6 +29,8 @@ export default function App() {
 
   let [fontsLoaded] = useFonts({
     AmaticSC_700Bold,
+    Nunito_600SemiBold_Italic,
+    Nunito_800ExtraBold,
     Nunito_300Light,
     Nunito_400Regular,
     Nunito_700Bold,
@@ -72,11 +77,15 @@ export default function App() {
           name="Parrot List"
           component={ParrotList}
           options={{
-            title: "",
+            title: "Parrot Party",
             headerStyle: {
               backgroundColor: "#c5e3c7",
             },
             headerTintColor: "#bf04a3",
+            headerTitleStyle: {
+              fontFamily: "AmaticSC_700Bold",
+              fontSize: 40,
+            },
           }} // no title for Parrot list page
         />
         <Stack.Screen
@@ -105,14 +114,14 @@ export default function App() {
           name="Map View"
           component={ParrotsMapView}
           options={{
-            title: "Adopt a Local Parrot",
+            title: "Find a Parrot",
             headerStyle: {
               backgroundColor: "#c5e3c7",
             },
             headerTintColor: "#bf04a3",
             headerTitleStyle: {
-              fontSize: 20,
-              fontFamily: "Nunito_700Bold",
+              fontFamily: "AmaticSC_700Bold",
+              fontSize: 40,
             },
           }}
         />
