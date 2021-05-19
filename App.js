@@ -18,16 +18,87 @@ const Stack = createStackNavigator();
 export default function App() {
 	// useEffect() to get the log in status
 
-	return (
-		<NavigationContainer style={styles.body}>
-			<Stack.Navigator>
-				<Stack.Screen name="Sign In" component={SignIn} />
-				<Stack.Screen name="Sign Up" component={SignUp} />
-				<Stack.Screen name="Parrot List" component={ParrotList} />
-				<Stack.Screen name="Parrot Page" component={ParrotPage} />
-				<Stack.Screen name="Add Parrot" component={NewParrot} />
-				<Stack.Screen name="Map View" component={ParrotsMapView} />
-			</Stack.Navigator>
-		</NavigationContainer>
-	);
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Sign In"
+          component={SignIn}
+          options={{
+            title: "",
+            headerStyle: {
+              backgroundColor: "#c5e3c7",
+            },
+            headerTintColor: "#bf04a3",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 30,
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Sign Up"
+          component={SignUp}
+          options={{
+            title: "Sign Up",
+            headerStyle: {
+              backgroundColor: "#c5e3c7",
+            },
+            headerTintColor: "#bf04a3",
+            headerTitleStyle: {
+              fontSize: 20,
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Parrot List"
+          component={ParrotList}
+          options={{
+            title: "",
+            headerStyle: {
+              backgroundColor: "#c5e3c7",
+            },
+            headerTintColor: "#bf04a3",
+          }} // no title for Parrot list page
+        />
+        <Stack.Screen
+          name="Parrot Page"
+          component={ParrotPage}
+          options={{
+            title: "",
+            headerStyle: {
+              backgroundColor: "#c5e3c7",
+            },
+            headerTintColor: "#bf04a3",
+          }}
+        />
+        <Stack.Screen
+          name="Add Parrot"
+          component={NewParrot}
+          options={{
+            title: "",
+            headerStyle: {
+              backgroundColor: "#c5e3c7",
+            },
+            headerTintColor: "#bf04a3",
+          }}
+        />
+        <Stack.Screen
+          name="Map View"
+          component={ParrotsMapView}
+          options={{
+            title: "Parrot Locations",
+            headerStyle: {
+              backgroundColor: "#c5e3c7",
+            },
+            headerTintColor: "#bf04a3",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 20,
+            },
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }

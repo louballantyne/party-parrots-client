@@ -1,7 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { View, FlatList, Button, SafeAreaView, Alert } from 'react-native';
-import Parrot from './parrotItem';
-import styles from '../../styles';
+import React, { useState, useEffect } from "react";
+import {
+  View,
+  FlatList,
+  Button,
+  SafeAreaView,
+  Alert,
+  TouchableOpacity,
+  Text,
+} from "react-native";
+import Parrot from "./parrotItem";
+import styles from "../../styles";
 
 const ParrotList = ({ navigation, route }) => {
 	const [parrots, setParrots] = useState([]);
@@ -26,6 +34,16 @@ const ParrotList = ({ navigation, route }) => {
 	// const getParrotsApprovedStatus = () => {
 	// 	parrots.forEach((parrot) => (parrot.approved = isParrotApproved(parrot._id)));
 	// };
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <TouchableOpacity onPress={() => onSignOutButtonClicked()}>
+          <Text style={styles.signOutButton}>Log Out{` `} </Text>
+        </TouchableOpacity>
+      ),
+    });
+  }, [navigation, onSignOutButtonClicked]);
 
 	const isParrotApproved = (parrotId) => {
 		const parrotApproved = approvedApplications.filter((application) => application.parrot === parrotId);
@@ -100,6 +118,7 @@ const ParrotList = ({ navigation, route }) => {
 			/>
 		</View>
 	);
+
 };
 
 export { ParrotList };

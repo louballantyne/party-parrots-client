@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
-import MapView, { Marker, Callout } from 'react-native-maps';
-import styles from '../../styles';
-import Parrot from './parrotItem';
+import React, { useState, useEffect } from "react";
+import { View, Text } from "react-native";
+import MapView, { Marker, Callout } from "react-native-maps";
+import styles from "../../styles";
+import Parrot from "./parrotItem";
 
 const ParrotsMapView = ({ navigation, route }) => {
 	const [parrots, setParrots] = useState([]);
@@ -51,6 +51,7 @@ const ParrotsMapView = ({ navigation, route }) => {
 							latitude: parseFloat(parrot.geocode.latitude),
 							longitude: parseFloat(parrot.geocode.longitude),
 						}}
+            image={require("../images/party-parrot2.png")}
 					>
 						<Callout>
 							{/* <Text>{parrot.name + ': ' + parrot.location}</Text> */}
