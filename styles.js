@@ -2,54 +2,54 @@ import { Dimensions, StyleSheet } from 'react-native';
 import { withSafeAreaInsets } from 'react-native-safe-area-context';
 
 const styles = StyleSheet.create({
-  addButtonText: {
-  color: "white",
-  fontSize: 60,
-  alignSelf: "center",
-  fontFamily: "Nunito_600SemiBold",
-},
-addParrotButton: {
-  borderRadius: 30,
-  alignSelf: "center",
-  textAlignVertical: "center",
-  backgroundColor: "#bf04a3",
-  margin: 5,
-  width: "20%",
-  height: "65%",
-},
-addIcon: {
-  height: 50,
-  width: 50,
-  flex: 1,
-  resizeMode: "contain",
-  paddingLeft: 15,
-  marginLeft: 10,
-},
-addParrotButtonContainer:{
-  height: 50,
-  width: "80%",
-  paddingBottom: 10,
-  backgroundColor: "#bf04a3",
-  borderRadius: 70
-},
-addParrotInputField: {
-  height: 40,
-  margin: 10,
-  paddingLeft: 5,
-  borderWidth: 0,
-  backgroundColor: "white",
-  width: "85%",
-  borderRadius: 10,
-},
-addText: {
-  fontWeight: "bold",
-  textAlignVertical: "center",
-  marginTop: 10,
-  fontSize: 22,
-  color: "white",
-  alignSelf: "center"
-},
-applicationContainer: {
+	addButtonText: {
+		color: 'white',
+		fontSize: 60,
+		alignSelf: 'center',
+		fontFamily: 'Nunito_600SemiBold',
+	},
+	addParrotButton: {
+		borderRadius: 30,
+		alignSelf: 'center',
+		textAlignVertical: 'center',
+		backgroundColor: '#bf04a3',
+		margin: 5,
+		width: '20%',
+		height: '65%',
+	},
+	addIcon: {
+		height: 50,
+		width: 50,
+		flex: 1,
+		resizeMode: 'contain',
+		paddingLeft: 15,
+		marginLeft: 10,
+	},
+	addParrotButtonContainer: {
+		height: 50,
+		width: '80%',
+		paddingBottom: 10,
+		backgroundColor: '#bf04a3',
+		borderRadius: 70,
+	},
+	addParrotInputField: {
+		height: 40,
+		margin: 10,
+		paddingLeft: 5,
+		borderWidth: 0,
+		backgroundColor: 'white',
+		width: '85%',
+		borderRadius: 10,
+	},
+	addText: {
+		fontWeight: 'bold',
+		textAlignVertical: 'center',
+		marginTop: 10,
+		fontSize: 22,
+		color: 'white',
+		alignSelf: 'center',
+	},
+	applicationContainer: {
 		// flexDirection: 'row',
 		margin: 5,
 		backgroundColor: '#e4efe7',
@@ -152,11 +152,11 @@ applicationContainer: {
 		alignSelf: 'center',
 		justifyContent: 'center',
 	},
-  coords: {
-    paddingTop:10,
-    paddingBottom: 10,
-    color: "grey",
-  },
+	coords: {
+		paddingTop: 10,
+		paddingBottom: 10,
+		color: 'grey',
+	},
 	formBody: {
 		backgroundColor: '#c5e3c7',
 		justifyContent: 'center',
@@ -183,15 +183,15 @@ applicationContainer: {
 		margin: 5,
 	},
 	infoLabel: {
-    fontFamily: "Nunito_800ExtraBold",
-    fontSize: 16,
-  },
-  infoText: {
-    fontSize: 16,
-    width: "90%",
-    height: "90%",
-    fontFamily: "Nunito_600SemiBold_Italic",
-  },
+		fontFamily: 'Nunito_800ExtraBold',
+		fontSize: 16,
+	},
+	infoText: {
+		fontSize: 16,
+		width: '90%',
+		height: '90%',
+		fontFamily: 'Nunito_600SemiBold_Italic',
+	},
 	inputForm: {
 		alignItems: 'center',
 		width: Dimensions.get('window').width * 0.7,
@@ -217,7 +217,7 @@ applicationContainer: {
 	itemInfoContainer: {
 		flexDirection: 'column',
 		marginTop: 10,
-    fontFamily: "AmaticSC_700Bold",
+		fontFamily: 'AmaticSC_700Bold',
 	},
 	locationMap: {
 		width: Dimensions.get('window').width,
@@ -241,17 +241,17 @@ applicationContainer: {
 		width: Dimensions.get('window').width,
 		height: Dimensions.get('window').height,
 	},
-  mapViewIcon: {
-    width: 40,
-    height: 40,
-    alignSelf: "center",
-    padding: 40,
-    marginVertical: -120,
-  },
-  mapViewIconContainer: {
-    alignContent: "center",
-    marginVertical: 0,
-  },
+	mapViewIcon: {
+		width: 40,
+		height: 40,
+		alignSelf: 'center',
+		padding: 40,
+		marginVertical: -120,
+	},
+	mapViewIconContainer: {
+		alignContent: 'center',
+		marginVertical: 0,
+	},
 	mapViewPinImage: {
 		width: 50,
 		height: 55,
@@ -285,23 +285,23 @@ applicationContainer: {
 		flex: 2,
 		fontFamily: 'Nunito_600SemiBold',
 	},
-  radioForm:{
-    paddingTop: 10,
-  },
+	radioForm: {
+		paddingTop: 10,
+	},
 	redBoldFont: {
 		color: '#bf04a3',
 		fontWeight: 'bold',
 	},
-  refresh: {
-    height: 30,
-    width: 100,
-  },
-  refreshText: {
-    paddingTop: 5,
-    color: "#bf04a3",
-    textAlignVertical: "center",
-    fontSize: 15,
-  },
+	refresh: {
+		height: 30,
+		width: 100,
+	},
+	refreshText: {
+		paddingTop: 5,
+		color: '#bf04a3',
+		textAlignVertical: 'center',
+		fontSize: 15,
+	},
 	signInButton: {
 		padding: 10,
 		borderRadius: 50,
@@ -311,11 +311,11 @@ applicationContainer: {
 		width: '50%',
 	},
 	logOutButton: {
-    color: "#bf04a3",
-    fontSize: 20,
-    fontFamily: "AmaticSC_700Bold",
-    margin: 10,
-  },
+		color: '#bf04a3',
+		fontSize: 20,
+		fontFamily: 'AmaticSC_700Bold',
+		margin: 10,
+	},
 	signUpCircleImageContainer: {
 		marginTop: 20,
 		width: Dimensions.get('window').width * 0.4,
@@ -363,9 +363,6 @@ applicationContainer: {
 		justifyContent: 'center',
 		fontFamily: 'AmaticSC_700Bold',
 	},
-})
-
-export default styles;
-
+});
 
 export default styles;
