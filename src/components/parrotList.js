@@ -3,7 +3,7 @@ import {
   View,
   FlatList,
   Button,
-  SafeAreaView,
+  Image,
   Alert,
   TouchableOpacity,
   Text,
@@ -85,15 +85,19 @@ const ParrotList = ({ navigation, route }) => {
           />
         )}
         {userType !== "admin" && (
-          <Button
-            title="Map View"
+          <TouchableOpacity
             onPress={() =>
               navigation.navigate("Map View", {
                 userType: userType,
                 userId: userId,
               })
             }
-          />
+          >
+            <Image
+              source={require("../images/mapViewIcon.png")}
+              style={styles.mapViewIcon}
+            />
+          </TouchableOpacity>
         )}
       </View>
       <FlatList

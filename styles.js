@@ -168,6 +168,13 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height,
   },
+  mapViewIcon: {
+    width: 10,
+    height: 10,
+    alignSelf: "flex-end",
+    padding: 25,
+    marginRight: 15,
+  },
   mapViewPinImage: {
     width: 50,
     height: 55,
