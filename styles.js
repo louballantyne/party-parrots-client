@@ -12,6 +12,20 @@ const styles = StyleSheet.create({
 	applicationsContainer: {
     margin: 10,
   },
+	applyInputField: {
+		height: 100,
+		margin: 12,
+		width: 800,
+		paddingLeft: 5,
+		borderWidth: 0,
+		backgroundColor: "white",
+		width: "50%",
+	},
+	applyInputForm: {
+		alignItems: "center",
+		height: 200,
+		width: Dimensions.get('window').width * 1.8,
+	},
   approveButton: {
     marginLeft: 10,
   },
