@@ -5295,6 +5295,11 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   "version" "17.0.2"
 
+"react-native-confetti-cannon@^1.5.2":
+  "integrity" "sha512-IZuWjlW7QsdxEGNnvpD6W+7iKCCQhnd5BvuNvMtirU7Nxm8WS2N6LPGMBz1ZYDuusG+GRZkoXXTNCdoAAGpCTg=="
+  "resolved" "https://registry.npmjs.org/react-native-confetti-cannon/-/react-native-confetti-cannon-1.5.2.tgz"
+  "version" "1.5.2"
+
 "react-native-confetti@^0.1.0":
   "integrity" "sha512-+cXJvnPXKc0i/eTQcuzcjrlfIxmn/xFw4UyuVKQOWNK6BfWABvO6Ms6Zp6ivF1E8Vxt2vJkzJlNyoBvMh9FxKA=="
   "resolved" "https://registry.npmjs.org/react-native-confetti/-/react-native-confetti-0.1.0.tgz"
