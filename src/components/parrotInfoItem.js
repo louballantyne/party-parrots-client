@@ -3,7 +3,6 @@ import { View, Text } from 'react-native';
 import styles from '../../styles';
 
 const ParrotInfoItem = ({ label, info, compact }) => {
-	console.log(compact);
 	return (
 		<View style={compact === 'true' ? styles.infoItemCompact : styles.infoItem}>
 			<Text style={styles.infoLabel}>{label}</Text>

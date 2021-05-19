@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import styles from '../../styles';
 
 const ApplyParrot = ({ parrotId, userId }) => {
@@ -8,22 +8,26 @@ const ApplyParrot = ({ parrotId, userId }) => {
 
 	// hardcode userId at the moment
 	const onApplyButtonClicked = async () => {
-		await fetch(`http://localhost:3000/api/parrots/${parrotId}/applications`, {
-			method: 'POST',
-			headers: {
-				'content-type': 'application/json',
-			},
-			body: JSON.stringify({
-				userId: userId,
-				message: message,
-			}),
-		})
-			.then((response) => response.json())
-			.then((data) => {
-				console.log(data);
-				if (data._id) setApplied(true);
+		if (message !== undefined) {
+			await fetch(`http://localhost:3000/api/parrots/${parrotId}/applications`, {
+				method: 'POST',
+				headers: {
+					'content-type': 'application/json',
+				},
+				body: JSON.stringify({
+					userId: userId,
+					message: message,
+				}),
 			})
-			.catch((error) => console.log('error: ', error));
+				.then((response) => response.json())
+				.then((data) => {
+					console.log(data);
+					if (data._id) setApplied(true);
+				})
+				.catch((error) => console.log('error: ', error));
+		} else {
+			Alert.alert('Please enter message');
+		}
 	};
 
 	return (

@@ -4,12 +4,14 @@ import styles from '../../styles';
 import { ApplyParrot } from './applyParrot';
 import { ParrotInfoItem } from './parrotInfoItem';
 import { ParrotApplication } from './parrotApplication';
+import ConfettiCannon from 'react-native-confetti-cannon';
 
 const ParrotPage = ({ route, navigation }) => {
 	const [parrot, setParrot] = useState([]);
 	const [applications, setApplications] = useState([]);
 	const [showApprove, setShowApprove] = useState(true);
 	const { parrotId, userType, userId } = route.params;
+	const [showConfetti, setShowConfetti] = useState(false);
 
 	useEffect(() => {
 		// async function fetchParrot() {
@@ -27,6 +29,7 @@ const ParrotPage = ({ route, navigation }) => {
 		};
 		fetchParrot();
 		if (isParrotApproved()) setShowApprove(false);
+		if (isApprovedUser()) setShowConfetti(true);
 	}, []);
 
 	const isUserInApplicants = () => {
@@ -41,13 +44,14 @@ const ParrotPage = ({ route, navigation }) => {
 
 	const isApprovedUser = () => {
 		const approvedApplication = applications.filter((application) => application.approved === true);
-		return approvedApplication[0].user._id === userId;
+		return approvedApplication.length > 0 && approvedApplication[0].user._id === userId;
 	};
 
 	// showApprove use showApprove && !isParrotApproved() for issues when navigate from parrot list
 	return (
 		<ScrollView>
 			<View style={styles.pageBody}>
+				{isApprovedUser() && <ConfettiCannon count={200} origin={{ x: -10, y: 0 }} />}
 				<Text style={styles.title}>{parrot.name}</Text>
 				<View style={styles.profileImageContainer}>
 					<Image
