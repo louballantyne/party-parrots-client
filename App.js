@@ -69,7 +69,13 @@ export default function App() {
             },
             headerTintColor: "#bf04a3",
             headerTitleStyle: {
-              fontSize: 20,
+              fontFamily: "AmaticSC_700Bold",
+              fontSize: 40,
+            },
+            headerBackTitle: "Back",
+            headerBackTitleStyle: {
+              fontFamily: "AmaticSC_700Bold",
+              fontSize: 30,
             },
           }}
         />

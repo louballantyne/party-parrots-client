@@ -249,9 +249,12 @@ const styles = StyleSheet.create({
   profileImageContainer: {
     width: 100,
     height: 100,
-    marginTop: 10,
-    marginBottom: 10,
+    // margin: 10,
+    // marginTop: 10,
+    // marginBottom: 10,
     alignSelf: "center",
+    backgroundColor: "#83ba85",
+    borderRadius: 10,
   },
   profileImage: {
     flex: 1,
@@ -265,6 +268,8 @@ const styles = StyleSheet.create({
   },
   radioForm: {
     paddingTop: 10,
+    fontFamily: "Nunito_600SemiBold",
+    fontSize: 10,
   },
   redBoldFont: {
     color: "red",

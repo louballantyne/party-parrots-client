@@ -133,6 +133,7 @@ const SignUp = ({ navigation }) => {
           initial={"admin"}
           onPress={(value) => setUserType(value)}
           buttonColor={"#bf04a3"}
+          buttonSize={10}
         />
       </View>
       <View style={{ flex: 0.7 }}>
