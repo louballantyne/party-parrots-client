@@ -9,6 +9,7 @@ import { SignIn } from "./src/components/signIn";
 import { NewParrot } from "./src/components/newParrot";
 import { ParrotsMapView } from "./src/components/parrotsMapView";
 import { useFonts, AmaticSC_700Bold } from "@expo-google-fonts/amatic-sc";
+//import { useFonts, } from "@expo-google-fonts/nunito";
 import AppLoading from "expo-app-loading";
 
 const Stack = createStackNavigator();
