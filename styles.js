@@ -1,6 +1,23 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from 'react-native';
+import { withSafeAreaInsets } from 'react-native-safe-area-context';
 
 const styles = StyleSheet.create({
+  approvedItemContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    margin: 10,
+    borderRadius: 10,
+  },
+  formBody: {
+    // navbar #80b383
+    backgroundColor: '#c5e3c7',
+    justifyContent: 'center',
+    alignItems: 'center',
+    },
+  pageBody: {
+    backgroundColor: '#c5e3c7',
+    },
   body: {
     // navbar #80b383
     //backgroundColor: "#c5e3c7",
@@ -12,40 +29,28 @@ const styles = StyleSheet.create({
     //margin: 20,
     // backgroundColor: 'pink',
     alignItems: "center",
+    width: Dimensions.get('window').width * 0.7,
   },
   inputField: {
     height: 40,
     margin: 12,
+    //marginBottom: 12,
     paddingLeft: 5,
     borderWidth: 0,
     backgroundColor: "white",
     width: "50%",
+    //borderRadius: 10,
   },
   itemContainer: {
     flex: 1,
     flexDirection: "row",
+    //backgroundColor: 'white',
+		//margin: 10,
+		//borderRadius: 10,
   },
   itemInfoContainer: {
     flexDirection: "column",
     marginTop: 10,
-  },
-  dropDown: {
-    width: 100,
-    height: 100,
-    margin: 5,
-    flex: 1,
-    paddingTop: 40,
-    alignItems: "center",
-  },
-  header: {
-    alignSelf: "stretch",
-    height: 52,
-    flexDirection: "row", // row
-    backgroundColor: "#179aff",
-    alignItems: "flex-end",
-    justifyContent: "space-between", // center, space-around
-    paddingLeft: 10,
-    paddingRight: 10,
   },
   profileImageContainer: {
     width: 100,
@@ -90,6 +95,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     margin: 5,
   },
+  applicationContent: {
+		width: Dimensions.get('window').width * 0.7,
+	},
   approveButton: {
     marginLeft: 10,
   },
@@ -119,29 +127,62 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width,
     height: 100,
   },
-  // not using this atm
-  // circleImageContainer: {
-  //   marginTop: 20,
-  //   width: 300,
-  //   height: 300,
-  //   alignSelf: "center",
-  // },
-
+  circleImageContainer: {
+		marginTop: 20,
+		width: Dimensions.get('window').width * 0.6,
+		height: Dimensions.get('window').width * 0.6,
+		alignSelf: 'center',
+	},
   circleImage: {
-    width: 300,
-    height: 300,
-    borderRadius: 300,
+    width: Dimensions.get('window').width * 0.6,
+    height: Dimensions.get('window').width * 0.6,
+    borderRadius: Dimensions.get('window').width * 0.6,
     alignSelf: "center",
     justifyContent: "center",
   },
+  buttonContainer: {
+		margin: 20,
+		backgroundColor: '#80b383',
+		// width: Dimensions.get('window').width * 0.5,
+		paddingLeft: 20,
+		paddingRight: 20,
+		height: 35,
+		alignSelf: 'center',
+		borderRadius: 10,
 
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+  buttonText: {
+		color: 'white',
+		fontSize: 14,
+		fontWeight: 'bold',
+	},
+  smallButtonContainer: {
+		margin: 20,
+		backgroundColor: '#80b383',
+		// width: Dimensions.get('window').width * 0.5,
+		paddingLeft: 10,
+		paddingRight: 10,
+		height: 35,
+		alignSelf: 'center',
+		borderRadius: 10,
+		fontSize: 6,
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	smallButtonText: {
+		color: 'white',
+		fontSize: 10,
+		fontWeight: 'bold',
+	},
   text: {
     color: "white",
     fontSize: 15,
     alignSelf: "center",
     justifyContent: "center",
   },
-
+  
   title: {
     color: "#bf04a3",
     fontSize: 30,

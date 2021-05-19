@@ -36,13 +36,17 @@ const ParrotPage = ({ route, navigation }) => {
 
 	const isParrotApproved = () => {
 		const approvedApplication = applications.filter((application) => application.approved === true);
-		console.log('parrot approved application: ', approvedApplication);
 		return approvedApplication.length > 0;
+	};
+
+	const isApprovedUser = () => {
+		const approvedApplication = applications.filter((application) => application.approved === true);
+		return approvedApplication[0].user === userId;
 	};
 
 	// showApprove use showApprove && !isParrotApproved() for issues when navigate from parrot list
 	return (
-		<View>
+		<View style={styles.pageBody}>
 			<View style={styles.profileImageContainer}>
 				<Image
 					source={{
@@ -64,11 +68,18 @@ const ParrotPage = ({ route, navigation }) => {
 				<ParrotInfoItem label="Special Needs: " info={parrot.specialNeeds} />
 			</View>
 			<View style={styles.applicationsContainer}>
-				{userType !== 'admin' && isUserInApplicants() === false && (
+				{userType !== 'admin' && isUserInApplicants() === false && !isParrotApproved() && (
 					<ApplyParrot parrotId={parrotId} userId={userId} />
 				)}
 				{userType !== 'admin' && isUserInApplicants() === true && (
-					<Text style={styles.redBoldFont}>Applied!</Text>
+					<Text style={styles.redBoldFont}>
+						{'Application Status: ' +
+							(isParrotApproved()
+								? isApprovedUser()
+									? 'Success'
+									: `Apologies, ${parrot.name} has found a owner`
+								: 'Waiting for response')}
+					</Text>
 				)}
 				{userType === 'admin' && (
 					<FlatList
