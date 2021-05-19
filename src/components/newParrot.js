@@ -157,35 +157,35 @@ const NewParrot = ({ navigation, route }) => {
 						/>
 					</View>
 					<TextInput
-						style={styles.inputField}
+						style={styles.addParrotInputField}
 						placeholder="Name"
 						value={name}
 						onChangeText={setName}
 						autoCapitalize="words"
 					/>
 					<TextInput
-						style={styles.inputField}
+						style={styles.addParrotInputField}
 						placeholder="Charity"
 						value={charity}
 						onChangeText={setCharity}
 						autoCapitalize="words"
 					/>
 					<TextInput
-						style={styles.inputField}
+						style={styles.addParrotInputField}
 						placeholder="Species (e.g. Timneh African Grey)"
 						value={species}
 						onChangeText={setSpecies}
 						autoCapitalize="words"
 					/>
 					<TextInput
-						style={styles.inputField}
+						style={styles.addParrotInputField}
 						placeholder="Age"
 						value={age}
 						onChangeText={setAge}
 						keyboardType="numeric"
 					/>
 					<TextInput
-						style={styles.inputField}
+						style={styles.addParrotInputField}
 						placeholder="Location"
 						value={location}
 						onChangeText={setLocation}
@@ -202,22 +202,26 @@ const NewParrot = ({ navigation, route }) => {
 						buttonColor={'#50C900'}
 					/>
 					<TextInput
-						style={styles.inputField}
+						style={[styles.addParrotInputField,
+							{height: 100}]}
 						placeholder="All about me..."
 						value={bio}
 						onChangeText={setBio}
 						autoCapitalize="sentences"
-						multiline
+						multiline={true}
 						numberOfLines={8}
 					/>
 					<TextInput
-						style={styles.inputField}
+						style={styles.addParrotInputField}
 						placeholder="Does this bird have special needs? If so, please provide details."
 						value={specialNeeds}
 						onChangeText={setSpecialNeeds}
 						autoCapitalize="sentences"
 					/>
-					<Button title="Add parrot" onPress={() => onAddButtonClicked()} />
+					<View style = {styles.addParrotButtonContainer} onPress={() => onAddButtonClicked()}>
+						<Image source={require("../images/add_icon.png")} style={styles.addIcon}/>
+						<Text style={styles.addText}>Add parrot</Text>
+					</View>
 					<Text>{'Latitude: ' + geocode.latitude + ' Longitude: ' + geocode.longitude}</Text>
 					<ParrotLocationMap geocode={geocode} />
 				</View>

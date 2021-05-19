@@ -2,6 +2,44 @@ import { Dimensions, StyleSheet } from "react-native";
 import { withSafeAreaInsets } from "react-native-safe-area-context";
 
 const styles = StyleSheet.create({
+  addIcon: {
+    height: 50,
+    width: 50,
+		flex: 1,
+		resizeMode: "contain",
+		paddingLeft: 15,
+		marginLeft: 10,
+  },
+	addParrotButtonContainer:{
+		flexDirection: "row",
+		flex: 1,
+		height: 60,
+		width: "90%",
+		paddingTop: 5,
+		paddingBottom: 10,
+		backgroundColor: "#83ba85",
+		borderRadius: 70
+	},
+	addParrotInputField: {
+		height: 40,
+    margin: 10,
+    //marginBottom: 12,
+    paddingLeft: 5,
+    borderWidth: 0,
+    backgroundColor: "white",
+    width: "80%",
+    borderRadius: 10,
+	},
+	addText: {
+		flex: 1,
+		fontWeight: "bold",
+		textAlignVertical: "center",
+		flexGrow: 1,
+		marginTop: 12,
+		fontSize: 20,
+		marginRight: 20,
+		paddingRight: 30,
+	},
   applicationContainer: {
     flexDirection: "row",
     margin: 5,
