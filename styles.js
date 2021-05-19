@@ -109,10 +109,14 @@ const styles = StyleSheet.create({
     margin: 2,
   },
   infoLabel: {
-    fontWeight: "bold",
+    fontFamily: "Nunito_800ExtraBold",
+    fontSize: 16,
   },
   infoText: {
+    fontSize: 16,
     width: "90%",
+    height: "90%",
+    fontFamily: "Nunito_600SemiBold_Italic",
   },
   inputForm: {
     //margin: 20,
@@ -140,6 +144,7 @@ const styles = StyleSheet.create({
   itemInfoContainer: {
     flexDirection: "column",
     marginTop: 10,
+    fontFamily: "AmaticSC_700Bold",
   },
   locationMap: {
     width: Dimensions.get("window").width,

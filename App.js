@@ -11,6 +11,8 @@ import { ParrotsMapView } from "./src/components/parrotsMapView";
 import { AmaticSC_700Bold } from "@expo-google-fonts/amatic-sc";
 import {
   useFonts,
+  Nunito_600SemiBold_Italic,
+  Nunito_800ExtraBold,
   Nunito_300Light,
   Nunito_400Regular,
   Nunito_700Bold,
@@ -26,6 +28,8 @@ export default function App() {
 
   let [fontsLoaded] = useFonts({
     AmaticSC_700Bold,
+    Nunito_600SemiBold_Italic,
+    Nunito_800ExtraBold,
     Nunito_300Light,
     Nunito_400Regular,
     Nunito_700Bold,
