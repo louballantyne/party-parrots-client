@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
 		marginRight: 10,
 	},
   itemContainer: {
+		// not sure if flex is doing anything
     flex: 1,
     flexDirection: "row",
 		marginRight: 10,
@@ -87,6 +88,12 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
   },
+	parrotBody: {
+		backgroundColor: "#c5e3c7",
+		justifyContent: "center",
+		alignItems: "center",
+		marginTop: 230,
+	},
   profileImageContainer: {
     width: 100,
     height: 100,
@@ -96,6 +103,7 @@ const styles = StyleSheet.create({
 		backgroundColor: "#c5e3c7",
   },
   profileImage: {
+		backgroundColor: "#c5e3c7",
     flex: 1,
     resizeMode: "contain",
   },
