@@ -8,8 +8,14 @@ import { ParrotPage } from "./src/components/parrotPage";
 import { SignIn } from "./src/components/signIn";
 import { NewParrot } from "./src/components/newParrot";
 import { ParrotsMapView } from "./src/components/parrotsMapView";
-import { useFonts, AmaticSC_700Bold } from "@expo-google-fonts/amatic-sc";
-//import { useFonts, } from "@expo-google-fonts/nunito";
+import { AmaticSC_700Bold } from "@expo-google-fonts/amatic-sc";
+import {
+  useFonts,
+  Nunito_300Light,
+  Nunito_400Regular,
+  Nunito_700Bold,
+  Nunito_600SemiBold,
+} from "@expo-google-fonts/nunito";
 import AppLoading from "expo-app-loading";
 
 const Stack = createStackNavigator();
@@ -20,6 +26,10 @@ export default function App() {
 
   let [fontsLoaded] = useFonts({
     AmaticSC_700Bold,
+    Nunito_300Light,
+    Nunito_400Regular,
+    Nunito_700Bold,
+    Nunito_600SemiBold,
   });
 
   if (!fontsLoaded) {
