@@ -14,7 +14,7 @@ const NewParrot = ({ navigation, route }) => {
 	const [species, setSpecies] = useState();
 	const [age, setAge] = useState();
 	const [location, setLocation] = useState();
-	const [gender, setGender] = useState('Unknown');
+	const [gender, setGender] = useState('Female');
 	const [bio, setBio] = useState();
 	const [specialNeeds, setSpecialNeeds] = useState();
 	const [imageUrl, setImageUrl] = useState(null);
@@ -24,9 +24,9 @@ const NewParrot = ({ navigation, route }) => {
 		longitude: -0.127647,
 	});
 	const radio_list = [
-		{ label: 'Unknown   ', value: 'Unknown' },
 		{ label: 'Female   ', value: 'Female' },
 		{ label: 'Male   ', value: 'Male' },
+		{ label: 'Unknown   ', value: 'Unknown' },
 	];
 
 	const checkMediaPermission = async () => {
@@ -151,7 +151,7 @@ const NewParrot = ({ navigation, route }) => {
 					<View style={styles.profileImageContainer} onStartShouldSetResponder={() => pickImage()}>
 						<Image
 							source={{
-								uri: image ? image : 'https://party-parrots-s3-bucket.s3.amazonaws.com/parrot.jpeg',
+								uri: image ? image : 'https://party-parrots-s3-bucket.s3.amazonaws.com/camera.png',
 							}}
 							style={styles.profileImage}
 						/>
@@ -192,14 +192,14 @@ const NewParrot = ({ navigation, route }) => {
 						autoCapitalize="words"
 					/>
 					<Button title="Refresh Map" onPress={() => getLocationGeocode(location)} />
-					<Text>Gender</Text>
 					<RadioForm
 						style={styles.radioForm}
 						radio_props={radio_list}
 						initial={'Unknown'}
 						onPress={(value) => setGender(value)}
 						formHorizontal={true}
-						buttonColor={'#50C900'}
+						buttonSize={20}
+						buttonColor={'#bf04a3'}
 					/>
 					<TextInput
 						style={[styles.addParrotInputField,
@@ -222,7 +222,7 @@ const NewParrot = ({ navigation, route }) => {
 						<Image source={require("../images/add_icon.png")} style={styles.addIcon}/>
 						<Text style={styles.addText}>Add parrot</Text>
 					</View>
-					<Text>{'Latitude: ' + geocode.latitude + ' Longitude: ' + geocode.longitude}</Text>
+					<Text style={styles.coords}>{'Latitude: ' + geocode.latitude + ' Longitude: ' + geocode.longitude}</Text>
 					<ParrotLocationMap geocode={geocode} />
 				</View>
 			</View>

@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 		height: 50,
 		width: "80%",
 		paddingBottom: 10,
-		backgroundColor: "#83ba85",
+		backgroundColor: "#bf04a3",
 		borderRadius: 70
 	},
 	addParrotInputField: {
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 		marginRight: 20,
 		paddingRight: 30,
+		color: "white"
 	},
   applicationContainer: {
     flexDirection: "row",
@@ -120,6 +121,10 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     justifyContent: "center",
   },
+	coords: {
+		paddingTop:10,
+		paddingBottom: 10,
+	},
   formBody: {
     // navbar #80b383
     backgroundColor: "#c5e3c7",
@@ -229,6 +234,9 @@ const styles = StyleSheet.create({
     flex: 2,
     fontFamily: "Nunito_600SemiBold",
   },
+	radioForm:{
+		paddingTop: 10,
+	},
   redBoldFont: {
     color: "red",
     fontWeight: "bold",
