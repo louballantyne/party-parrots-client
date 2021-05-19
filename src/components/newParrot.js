@@ -235,9 +235,9 @@ const NewParrot = ({ navigation, route }) => {
 						onChangeText={setSpecialNeeds}
 						autoCapitalize="sentences"
 					/>
-					<View style = {styles.addParrotButtonContainer} onPress={() => onAddButtonClicked()}>
+					<TouchableOpacity style = {styles.addParrotButtonContainer} onPress={() => onAddButtonClicked()}>
 						<Text style={styles.addText}>Add parrot</Text>
-					</View>
+					</TouchableOpacity>
 					<Text style={styles.coords}>{'Latitude: ' + geocode.latitude + ' Longitude: ' + geocode.longitude}</Text>
 					<ParrotLocationMap geocode={geocode} />
 				</View>
