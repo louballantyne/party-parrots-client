@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, FlatList, Image } from "react-native";
+import { View, Text, FlatList, Image, TouchableOpacity } from "react-native";
 import styles from "../../styles";
 import { ApplyParrot } from "./applyParrot";
 import { ParrotInfoItem } from "./parrotInfoItem";
 import { ParrotApplication } from "./parrotApplication";
 
 const ParrotPage = ({ route, navigation }) => {
+  //const navigation = useNavigation();
   const [parrot, setParrot] = useState([]);
   const [applications, setApplications] = useState([]);
   const [showApprove, setShowApprove] = useState(true);
@@ -49,6 +50,16 @@ const ParrotPage = ({ route, navigation }) => {
     );
     return approvedApplication[0].user._id === userId;
   };
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <TouchableOpacity onPress={() => navigation.navigate("Parrot List")}>
+          <Text style={styles.allParrotsButton}>All Parrots</Text>
+        </TouchableOpacity>
+      ),
+    });
+  }, [navigation, navigation.navigate]);
 
   // showApprove use showApprove && !isParrotApproved() for issues when navigate from parrot list
   return (

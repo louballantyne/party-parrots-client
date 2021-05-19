@@ -1,7 +1,14 @@
 import React from "react";
 import "react-native-gesture-handler";
-import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  DefaultTheme,
+  NavigationContainer,
+  useNavigation,
+} from "@react-navigation/native";
+import {
+  createStackNavigator,
+  HeaderBackButton,
+} from "@react-navigation/stack";
 import { ParrotList } from "./src/components/parrotList";
 import { SignUp } from "./src/components/signup";
 import { ParrotPage } from "./src/components/parrotPage";
@@ -23,7 +30,8 @@ import Confetti from "react-native-confetti";
 
 const Stack = createStackNavigator();
 
-export default function App() {
+export default function App(props) {
+  const navigation = props.navigation;
   const navTheme = DefaultTheme;
   navTheme.colors.background = "#c5e3c7";
 

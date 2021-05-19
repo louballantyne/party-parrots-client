@@ -51,6 +51,12 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     fontFamily: "Nunito_600SemiBold",
   },
+  allParrotsButton: {
+    color: "#bf04a3",
+    fontSize: 30,
+    fontFamily: "AmaticSC_700Bold",
+    marginRight: 10,
+  },
   applicationContainer: {
     flexDirection: "row",
     margin: 5,
@@ -215,6 +221,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  logOutButton: {
+    color: "#bf04a3",
+    fontSize: 28,
+    fontFamily: "AmaticSC_700Bold",
+    marginRight: 10,
+  },
   mapViewContainer: {
     flex: 1,
     backgroundColor: "#fff",
@@ -297,12 +309,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#83ba85",
     margin: 4,
     width: "50%",
-  },
-  logOutButton: {
-    color: "#bf04a3",
-    fontSize: 23,
-    fontFamily: "AmaticSC_700Bold",
-    margin: 10,
   },
   signUpCircleImageContainer: {
     marginTop: 20,
