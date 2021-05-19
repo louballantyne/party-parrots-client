@@ -10,7 +10,6 @@ import {
 	ScrollView,
 	TouchableOpacity
 } from 'react-native';
-//import RNPickerSelect from 'react-native-picker-select';
 import styles from '../../styles';
 import * as ImagePicker from 'expo-image-picker';
 import { ParrotLocationMap } from './parrotLocationMap';
@@ -105,7 +104,16 @@ const NewParrot = ({ navigation, route }) => {
 
 	const onAddButtonClicked = async () => {
 		await getLocationGeocode(location);
-		await fetch(`http://localhost:3000/api/parrots`, {
+		if ( name == undefined ||
+				 charity == undefined ||
+				 species == undefined ||
+				 age == undefined ||
+				 location == undefined ||
+				 gender == undefined ||
+				 bio == undefined ||
+				 specialNeeds == undefined)
+		{ return alert("Ooops... Looks like you've forgotten something!") }
+			await fetch(`http://localhost:3000/api/parrots`, {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
