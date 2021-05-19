@@ -71,23 +71,6 @@ const ParrotList = ({ navigation, route }) => {
 
   return (
     <View style={styles.pageBody}>
-      <View>
-        {userType !== "admin" && (
-          <TouchableOpacity
-            onPress={() =>
-              navigation.navigate("Map View", {
-                userType: userType,
-                userId: userId,
-              })
-            }
-          >
-            <Image
-              source={require("../images/mapViewIconFinal.png")}
-              style={styles.mapViewIcon}
-            />
-          </TouchableOpacity>
-        )}
-      </View>
       <FlatList
         style={{ marginVertical: 20, flex: 5 }}
         data={parrots}
@@ -127,6 +110,24 @@ const ParrotList = ({ navigation, route }) => {
             }
           >
             <Text style={styles.addButtonText}>+</Text>
+          </TouchableOpacity>
+        )}
+      </View>
+      <View style={{ flex: 0.005 }}>
+        {userType !== "admin" && (
+          <TouchableOpacity
+            style={styles.mapViewIconContainer}
+            onPress={() =>
+              navigation.navigate("Map View", {
+                userType: userType,
+                userId: userId,
+              })
+            }
+          >
+            <Image
+              source={require("../images/mapViewIconFinal.png")}
+              style={styles.mapViewIcon}
+            />
           </TouchableOpacity>
         )}
       </View>

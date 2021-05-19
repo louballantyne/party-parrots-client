@@ -186,11 +186,15 @@ const styles = StyleSheet.create({
     height: Dimensions.get("window").height,
   },
   mapViewIcon: {
-    width: 10,
-    height: 10,
-    alignSelf: "flex-end",
-    padding: 25,
-    marginRight: 15,
+    width: 40,
+    height: 40,
+    alignSelf: "center",
+    padding: 40,
+    marginVertical: -120,
+  },
+  mapViewIconContainer: {
+    alignContent: "center",
+    marginVertical: 0,
   },
   mapViewPinImage: {
     width: 50,
