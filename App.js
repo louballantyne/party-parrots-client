@@ -1,6 +1,6 @@
 import React from "react";
 import "react-native-gesture-handler";
-import { NavigationContainer } from "@react-navigation/native";
+import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { ParrotList } from "./src/components/parrotList";
 import { SignUp } from "./src/components/signup";
@@ -14,6 +14,9 @@ import AppLoading from "expo-app-loading";
 const Stack = createStackNavigator();
 
 export default function App() {
+  const navTheme = DefaultTheme;
+  navTheme.colors.background = "#c5e3c7";
+
   let [fontsLoaded] = useFonts({
     AmaticSC_700Bold,
   });

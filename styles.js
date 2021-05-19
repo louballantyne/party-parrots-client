@@ -104,13 +104,13 @@ const styles = StyleSheet.create({
   },
   inputField: {
     height: 40,
-    margin: 12,
+    margin: 10,
     //marginBottom: 12,
     paddingLeft: 5,
     borderWidth: 0,
     backgroundColor: "white",
     width: "50%",
-    //borderRadius: 10,
+    borderRadius: 10,
   },
   itemContainer: {
     flex: 1,
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: "#bf04a3",
-    fontSize: 30,
+    fontSize: 50,
     fontWeight: "bold",
     alignSelf: "center",
     justifyContent: "center",
