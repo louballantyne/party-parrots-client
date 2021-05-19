@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import styles from '../../styles';
 
 const ApplyParrot = ({ parrotId, userId }) => {
@@ -27,23 +27,29 @@ const ApplyParrot = ({ parrotId, userId }) => {
 	};
 
 	return (
-		<View style={{alignSelf: "center"}}>
-			{!applied && (
-				<View style={styles.applyInputForm}>
-					<TextInput
-						style={styles.applyInputField}
-						placeholder="Message"
-						keyboardType="default"
-						value={message}
-						onChangeText={setMessage}
-						autoCapitalize="none"
-					/>
-					<View style={styles.buttonContainer} onStartShouldSetResponder={() => onApplyButtonClicked()}>
-						<Text style={styles.buttonText}>APPLY</Text>
+		<View>
+			<View style={styles.applicationContainer}>
+				{!applied && (
+					<View style={styles.applyInputForm}>
+						<TextInput
+							style={styles.applyInputField}
+							placeholder="Write a message and apply for this parrot"
+							keyboardType="default"
+							value={message}
+							onChangeText={setMessage}
+							autoCapitalize="none"
+						/>
+						{/* <View style={styles.buttonContainer} onStartShouldSetResponder={() => onApplyButtonClicked()}>
+							<Text style={styles.buttonText}>APPLY</Text>
+						</View> */}
+
+						<TouchableOpacity style={styles.buttonPinkContainer} onPress={() => onApplyButtonClicked()}>
+							<Text style={styles.buttonText}> APPLY</Text>
+						</TouchableOpacity>
 					</View>
-				</View>
-			)}
-			{applied && <Text style={styles.redBoldFont}>Applied!</Text>}
+				)}
+			</View>
+			{applied && <Text style={styles.redBoldFont}>Application Status: Waiting for response</Text>}
 		</View>
 	);
 };
